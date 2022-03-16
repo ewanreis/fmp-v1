@@ -1,0 +1,1721 @@
+Using pre-set license
+Built from '2021.1/staging' branch; Version is '2021.1.18f1 (25bdc3efbc2d) revision 2473411'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 22000.556; Version 2009; 64bit' Language: 'en' Physical Memory: 16300 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2021.1.18f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/ewanr/Documents/GitHub/fmp/fmp
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+58084
+Successfully changed project path to: C:/Users/ewanr/Documents/GitHub/fmp/fmp
+C:/Users/ewanr/Documents/GitHub/fmp/fmp
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 118.98 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2021.1.18f1 (25bdc3efbc2d)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2021.1.18f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/ewanr/Documents/GitHub/fmp/fmp/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce GTX 1660 SUPER (ID=0x21c4)
+    Vendor:   NVIDIA
+    VRAM:     5992 MB
+    Driver:   30.0.15.1165
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2021.1.18f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2021.1.18f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2021.1.18f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56584
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2021.1.18f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001261 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 120.35 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.187 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1187ms)
+		BeginReloadAssembly (59ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (507ms)
+			LoadAssemblies (57ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (182ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (27ms)
+			SetupLoadedEditorAssemblies (247ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (120ms)
+				BeforeProcessingInitializeOnLoad (1ms)
+				ProcessInitializeOnLoadAttributes (91ms)
+				ProcessInitializeOnLoadMethodAttributes (28ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.004760 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 122.24 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.400 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1401ms)
+		BeginReloadAssembly (145ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (20ms)
+		EndReloadAssembly (1203ms)
+			LoadAssemblies (90ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (408ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (80ms)
+			SetupLoadedEditorAssemblies (530ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (122ms)
+				BeforeProcessingInitializeOnLoad (101ms)
+				ProcessInitializeOnLoadAttributes (292ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (6ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.95 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4970 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 201.8 MB.
+System memory in use after: 202.0 MB.
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 5433.
+Total: 4.027900 ms (FindLiveObjects: 0.395600 ms CreateObjectMapping: 0.257600 ms MarkObjects: 3.298300 ms  DeleteObjects: 0.075500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(9fc0d4010bbf28b4594072e72b8655ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8e1fbfa22cb7d6495a606a5eeaef692') in 0.017894 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 45.774510 seconds.
+  path: Assets/Packages/SMC Pack 1/Bonus
+  artifactKey: Guid(90b2bd5468c2f9945bf6c2ab624ad7b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/SMC Pack 1/Bonus using Guid(90b2bd5468c2f9945bf6c2ab624ad7b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd624a8f980e95d003a577e9063afc9fa') in 0.007078 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 5.519990 seconds.
+  path: Assets/Packages/Kevin Iglesias/Basic Motions/AnimationControllers
+  artifactKey: Guid(2772e80ca8ca2eb438c6fad54e343aca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Kevin Iglesias/Basic Motions/AnimationControllers using Guid(2772e80ca8ca2eb438c6fad54e343aca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '118a4c1a46c9f8776a59b6e3b41430ed') in 0.006938 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.232485 seconds.
+  path: Assets/Packages/Kevin Iglesias/Basic Motions/AnimationControllers/BasicMotions@Idle.controller
+  artifactKey: Guid(a8555c0cff30527479e32562cef9141f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Kevin Iglesias/Basic Motions/AnimationControllers/BasicMotions@Idle.controller using Guid(a8555c0cff30527479e32562cef9141f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '308678a21377a233de40cb40a8251d5c') in 0.025135 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004777 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.88 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.158 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1159ms)
+		BeginReloadAssembly (111ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (995ms)
+			LoadAssemblies (83ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (379ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (66ms)
+			SetupLoadedEditorAssemblies (364ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (274ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (9ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.92 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4878 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 193.3 MB.
+System memory in use after: 193.6 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 5435.
+Total: 3.441800 ms (FindLiveObjects: 0.349000 ms CreateObjectMapping: 0.236300 ms MarkObjects: 2.838600 ms  DeleteObjects: 0.017000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 49.931436 seconds.
+  path: Assets/Packages/alethea-warrior-woman
+  artifactKey: Guid(91f2ad4b6a865ec4688db60c10ccfc27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman using Guid(91f2ad4b6a865ec4688db60c10ccfc27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f78c0352939c4f6bc3db1737e64beea1') in 0.010839 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.572408 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source
+  artifactKey: Guid(c1255f9ca2a0ec541871ddbd124612ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source using Guid(c1255f9ca2a0ec541871ddbd124612ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2dcffd41f6341e52d4640e8d94b97dfa') in 0.005645 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.073684 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/Royal_Knight_Pose.fbx
+  artifactKey: Guid(e6edbf3a033b1c84f9228a13ebc15490) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/Royal_Knight_Pose.fbx using Guid(e6edbf3a033b1c84f9228a13ebc15490) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcef45a6bd5b54723eee64b979a2dfcd') in 0.577478 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 23.508223 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/Royal_Knight_Pose.fbx
+  artifactKey: Guid(e6edbf3a033b1c84f9228a13ebc15490) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/Royal_Knight_Pose.fbx using Guid(e6edbf3a033b1c84f9228a13ebc15490) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c509211ff9ca09931a7ed4acee94585a') in 0.088971 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 29.214664 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures
+  artifactKey: Guid(100c8ccb101169c4ab0580854088e379) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures using Guid(100c8ccb101169c4ab0580854088e379) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4cc30be2c859f5b88fa31c0857e7b72a') in 0.005764 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.060049 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Armor_BaseColor.tga.png
+  artifactKey: Guid(c41271688b4ec6a4fa126cbd0e3e2230) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Armor_BaseColor.tga.png using Guid(c41271688b4ec6a4fa126cbd0e3e2230) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4c3108abca7d064d0c85cf71e674de41') in 0.027949 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000126 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Eyes_Normal.tga.png
+  artifactKey: Guid(dbefc95efade661469e01e842b56638d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Eyes_Normal.tga.png using Guid(dbefc95efade661469e01e842b56638d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c0fb5e3a756ab59b7b8ad3ee732e321') in 0.011616 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000171 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Eyes_BaseColor.tga.png
+  artifactKey: Guid(5335627a7f0e7af488e8d3cf43d00d54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Eyes_BaseColor.tga.png using Guid(5335627a7f0e7af488e8d3cf43d00d54) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1eb2678fa8a5e42826a873aa3b931c52') in 0.011879 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Body_Normal.tga.png
+  artifactKey: Guid(c516faf26c1cf554eb5aecb73a48c60c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Body_Normal.tga.png using Guid(c516faf26c1cf554eb5aecb73a48c60c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60ac976f85d20f132f57b3f6472f2624') in 0.011633 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Hair_Diffuse.tga.png
+  artifactKey: Guid(703be32e9568a7c498754a91eed17e20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Hair_Diffuse.tga.png using Guid(703be32e9568a7c498754a91eed17e20) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3a9f2ce096c7dd77bf87ae421fb1553') in 0.011366 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Hair_Normal.tga.png
+  artifactKey: Guid(3d5e7444504759a439a3a84a2890a31b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Hair_Normal.tga.png using Guid(3d5e7444504759a439a3a84a2890a31b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '128c2d5035447ab2cf7599738daf80d5') in 0.010910 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Head_Metallic.tga.png
+  artifactKey: Guid(d6585994f083abb4eb4cc3c1994531f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Head_Metallic.tga.png using Guid(d6585994f083abb4eb4cc3c1994531f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9fcde13817829f70091c71f8c98a9539') in 0.010139 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Head_Normal.tga.png
+  artifactKey: Guid(2d53dc40e76dde64d948ec0e337e7465) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Head_Normal.tga.png using Guid(2d53dc40e76dde64d948ec0e337e7465) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c3fddb586e05cff6c4bf2110838d5c9') in 0.011523 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000190 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Eyes_Roughness.tga.png
+  artifactKey: Guid(cf1af9f99a5e7fe41bf7ee94ae5b67c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Eyes_Roughness.tga.png using Guid(cf1af9f99a5e7fe41bf7ee94ae5b67c3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '244379485135c52040c0dc618e48c4ad') in 0.009899 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000201 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Hair_Specular.tga.png
+  artifactKey: Guid(2f2caa118d350b54ca1ccd0476aecb96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Hair_Specular.tga.png using Guid(2f2caa118d350b54ca1ccd0476aecb96) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7ce1d9d19a3c11bdd4b01cd253e22933') in 0.011083 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Vay_Metallic.tga.png
+  artifactKey: Guid(650521608a29f1c4b9485bbe3a7db5df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Vay_Metallic.tga.png using Guid(650521608a29f1c4b9485bbe3a7db5df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aa1ef119ac5b8f44ca579ee8319307fc') in 0.010504 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000223 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Body_BaseColor.tga.png
+  artifactKey: Guid(385ddc88041667548b18b3e457f14afe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Body_BaseColor.tga.png using Guid(385ddc88041667548b18b3e457f14afe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '03b502ff09101d30e15692751414e86f') in 0.011812 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000242 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Body_Roughness.tga.png
+  artifactKey: Guid(37be1bdffb0a6d5468b75cc48192573c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Body_Roughness.tga.png using Guid(37be1bdffb0a6d5468b75cc48192573c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '92dd3c7a187562e10daa9d2599bd44ea') in 0.011336 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000128 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Head_BaseColor.tga.png
+  artifactKey: Guid(708a9db281f99fe4299cf0256accd491) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Head_BaseColor.tga.png using Guid(708a9db281f99fe4299cf0256accd491) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be2b7bd612a6252e8b0b49ef8b30496e') in 0.011525 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000175 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Vay_Roughness.tga.png
+  artifactKey: Guid(fbfae5646c408d0419be73c4e439e7ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Vay_Roughness.tga.png using Guid(fbfae5646c408d0419be73c4e439e7ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01a6876f959aeb82ecae9c63715f9f6f') in 0.011441 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000155 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Hair_Glossiness.tga.png
+  artifactKey: Guid(84111495c525114409d8b04cec04d344) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Hair_Glossiness.tga.png using Guid(84111495c525114409d8b04cec04d344) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8e4e7979b09235dd30793b2ecc71242c') in 0.011408 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Kiem_BaseColor.tga.png
+  artifactKey: Guid(50d30aa8d67315c4ca5661255cf5dbbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Kiem_BaseColor.tga.png using Guid(50d30aa8d67315c4ca5661255cf5dbbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0583a2eac34db2b8cc981f4eaa6ca67e') in 0.012115 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000179 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Vay_Normal.tga.png
+  artifactKey: Guid(3ce9b2ab210762a40ae1757ab192a19b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Vay_Normal.tga.png using Guid(3ce9b2ab210762a40ae1757ab192a19b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6da466dec4bfbd248f5b336475db7898') in 0.012203 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000171 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Head_Roughness.tga.png
+  artifactKey: Guid(3459a5dab4344654fb96ac4032bf92d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Head_Roughness.tga.png using Guid(3459a5dab4344654fb96ac4032bf92d1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dcec40ee30eb593467096e34e7676f2a') in 0.011088 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000203 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Kiem_Roughness.tga.png
+  artifactKey: Guid(a2d7e2797ecb23d49acff8774a784e24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Kiem_Roughness.tga.png using Guid(a2d7e2797ecb23d49acff8774a784e24) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '429ddd037b8d83ba4b807b467d4fcb7d') in 0.011356 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Kiem_Metallic.tga.png
+  artifactKey: Guid(5aef235e6f9b29044a1dec0412c10330) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Kiem_Metallic.tga.png using Guid(5aef235e6f9b29044a1dec0412c10330) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bc32725fdee8367de5dcc1b3aa0d3337') in 0.016571 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000218 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Armor_Roughness.tga.png
+  artifactKey: Guid(1535b1e2d43ff3143b4e38a4f149af21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Armor_Roughness.tga.png using Guid(1535b1e2d43ff3143b4e38a4f149af21) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd751a77b9926ae8157566571189ea753') in 0.011399 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000155 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Armor_Normal.tga.png
+  artifactKey: Guid(c09f2506e21459e4b82e1917fc66fba9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Armor_Normal.tga.png using Guid(c09f2506e21459e4b82e1917fc66fba9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '05037e9d30d26afcfc909b16a811229c') in 0.013328 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Body_Metallic.tga.png
+  artifactKey: Guid(bfed43ccb54cf5e4abdea564eb32b2b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Body_Metallic.tga.png using Guid(bfed43ccb54cf5e4abdea564eb32b2b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd04f15e38a64dce4e178ca2c2036c3d') in 0.011346 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000219 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Kiem_Normal.tga.png
+  artifactKey: Guid(46e9c7ed674699644a758c11dd1fb62b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Kiem_Normal.tga.png using Guid(46e9c7ed674699644a758c11dd1fb62b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4abfe58a07894ba32435569538af1c92') in 0.011613 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000187 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Vay_BaseColor.tga.png
+  artifactKey: Guid(a0f5a5e7d8832d742bae3b567a2e9dd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Vay_BaseColor.tga.png using Guid(a0f5a5e7d8832d742bae3b567a2e9dd3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4dc9ca999c43f2977bc452c5bcdd3dc7') in 0.010790 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000194 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Eyes_Metallic.tga.png
+  artifactKey: Guid(10dc67a595fa89f4e96c2be50ec0121d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Eyes_Metallic.tga.png using Guid(10dc67a595fa89f4e96c2be50ec0121d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c3d0ebad176fff949c898712d18b6c89') in 0.009862 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000154 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Armor_Metallic.tga.png
+  artifactKey: Guid(e996c5fe7a4ba994f974cbc3adb2ed03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Armor_Metallic.tga.png using Guid(e996c5fe7a4ba994f974cbc3adb2ed03) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5070232eb1f33bc1942b77ff0fa5d0c') in 0.011424 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 25.028123 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/Royal_Knight_Pose.fbx
+  artifactKey: Guid(e6edbf3a033b1c84f9228a13ebc15490) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/Royal_Knight_Pose.fbx using Guid(e6edbf3a033b1c84f9228a13ebc15490) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62e8176e75407ee76a6569996f2d6006') in 0.062216 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 14.084960 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Armor1.mat
+  artifactKey: Guid(2ead604abbf77e84a850bba7b1640873) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Armor1.mat using Guid(2ead604abbf77e84a850bba7b1640873) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0819b466796d252aebc7580a9a53f89') in 0.012911 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Vay1.mat
+  artifactKey: Guid(e31a7c0c4557a9c428962e31a981e1a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Vay1.mat using Guid(e31a7c0c4557a9c428962e31a981e1a2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9c55919e8b09382c32fcc9ab5a91a25c') in 0.010444 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000180 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Head.mat
+  artifactKey: Guid(467cd02ca16008c4ea132cc9149419b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Head.mat using Guid(467cd02ca16008c4ea132cc9149419b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2e97af00ba22babb46f8838807933055') in 0.010230 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000189 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Eyes.mat
+  artifactKey: Guid(0640ba6433cdd2347a493c56686adbb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Eyes.mat using Guid(0640ba6433cdd2347a493c56686adbb1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '334433964f0e1f0e12e75842ad055f30') in 0.011026 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Kiem.mat
+  artifactKey: Guid(c2773b9eb4a82a646bb1e2f9b0ade4ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Kiem.mat using Guid(c2773b9eb4a82a646bb1e2f9b0ade4ed) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed5321ef6734df84924f799e12e0fffa') in 0.011623 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Body.mat
+  artifactKey: Guid(1cb4b3177eab18045ab74b21cc15d34d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Body.mat using Guid(1cb4b3177eab18045ab74b21cc15d34d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf1d077537e4aa4b318e5f519c9cee6f') in 0.009882 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Day_chuyen.mat
+  artifactKey: Guid(d9db5982ee15c7543a465dbeb194f24f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Day_chuyen.mat using Guid(d9db5982ee15c7543a465dbeb194f24f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01bceb8639bc4ec93e8356f781e61bef') in 0.010050 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000180 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/lambert2.mat
+  artifactKey: Guid(afffeb864ff089245a74656324cdf550) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/lambert2.mat using Guid(afffeb864ff089245a74656324cdf550) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7713943c0bc75917763673787df476fe') in 0.010266 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000229 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/eyelash.mat
+  artifactKey: Guid(ba3436e02d99fdf4d863fbbff325365e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/eyelash.mat using Guid(ba3436e02d99fdf4d863fbbff325365e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '97e9d606d7ceed392c2afcfbaaddc471') in 0.009787 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000191 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Hair.mat
+  artifactKey: Guid(adb7b83f1accec94ea701c732bc41d75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Hair.mat using Guid(adb7b83f1accec94ea701c732bc41d75) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '758eaa9e59c3ff63dc29f3d7d751ce84') in 0.010061 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004528 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.82 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.256 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1256ms)
+		BeginReloadAssembly (130ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (6ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (43ms)
+		EndReloadAssembly (1073ms)
+			LoadAssemblies (87ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (368ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (66ms)
+			SetupLoadedEditorAssemblies (369ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (76ms)
+				ProcessInitializeOnLoadAttributes (277ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (20ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.24 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4906 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 279.4 MB.
+System memory in use after: 279.9 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 5939.
+Total: 4.786700 ms (FindLiveObjects: 0.447700 ms CreateObjectMapping: 0.331400 ms MarkObjects: 3.982700 ms  DeleteObjects: 0.023500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 501.307758 seconds.
+  path: Assets/Packages/female-soldier-rig
+  artifactKey: Guid(70952a76205f3614d96988d0e3036a6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig using Guid(70952a76205f3614d96988d0e3036a6a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '084c9ee0a2953044f68f08b2fafe435c') in 0.010419 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1.152181 seconds.
+  path: Assets/Packages/female-soldier-rig/source
+  artifactKey: Guid(14da649705aa32645abd5925b90948fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/source using Guid(14da649705aa32645abd5925b90948fe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cf1dbc19390ed52a79e72e5dcc06360') in 0.002090 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.096037 seconds.
+  path: Assets/Packages/female-soldier-rig/source/Knighta106.blend
+  artifactKey: Guid(e76a67539f7c2d14d86a896f6794ba18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/source/Knighta106.blend using Guid(e76a67539f7c2d14d86a896f6794ba18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8b594e31c90f517cf795c2eb860888fd') in 0.290546 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 28.197219 seconds.
+  path: Assets/Packages/female-soldier-rig/source/Knighta106.blend
+  artifactKey: Guid(e76a67539f7c2d14d86a896f6794ba18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/source/Knighta106.blend using Guid(e76a67539f7c2d14d86a896f6794ba18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61d903941cf561192bbd06e973b706ee') in 0.090888 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 13.065024 seconds.
+  path: Assets/Packages/female-soldier-rig/textures
+  artifactKey: Guid(c3900bef761778a4cbce165d4a75e737) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures using Guid(c3900bef761778a4cbce165d4a75e737) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2c07a727c36cb0046351e048f274e207') in 0.002213 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 4.954632 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Armor 2.mat
+  artifactKey: Guid(b4e9a1c4cb690ad418fa01464c911ea6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Armor 2.mat using Guid(b4e9a1c4cb690ad418fa01464c911ea6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5e8a4bd9475eabc58f60fe7d63ded8a') in 0.011263 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000180 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Under Armor.mat
+  artifactKey: Guid(fd22bcef6cbb9d24397c29aa315071b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Under Armor.mat using Guid(fd22bcef6cbb9d24397c29aa315071b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1cdb066b7b6863918668274478d55d21') in 0.010675 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000172 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Armor1_Normal.png
+  artifactKey: Guid(5c9fb56a997ffbe4fbad14504a95e1b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Armor1_Normal.png using Guid(5c9fb56a997ffbe4fbad14504a95e1b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfa88f4ae1cf9a9b65d767ed298af504') in 0.018857 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000198 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/HairAlpha.png
+  artifactKey: Guid(fa896325b9ed51c4081ea90ba49872ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/HairAlpha.png using Guid(fa896325b9ed51c4081ea90ba49872ab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5d9f4b6dd925625d940609214d333f52') in 0.013714 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Main Material.mat
+  artifactKey: Guid(c05e407d9456bf542a14052c66a9c1c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Main Material.mat using Guid(c05e407d9456bf542a14052c66a9c1c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '730d4b8e98ed3b340a48a88c83c8d3a2') in 0.010474 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000158 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/UnderArmor_Diffuse.png
+  artifactKey: Guid(3ee9ce86835def240a721a09e60c27fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/UnderArmor_Diffuse.png using Guid(3ee9ce86835def240a721a09e60c27fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7c27a9d9e9e7104861cc59f84dcef451') in 0.011836 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000204 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Armor1_Metalness.png
+  artifactKey: Guid(57d741f3513b3474d94f86eb0991cd62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Armor1_Metalness.png using Guid(57d741f3513b3474d94f86eb0991cd62) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '15440d8332ae83289943606a55552786') in 0.011270 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000224 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Skin_Alpha.png
+  artifactKey: Guid(1b7903a0ca22f3c459c9570af83f4f77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Skin_Alpha.png using Guid(1b7903a0ca22f3c459c9570af83f4f77) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bd526ec2dc9ff7f8d5b0e8f4dd99b2ed') in 0.010397 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000150 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Sword_Diffuse.png
+  artifactKey: Guid(c6fa455e62fb3b641971221ba392d75e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Sword_Diffuse.png using Guid(c6fa455e62fb3b641971221ba392d75e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '17f9c9a8df7bb94c84c129e4b2df15c2') in 0.010327 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000205 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Armor1_Rougness.png
+  artifactKey: Guid(fb70b67da8cdfa94d81ce50b376d560a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Armor1_Rougness.png using Guid(fb70b67da8cdfa94d81ce50b376d560a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '75b215c035128aae893aa86ffce3c9c4') in 0.012019 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000177 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Armor.mat
+  artifactKey: Guid(75469a6042a453342942f39d6f634c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Armor.mat using Guid(75469a6042a453342942f39d6f634c88) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d5ab3c239125e238863c4ea3b8796ae') in 0.010357 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000246 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Eye Material.mat
+  artifactKey: Guid(657980a5f0bf81c40abb17645e227461) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Eye Material.mat using Guid(657980a5f0bf81c40abb17645e227461) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0893815cdf30c53e21172d9c83af36f') in 0.010512 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Top.png
+  artifactKey: Guid(4572960b31c029f4eb01ed40522c3a47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Top.png using Guid(4572960b31c029f4eb01ed40522c3a47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '62cb9896b3f7cb33af8b1cc9b962c8f2') in 0.010556 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000251 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/HairDiffuse.png
+  artifactKey: Guid(7aa9c12ed0b64f3488dfde08189818f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/HairDiffuse.png using Guid(7aa9c12ed0b64f3488dfde08189818f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1426c1413c5b4dc1e396ace387d2877') in 0.011315 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000169 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Armor1_Diffuse.png
+  artifactKey: Guid(88ef1f3f5d5897e438b2f169a32439ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Armor1_Diffuse.png using Guid(88ef1f3f5d5897e438b2f169a32439ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ecd8978e17dab5927d2c49cb7ea52c53') in 0.014659 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Top.mat
+  artifactKey: Guid(8977651fc84444b4aaa8f7f3f8a03ee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Top.mat using Guid(8977651fc84444b4aaa8f7f3f8a03ee9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60e156156d60a609de2e501ab205429a') in 0.009981 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Under_Armor_Normal.png
+  artifactKey: Guid(13feeb75ad7c37445a33ccf9a8c6c143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Under_Armor_Normal.png using Guid(13feeb75ad7c37445a33ccf9a8c6c143) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6cddb2b7aae0bf57463faa42b4d409d2') in 0.011455 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000206 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Sword_Nornal.png
+  artifactKey: Guid(7493e0c436d5b14498ff90224b2bb116) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Sword_Nornal.png using Guid(7493e0c436d5b14498ff90224b2bb116) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '302cddc94f3adf894d4e6c647526fbfe') in 0.010223 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000235 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Top_Normal_Bake.png
+  artifactKey: Guid(d9382b1d28f1089499e497c1d6f299ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Top_Normal_Bake.png using Guid(d9382b1d28f1089499e497c1d6f299ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2cae64a234a749c7ca63ba04adce737') in 0.010529 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000195 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Armor_2_Alpha.png
+  artifactKey: Guid(4e9f83dc6d697a541b2b793d45b074cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Armor_2_Alpha.png using Guid(4e9f83dc6d697a541b2b793d45b074cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0a458249cdc78d315117e34d8e67e417') in 0.011471 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000253 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Armor2_Diffuse.png
+  artifactKey: Guid(503f559a42d1eb44db13b16abe05da42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Armor2_Diffuse.png using Guid(503f559a42d1eb44db13b16abe05da42) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6abd0996d6d7fe4d2b4361ec38550640') in 0.011801 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000262 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Armor2_Normal.png
+  artifactKey: Guid(0996a30e68457704ea26340b6f0665ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Armor2_Normal.png using Guid(0996a30e68457704ea26340b6f0665ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f9ad6a1ef0671c93d87caa9dc69fe744') in 0.011919 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000214 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Sword.mat
+  artifactKey: Guid(71ffeb67e3556614f9df5b8fe6eb44b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Sword.mat using Guid(71ffeb67e3556614f9df5b8fe6eb44b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b0278ecce525689059673274cb925067') in 0.010321 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000207 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Hair Material.mat
+  artifactKey: Guid(f580c0b99396f7b44a82e8cc45cfe53f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Hair Material.mat using Guid(f580c0b99396f7b44a82e8cc45cfe53f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d261a89a5d48a6239d18676ff5dde0d') in 0.016771 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000164 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Skin_Diffuse.png
+  artifactKey: Guid(79d318f72dbd7a04faafcb379ea246b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Skin_Diffuse.png using Guid(79d318f72dbd7a04faafcb379ea246b4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dff149cbfd7157b943fca040bf4021b5') in 0.011578 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000155 seconds.
+  path: Assets/Packages/female-soldier-rig/textures/Sword_Metalness.png
+  artifactKey: Guid(d36afbfbfc6e7fa4b90e7e129821355a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/textures/Sword_Metalness.png using Guid(d36afbfbfc6e7fa4b90e7e129821355a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d4950e54a32a4b30f6bea4d921a3832') in 0.010323 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 193.479055 seconds.
+  path: Assets/Packages/female-soldier-rig/source/Knighta106.blend
+  artifactKey: Guid(e76a67539f7c2d14d86a896f6794ba18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/source/Knighta106.blend using Guid(e76a67539f7c2d14d86a896f6794ba18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a9860adaf509c5a22c79a889dbd726f1') in 0.557341 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.382671 seconds.
+  path: Assets/Packages/female-soldier-rig/source/Knighta106.blend
+  artifactKey: Guid(e76a67539f7c2d14d86a896f6794ba18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/source/Knighta106.blend using Guid(e76a67539f7c2d14d86a896f6794ba18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '841bc65f5965681bcc0b6128d35dabc0') in 0.095487 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 15.120919 seconds.
+  path: Assets/Packages/female-soldier-rig/source/Knighta106.blend
+  artifactKey: Guid(e76a67539f7c2d14d86a896f6794ba18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/female-soldier-rig/source/Knighta106.blend using Guid(e76a67539f7c2d14d86a896f6794ba18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c9c7b38602f8375c4ae601e61a5df238') in 0.093730 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.004942 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.87 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.295 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1295ms)
+		BeginReloadAssembly (121ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (43ms)
+		EndReloadAssembly (1121ms)
+			LoadAssemblies (88ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (370ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (68ms)
+			SetupLoadedEditorAssemblies (376ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (76ms)
+				ProcessInitializeOnLoadAttributes (284ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (24ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.89 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4896 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 344.7 MB.
+System memory in use after: 345.1 MB.
+
+Unloading 18 unused Assets to reduce memory usage. Loaded Objects now: 6248.
+Total: 3.923000 ms (FindLiveObjects: 0.450800 ms CreateObjectMapping: 0.284100 ms MarkObjects: 3.171100 ms  DeleteObjects: 0.016200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006463 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.91 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.501 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1501ms)
+		BeginReloadAssembly (126ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (11ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (37ms)
+		EndReloadAssembly (1309ms)
+			LoadAssemblies (93ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (426ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (72ms)
+			SetupLoadedEditorAssemblies (570ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (82ms)
+				ProcessInitializeOnLoadAttributes (473ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (23ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.09 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5125 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 356.9 MB.
+System memory in use after: 357.4 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 6490.
+Total: 5.004100 ms (FindLiveObjects: 0.488300 ms CreateObjectMapping: 0.452500 ms MarkObjects: 3.938400 ms  DeleteObjects: 0.123500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006229 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.21 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.406 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1406ms)
+		BeginReloadAssembly (135ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (46ms)
+		EndReloadAssembly (1216ms)
+			LoadAssemblies (97ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (408ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (71ms)
+			SetupLoadedEditorAssemblies (495ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (81ms)
+				ProcessInitializeOnLoadAttributes (397ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (24ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.90 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5125 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 356.7 MB.
+System memory in use after: 357.1 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 6492.
+Total: 4.459200 ms (FindLiveObjects: 0.533700 ms CreateObjectMapping: 0.360100 ms MarkObjects: 3.489000 ms  DeleteObjects: 0.075900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006464 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.94 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.384 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1385ms)
+		BeginReloadAssembly (127ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (43ms)
+		EndReloadAssembly (1203ms)
+			LoadAssemblies (91ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (405ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (73ms)
+			SetupLoadedEditorAssemblies (488ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (78ms)
+				ProcessInitializeOnLoadAttributes (393ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (24ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.98 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5125 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 356.9 MB.
+System memory in use after: 357.3 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 6494.
+Total: 5.202600 ms (FindLiveObjects: 0.514300 ms CreateObjectMapping: 0.309100 ms MarkObjects: 4.295500 ms  DeleteObjects: 0.082700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006254 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.88 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.306 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1307ms)
+		BeginReloadAssembly (122ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (9ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (42ms)
+		EndReloadAssembly (1132ms)
+			LoadAssemblies (91ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (371ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (68ms)
+			SetupLoadedEditorAssemblies (465ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (75ms)
+				ProcessInitializeOnLoadAttributes (374ms)
+				ProcessInitializeOnLoadMethodAttributes (5ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (21ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.91 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5125 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 356.9 MB.
+System memory in use after: 357.3 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 6496.
+Total: 4.268500 ms (FindLiveObjects: 0.532000 ms CreateObjectMapping: 0.319700 ms MarkObjects: 3.345800 ms  DeleteObjects: 0.070200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.007394 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.12 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.318 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1318ms)
+		BeginReloadAssembly (116ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (1149ms)
+			LoadAssemblies (91ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (377ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (69ms)
+			SetupLoadedEditorAssemblies (476ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (386ms)
+				ProcessInitializeOnLoadMethodAttributes (5ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (23ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.90 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5125 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 356.9 MB.
+System memory in use after: 357.4 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 6498.
+Total: 4.513800 ms (FindLiveObjects: 0.482400 ms CreateObjectMapping: 0.305000 ms MarkObjects: 3.652100 ms  DeleteObjects: 0.073400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2907.768882 seconds.
+  path: Assets/Packages/arissa.fbx
+  artifactKey: Guid(50a9d8047ebaa094a9cbfae7c790f98b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/arissa.fbx using Guid(50a9d8047ebaa094a9cbfae7c790f98b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1472bc6591e280fa0e4a76584faa4614') in 0.213907 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 61.566400 seconds.
+  path: Assets/Packages/SFX/masterMixer.mixer
+  artifactKey: Guid(ce94956da79e5fe479566e35e0266995) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/SFX/masterMixer.mixer using Guid(ce94956da79e5fe479566e35e0266995) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e90e557f3d2f01cf2d305ead148ec43d') in 0.013016 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 18.382016 seconds.
+  path: Assets/Packages/Female Locomotion Pack/arissa.fbx
+  artifactKey: Guid(a23543ce715754f429d32833414a2a7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/arissa.fbx using Guid(a23543ce715754f429d32833414a2a7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a95ed82615453a66a388e03a9beb12f') in 0.034291 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000110 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Body.mat
+  artifactKey: Guid(1cb4b3177eab18045ab74b21cc15d34d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Body.mat using Guid(1cb4b3177eab18045ab74b21cc15d34d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6667159f26ea067f8216663a0e34d4fd') in 0.012154 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000186 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Armor1.mat
+  artifactKey: Guid(2ead604abbf77e84a850bba7b1640873) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Armor1.mat using Guid(2ead604abbf77e84a850bba7b1640873) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '93beddd289e95623cc8ee69a93071625') in 0.010274 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 3.195655 seconds.
+  path: Assets/Packages/arissa.fbx
+  artifactKey: Guid(50a9d8047ebaa094a9cbfae7c790f98b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/arissa.fbx using Guid(50a9d8047ebaa094a9cbfae7c790f98b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e028ee51c0a7055ee86fa26e574e471c') in 0.027928 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 133.060780 seconds.
+  path: Assets/Packages/Female Locomotion Pack
+  artifactKey: Guid(013f51e89a3106a43b2b3e908e98047f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack using Guid(013f51e89a3106a43b2b3e908e98047f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a830581fd9196c4dbd2d49a669179f9b') in 0.005967 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 7.808678 seconds.
+  path: Assets/Packages/Female Locomotion Pack/idle.fbx
+  artifactKey: Guid(9ea76b9ad47961645b5755f0298c02cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/idle.fbx using Guid(9ea76b9ad47961645b5755f0298c02cc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '01cb26675c7955f81fc7693cd3a9b642') in 0.009175 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/Packages/Female Locomotion Pack/left strafe.fbx
+  artifactKey: Guid(57346b64838f8784880a8672cf6afb47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/left strafe.fbx using Guid(57346b64838f8784880a8672cf6afb47) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4852af782ee1757e22770c54e91ca5c7') in 0.009966 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000222 seconds.
+  path: Assets/Packages/Female Locomotion Pack/left strafe walk.fbx
+  artifactKey: Guid(ab08306b2466eac45835ee5bb70ba4df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/left strafe walk.fbx using Guid(ab08306b2466eac45835ee5bb70ba4df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd3a052943b5bbd8347463f75f33f6a3') in 0.009583 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/Packages/Female Locomotion Pack/jump.fbx
+  artifactKey: Guid(a395e25db972fa240b18f10559d0fedc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/jump.fbx using Guid(a395e25db972fa240b18f10559d0fedc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '43b280d36ea730444e8595a50d9f825c') in 0.009849 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000176 seconds.
+  path: Assets/Packages/Female Locomotion Pack/right turn.fbx
+  artifactKey: Guid(60ed1998e6d9d9f41a2238e5ca4ffc68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/right turn.fbx using Guid(60ed1998e6d9d9f41a2238e5ca4ffc68) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8aea46b62d606124ea7cf41d690674f6') in 0.008979 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000258 seconds.
+  path: Assets/Packages/Female Locomotion Pack/walking.fbx
+  artifactKey: Guid(668a537f71ddbe24590a670d2089cca3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/walking.fbx using Guid(668a537f71ddbe24590a670d2089cca3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e23a30043a7e5ca1d3b849d3092cfe35') in 0.009126 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000231 seconds.
+  path: Assets/Packages/Female Locomotion Pack/right strafe walk.fbx
+  artifactKey: Guid(f768a2395760ef9478020ba30f39bf52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/right strafe walk.fbx using Guid(f768a2395760ef9478020ba30f39bf52) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '89d1d96d4afd201369bab15932145659') in 0.009340 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000197 seconds.
+  path: Assets/Packages/Female Locomotion Pack/left turn.fbx
+  artifactKey: Guid(34c5706035cdc79498255c5ef6286da3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/left turn.fbx using Guid(34c5706035cdc79498255c5ef6286da3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61ffcd36629052a3ef4ebbfb1f72bbba') in 0.009057 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000217 seconds.
+  path: Assets/Packages/Female Locomotion Pack/right strafe.fbx
+  artifactKey: Guid(df791562daef9ec498b82ca29e8820cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/right strafe.fbx using Guid(df791562daef9ec498b82ca29e8820cb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a5140b178f878fbabdd52a6dc000a89') in 0.008904 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000199 seconds.
+  path: Assets/Packages/Female Locomotion Pack/running.fbx
+  artifactKey: Guid(56e0c5ed5926c664dba4c1934b36ef1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/running.fbx using Guid(56e0c5ed5926c664dba4c1934b36ef1a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2cf39e662e3432556beb0ef24dc02f7') in 0.009254 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 11.075572 seconds.
+  path: Assets/Packages/Female Locomotion Pack/arissa.fbx
+  artifactKey: Guid(a23543ce715754f429d32833414a2a7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/arissa.fbx using Guid(a23543ce715754f429d32833414a2a7b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ad2cd37cf9bd682df563643d84823bc5') in 0.034175 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000166 seconds.
+  path: Assets/Packages/Female Locomotion Pack/Arissa_NM_normal.png
+  artifactKey: Guid(edd4ae43ecedccf41b4b60d209557acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/Arissa_NM_normal.png using Guid(edd4ae43ecedccf41b4b60d209557acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4b93d7eaf045b8de5d2f6ace2eba86da') in 0.022797 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000153 seconds.
+  path: Assets/Packages/Female Locomotion Pack/Arissa_DIFF_diffuse.png
+  artifactKey: Guid(c8d9589c7b6537d4c89fd2697e8643f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/Arissa_DIFF_diffuse.png using Guid(c8d9589c7b6537d4c89fd2697e8643f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a7684ef9613b4cfd22b52e662d589eb') in 0.010650 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 0.000161 seconds.
+  path: Assets/Packages/Female Locomotion Pack/Arissa_SPEC_specular.png
+  artifactKey: Guid(57a682ffe1c4c714f8ead28d09983664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/Arissa_SPEC_specular.png using Guid(57a682ffe1c4c714f8ead28d09983664) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6297118ccfa52fe0a299c47858c929fc') in 0.010801 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.295674 seconds.
+  path: Assets/Packages/Female Locomotion Pack/Arissa_NM_normal.png
+  artifactKey: Guid(edd4ae43ecedccf41b4b60d209557acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/Female Locomotion Pack/Arissa_NM_normal.png using Guid(edd4ae43ecedccf41b4b60d209557acd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '41cfd71f8fe2f0d32e2ff55ef6df49f8') in 0.013120 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006364 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.91 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.370 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1371ms)
+		BeginReloadAssembly (122ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (46ms)
+		EndReloadAssembly (1195ms)
+			LoadAssemblies (90ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (381ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (74ms)
+			SetupLoadedEditorAssemblies (492ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (76ms)
+				ProcessInitializeOnLoadAttributes (400ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (23ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.89 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5128 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 361.7 MB.
+System memory in use after: 362.1 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 6597.
+Total: 5.068200 ms (FindLiveObjects: 0.480700 ms CreateObjectMapping: 0.276000 ms MarkObjects: 4.234200 ms  DeleteObjects: 0.076300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 315.306674 seconds.
+  path: Assets/Packages/alethea-warrior-woman/source/textures/Day_chuyen.mat
+  artifactKey: Guid(d9db5982ee15c7543a465dbeb194f24f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/alethea-warrior-woman/source/textures/Day_chuyen.mat using Guid(d9db5982ee15c7543a465dbeb194f24f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f345d54c24392aeadabe2987ef6083bc') in 0.149566 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006330 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.95 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.370 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1370ms)
+		BeginReloadAssembly (124ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (43ms)
+		EndReloadAssembly (1192ms)
+			LoadAssemblies (92ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (395ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (70ms)
+			SetupLoadedEditorAssemblies (491ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (76ms)
+				ProcessInitializeOnLoadAttributes (399ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (25ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.91 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5125 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 361.4 MB.
+System memory in use after: 361.9 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 6635.
+Total: 4.870500 ms (FindLiveObjects: 0.470900 ms CreateObjectMapping: 0.304700 ms MarkObjects: 4.016900 ms  DeleteObjects: 0.077100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006127 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.00 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.304 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1304ms)
+		BeginReloadAssembly (123ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (38ms)
+		EndReloadAssembly (1128ms)
+			LoadAssemblies (86ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (374ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (69ms)
+			SetupLoadedEditorAssemblies (461ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (77ms)
+				ProcessInitializeOnLoadAttributes (368ms)
+				ProcessInitializeOnLoadMethodAttributes (5ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (24ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.93 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5125 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 361.6 MB.
+System memory in use after: 362.1 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 6637.
+Total: 5.362000 ms (FindLiveObjects: 0.784300 ms CreateObjectMapping: 0.411300 ms MarkObjects: 4.078100 ms  DeleteObjects: 0.086600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006141 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.90 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.293 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1293ms)
+		BeginReloadAssembly (114ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (9ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (1129ms)
+			LoadAssemblies (88ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (372ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (68ms)
+			SetupLoadedEditorAssemblies (456ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (74ms)
+				ProcessInitializeOnLoadAttributes (364ms)
+				ProcessInitializeOnLoadMethodAttributes (7ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (27ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.90 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5125 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 361.5 MB.
+System memory in use after: 362.0 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 6639.
+Total: 6.022600 ms (FindLiveObjects: 0.477500 ms CreateObjectMapping: 0.284700 ms MarkObjects: 5.165500 ms  DeleteObjects: 0.094200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006193 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.89 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.332 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1332ms)
+		BeginReloadAssembly (116ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (9ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (1162ms)
+			LoadAssemblies (87ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (377ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (73ms)
+			SetupLoadedEditorAssemblies (480ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (77ms)
+				ProcessInitializeOnLoadAttributes (387ms)
+				ProcessInitializeOnLoadMethodAttributes (5ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (24ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.94 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5125 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 361.5 MB.
+System memory in use after: 362.0 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 6641.
+Total: 4.528800 ms (FindLiveObjects: 0.520600 ms CreateObjectMapping: 0.323100 ms MarkObjects: 3.609100 ms  DeleteObjects: 0.074900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 322.043216 seconds.
+  path: Assets/Scripts/playerController.cs
+  artifactKey: Guid(5203c0515e7c9ac449453834eb4d0461) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/playerController.cs using Guid(5203c0515e7c9ac449453834eb4d0461) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '51c1b10c8abc19e7ed2b28279c24d139') in 0.022046 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006601 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.91 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.387 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1387ms)
+		BeginReloadAssembly (124ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (40ms)
+		EndReloadAssembly (1208ms)
+			LoadAssemblies (93ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (412ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (71ms)
+			SetupLoadedEditorAssemblies (485ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (4ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (76ms)
+				ProcessInitializeOnLoadAttributes (391ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (23ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.03 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5125 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 361.6 MB.
+System memory in use after: 362.0 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 6643.
+Total: 5.247200 ms (FindLiveObjects: 0.503100 ms CreateObjectMapping: 0.319500 ms MarkObjects: 4.321500 ms  DeleteObjects: 0.102000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006191 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.00 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.408 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1409ms)
+		BeginReloadAssembly (167ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (14ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (66ms)
+		EndReloadAssembly (1187ms)
+			LoadAssemblies (95ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (405ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (69ms)
+			SetupLoadedEditorAssemblies (475ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (80ms)
+				ProcessInitializeOnLoadAttributes (379ms)
+				ProcessInitializeOnLoadMethodAttributes (6ms)
+				AfterProcessingInitializeOnLoad (4ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (26ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.89 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5125 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 361.4 MB.
+System memory in use after: 361.8 MB.
+
+Unloading 25 unused Assets to reduce memory usage. Loaded Objects now: 6645.
+Total: 4.608400 ms (FindLiveObjects: 0.485400 ms CreateObjectMapping: 0.323400 ms MarkObjects: 3.716300 ms  DeleteObjects: 0.082400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 438.620999 seconds.
+  path: Assets/Packages/SMC Pack 1/Demo
+  artifactKey: Guid(a47eafaf099aa6549bded6b212d03528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/SMC Pack 1/Demo using Guid(a47eafaf099aa6549bded6b212d03528) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f7bda5cee78bdc580fee53938db1e5b5') in 0.013131 seconds 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.006126 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\YamlDotNet\Unity.VisualScripting.YamlDotNet.dll
+Symbol file LoadedFromMemory doesn't match image C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.visualscripting@1.6.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.91 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.353 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1354ms)
+		BeginReloadAssembly (134ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (43ms)
+		EndReloadAssembly (1162ms)
+			LoadAssemblies (90ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (377ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (70ms)
+			SetupLoadedEditorAssemblies (479ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (1ms)
+				BeforeProcessingInitializeOnLoad (80ms)
+				ProcessInitializeOnLoadAttributes (380ms)
+				ProcessInitializeOnLoadMethodAttributes (5ms)
+				AfterProcessingInitializeOnLoad (6ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (28ms)
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 1.01 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5122 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 361.5 MB.
+System memory in use after: 362.0 MB.
+
+Unloading 28 unused Assets to reduce memory usage. Loaded Objects now: 6644.
+Total: 4.510900 ms (FindLiveObjects: 0.485100 ms CreateObjectMapping: 0.315900 ms MarkObjects: 3.631600 ms  DeleteObjects: 0.076900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 38.461068 seconds.
+  path: Assets/Packages/TextMesh Pro/Documentation
+  artifactKey: Guid(8e7e8f5a82a3a134e91c54efd2274ea9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/TextMesh Pro/Documentation using Guid(8e7e8f5a82a3a134e91c54efd2274ea9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7f5aa99e36510f23d626084d8be9669f') in 0.011145 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 6.996824 seconds.
+  path: Assets/Packages/TextMesh Pro/Shaders
+  artifactKey: Guid(e9f693669af91aa45ad615fc681ed29f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/TextMesh Pro/Shaders using Guid(e9f693669af91aa45ad615fc681ed29f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '486066d15e4e2d1f404625b357b63227') in 0.006039 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 9.367911 seconds.
+  path: Assets/Packages/VFX
+  artifactKey: Guid(4c3734654973aec4ea78c802a4fc0efe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Packages/VFX using Guid(4c3734654973aec4ea78c802a4fc0efe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'be191f958fa6440f1d0961c3f31a5d7a') in 0.005935 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
