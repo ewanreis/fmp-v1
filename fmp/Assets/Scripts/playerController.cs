@@ -12,6 +12,7 @@ public class playerController : MonoBehaviour
     private Vector2 mouseInput, movementInput;
     private Vector3 moveDir, velocity, direction;
     private float xRotation, turnSmoothVelocity, targetAngle, angle;
+    private int attackIndex = 1;
     public bool isGrounded;
 
     void Start() => Cursor.lockState = CursorLockMode.Locked;
@@ -48,10 +49,18 @@ public class playerController : MonoBehaviour
         playerAnimator.SetFloat("horizontalMouse", mouseInput.x);
         #endregion // Gets the input from the mouse and turns the player
 
+        bool isCrouching = (Input.GetKey(KeyCode.LeftControl)) ? true : false;
+        bool isAttacking = (Input.GetButton("Fire1")) ? true : false;
+        playerAnimator.SetBool("crouching", isCrouching);
+        playerAnimator.SetBool("attacking", isAttacking);
+        if (Input.GetButtonDown("Fire2") == true) attackIndex++;
+        playerAnimator.SetInteger("attackIndex", attackIndex);
+
          #region Jumping
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0) velocity.y = -2f;
         if (Input.GetButtonDown("Jump") && isGrounded) velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+        playerAnimator.SetBool("jumping", !isGrounded);
         #endregion // Checks if the player is grounded, then jumps when assigned Jump button is pressed
     }
 }
