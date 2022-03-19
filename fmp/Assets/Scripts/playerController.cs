@@ -13,19 +13,51 @@ public class playerController : MonoBehaviour
     private Vector3 moveDir, velocity, direction;
     private float xRotation, turnSmoothVelocity, targetAngle, angle, mouseInputX;
     private int attackIndex = 1;
-    private bool isGrounded, isCrouching, isAttacking, isWalking, isTurning;
+    private bool isGrounded, isCrouching, isAttacking, isWalking, isTurning, canMove;
 
     void Start() => Cursor.lockState = CursorLockMode.Locked;
 
     void Update()
     {
         isCrouching = (Input.GetKey(KeyCode.LeftControl)) ? true : false;
-        isAttacking = (Input.GetButton("Fire1")) ? true : false;
+        isAttacking = (Input.GetButtonDown("Fire1")) ? true : false;
+        if (isAttacking) canMove = false;
         if (Input.GetButtonDown("Fire2") == true) attackIndex++;
         if (playerStamina < 100) playerStamina += (1 * Time.deltaTime);
         mouseInputX = Input.GetAxis("Mouse X") * mouseSensitivity;
         xRotation += mouseInputX;
         SetAnimations();
+    }
+
+    public void StartAttack(int attack)
+    {
+        switch (attack)
+        {
+            case 1:
+            print("Swirling Chaos");
+            canMove = true;
+            break;
+            case 2:
+            print("Gravity Pull");
+            canMove = true;
+            break;
+            case 3:
+            print("Amplified Gravity");
+            canMove = true;
+            break;
+            case 4:
+            print("Black Hole");
+            canMove = true;
+            break;
+            case 5:
+            print("Galactic Pull");
+            canMove = true;
+            break;
+            case 6:
+            print("Gravity Well");
+            canMove = true;
+            break;
+        }
     }
 
     void SetAnimations()
@@ -50,7 +82,7 @@ public class playerController : MonoBehaviour
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         isWalking = (movementInput.x != 0 || movementInput.y != 0) ? true : false;
         direction = new Vector3(movementInput.x, 0f, movementInput.y).normalized;
-        if(direction.magnitude >= 0.1f)
+        if(direction.magnitude >= 0.1f && canMove)
         {
             targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
@@ -66,7 +98,7 @@ public class playerController : MonoBehaviour
         xRotation += mouseInputX;
         playerBody.transform.rotation = Quaternion.Euler(0, xRotation, 0);
         isTurning = (mouseInputX == 0) ? false : true;
-        print(mouseInputX);
+        //print(mouseInputX);
         #endregion // Gets the input from the mouse and turns the player
 
          #region Jumping
