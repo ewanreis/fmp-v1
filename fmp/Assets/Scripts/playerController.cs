@@ -7,15 +7,37 @@ public class playerController : MonoBehaviour
     public Animator playerAnimator;
     public Transform cam, groundCheck, playerBody;
     public LayerMask groundMask;
-    public float speed = 6, gravity = -9.81f, jumpHeight = 3, turnSmoothTime = 0.1f, groundDistance = 0.4f, mouseSensitivity;
+    public float speed = 4, gravity = -9.81f, jumpHeight = 3, turnSmoothTime = 0.1f, groundDistance = 0.4f, mouseSensitivity, playerStamina = 100;
 
-    private Vector2 mouseInput, movementInput;
+    private Vector2 movementInput;
     private Vector3 moveDir, velocity, direction;
-    private float xRotation, turnSmoothVelocity, targetAngle, angle;
+    private float xRotation, turnSmoothVelocity, targetAngle, angle, mouseInputX;
     private int attackIndex = 1;
-    public bool isGrounded;
+    private bool isGrounded, isCrouching, isAttacking, isWalking, isTurning;
 
     void Start() => Cursor.lockState = CursorLockMode.Locked;
+
+    void Update()
+    {
+        isCrouching = (Input.GetKey(KeyCode.LeftControl)) ? true : false;
+        isAttacking = (Input.GetButton("Fire1")) ? true : false;
+        if (Input.GetButtonDown("Fire2") == true) attackIndex++;
+        if (playerStamina < 100) playerStamina += (1 * Time.deltaTime);
+        mouseInputX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        xRotation += mouseInputX;
+        SetAnimations();
+    }
+
+    void SetAnimations()
+    {
+        playerAnimator.SetFloat("horizontalMove", movementInput.x * speed / 4);
+        playerAnimator.SetFloat("verticalMove", (movementInput.y * speed) / 4);
+        playerAnimator.SetFloat("horizontalMouse", mouseInputX);
+        playerAnimator.SetBool("crouching", isCrouching);
+        playerAnimator.SetBool("attacking", isAttacking);
+        playerAnimator.SetInteger("attackIndex", attackIndex);
+        playerAnimator.SetBool("jumping", !isGrounded);
+    }
 
     void FixedUpdate()
     {
@@ -26,9 +48,7 @@ public class playerController : MonoBehaviour
 
         #region Walking
         movementInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        bool isWalking = (movementInput.x != 0 || movementInput.y != 0) ? true : false;
-        playerAnimator.SetFloat("horizontalMove", movementInput.x);
-        
+        isWalking = (movementInput.x != 0 || movementInput.y != 0) ? true : false;
         direction = new Vector3(movementInput.x, 0f, movementInput.y).normalized;
         if(direction.magnitude >= 0.1f)
         {
@@ -36,31 +56,23 @@ public class playerController : MonoBehaviour
             angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
             speed = (Input.GetKey(KeyCode.LeftShift)) ? 8 : 4;
+            if (speed > 4) playerStamina -= (3 * Time.deltaTime);
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
-        playerAnimator.SetFloat("verticalMove", (movementInput.y * speed) / 4);
         #endregion // Moves the player
 
         #region Turning
-        mouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")) * mouseSensitivity * Time.deltaTime;
-        xRotation += mouseInput.x;
+        mouseInputX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        xRotation += mouseInputX;
         playerBody.transform.rotation = Quaternion.Euler(0, xRotation, 0);
-        bool isTurning = (mouseInput.x == 0) ? false : true;
-        playerAnimator.SetFloat("horizontalMouse", mouseInput.x);
+        isTurning = (mouseInputX == 0) ? false : true;
+        print(mouseInputX);
         #endregion // Gets the input from the mouse and turns the player
-
-        bool isCrouching = (Input.GetKey(KeyCode.LeftControl)) ? true : false;
-        bool isAttacking = (Input.GetButton("Fire1")) ? true : false;
-        playerAnimator.SetBool("crouching", isCrouching);
-        playerAnimator.SetBool("attacking", isAttacking);
-        if (Input.GetButtonDown("Fire2") == true) attackIndex++;
-        playerAnimator.SetInteger("attackIndex", attackIndex);
 
          #region Jumping
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
         if (isGrounded && velocity.y < 0) velocity.y = -2f;
         if (Input.GetButtonDown("Jump") && isGrounded) velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
-        playerAnimator.SetBool("jumping", !isGrounded);
         #endregion // Checks if the player is grounded, then jumps when assigned Jump button is pressed
     }
 }

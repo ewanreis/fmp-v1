@@ -4,7 +4,7 @@ public class IngameMenu : MonoBehaviour
 {
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-            SceneManager.LoadScene("MainMenu");
+        //if (Input.GetKeyDown(KeyCode.Escape))
+            //SceneManager.LoadScene("MainMenu");
     }
 }
