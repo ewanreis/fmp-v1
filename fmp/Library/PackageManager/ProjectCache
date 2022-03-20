@@ -4130,11 +4130,13 @@ m_ResolvedPackages:
     - 4.6.0-preview
     - 4.7.0-preview
     - 4.9.1
+    - 4.9.2
     compatible:
     - 4.3.2
     - 4.6.0-preview
     - 4.7.0-preview
     - 4.9.1
+    - 4.9.2
     verified: 4.3.2
   dependencies: []
   resolvedDependencies: []
