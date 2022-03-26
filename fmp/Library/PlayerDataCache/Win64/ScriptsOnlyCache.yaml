@@ -54,7 +54,6 @@ ScriptsOnlyBuild:
     - UnityEngine.Rendering.VolumeProfile
     Unity.RenderPipelines.Universal.Editor.dll:
     - UnityEditor.Rendering.Universal.UniversalProjectSettings
-    - UnityEditor.Rendering.Universal.UniversalRenderPipelineAssetEditor
     Unity.RenderPipelines.Universal.Runtime.dll:
     - UnityEngine.Rendering.Universal.DepthOfField
     - UnityEngine.Rendering.Universal.ForwardRendererData
@@ -78,11 +77,8 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateMachineNode
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -152,137 +148,137 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1706}
+      Script: {instanceID: 1724}
     - Class: 114
-      Script: {instanceID: 1708}
+      Script: {instanceID: 1726}
     - Class: 114
-      Script: {instanceID: 1710}
+      Script: {instanceID: 1728}
     - Class: 114
-      Script: {instanceID: 1712}
+      Script: {instanceID: 1730}
     - Class: 114
-      Script: {instanceID: 1714}
+      Script: {instanceID: 1732}
     - Class: 114
-      Script: {instanceID: 1822}
+      Script: {instanceID: 1744}
     - Class: 114
-      Script: {instanceID: 2066}
+      Script: {instanceID: 1992}
     - Class: 114
-      Script: {instanceID: 2136}
+      Script: {instanceID: 2062}
     - Class: 114
-      Script: {instanceID: 2248}
+      Script: {instanceID: 2176}
     - Class: 114
-      Script: {instanceID: 2538}
+      Script: {instanceID: 2480}
     - Class: 114
-      Script: {instanceID: 2760}
+      Script: {instanceID: 2702}
     - Class: 114
-      Script: {instanceID: 2982}
+      Script: {instanceID: 2930}
     - Class: 114
-      Script: {instanceID: 3110}
+      Script: {instanceID: 3060}
     - Class: 114
-      Script: {instanceID: 3338}
+      Script: {instanceID: 3294}
     - Class: 114
-      Script: {instanceID: 3434}
+      Script: {instanceID: 3394}
     - Class: 114
-      Script: {instanceID: 3540}
+      Script: {instanceID: 3504}
     - Class: 114
-      Script: {instanceID: 3832}
+      Script: {instanceID: 3806}
     - Class: 114
-      Script: {instanceID: 4222}
+      Script: {instanceID: 4206}
     - Class: 114
-      Script: {instanceID: 4344}
+      Script: {instanceID: 4330}
     - Class: 114
-      Script: {instanceID: 4460}
+      Script: {instanceID: 4456}
     - Class: 114
-      Script: {instanceID: 4496}
+      Script: {instanceID: 4488}
     - Class: 114
-      Script: {instanceID: 4604}
+      Script: {instanceID: 4600}
     - Class: 114
-      Script: {instanceID: 4864}
+      Script: {instanceID: 4860}
     - Class: 114
-      Script: {instanceID: 5020}
+      Script: {instanceID: 5018}
     - Class: 114
-      Script: {instanceID: 5508}
+      Script: {instanceID: 5514}
     - Class: 114
-      Script: {instanceID: 5670}
+      Script: {instanceID: 5680}
     - Class: 114
-      Script: {instanceID: 5826}
+      Script: {instanceID: 5838}
     - Class: 114
-      Script: {instanceID: 5898}
+      Script: {instanceID: 5912}
     - Class: 114
-      Script: {instanceID: 6168}
+      Script: {instanceID: 6188}
     - Class: 114
-      Script: {instanceID: 6306}
+      Script: {instanceID: 6328}
     - Class: 114
-      Script: {instanceID: 6532}
+      Script: {instanceID: 6558}
     - Class: 114
-      Script: {instanceID: 6880}
+      Script: {instanceID: 6910}
     - Class: 114
-      Script: {instanceID: 7106}
-    - Class: 114
-      Script: {instanceID: 7326}
-    - Class: 114
-      Script: {instanceID: 7338}
+      Script: {instanceID: 7140}
     - Class: 114
       Script: {instanceID: 7368}
     - Class: 114
-      Script: {instanceID: 7452}
+      Script: {instanceID: 7380}
     - Class: 114
-      Script: {instanceID: 7466}
+      Script: {instanceID: 7410}
     - Class: 114
-      Script: {instanceID: 7764}
+      Script: {instanceID: 7494}
     - Class: 114
-      Script: {instanceID: 7768}
+      Script: {instanceID: 7508}
     - Class: 114
-      Script: {instanceID: 7808}
+      Script: {instanceID: 7814}
     - Class: 114
-      Script: {instanceID: 8148}
+      Script: {instanceID: 7818}
     - Class: 114
-      Script: {instanceID: 8168}
+      Script: {instanceID: 7860}
     - Class: 114
-      Script: {instanceID: 8198}
+      Script: {instanceID: 8202}
     - Class: 114
-      Script: {instanceID: 8340}
+      Script: {instanceID: 8222}
     - Class: 114
-      Script: {instanceID: 8396}
+      Script: {instanceID: 8256}
     - Class: 114
-      Script: {instanceID: 8632}
+      Script: {instanceID: 8400}
     - Class: 114
-      Script: {instanceID: 8648}
+      Script: {instanceID: 8456}
     - Class: 114
-      Script: {instanceID: 8760}
+      Script: {instanceID: 8696}
     - Class: 114
-      Script: {instanceID: 8768}
+      Script: {instanceID: 8712}
     - Class: 114
-      Script: {instanceID: 8938}
+      Script: {instanceID: 8824}
     - Class: 114
-      Script: {instanceID: 9000}
+      Script: {instanceID: 8832}
     - Class: 114
-      Script: {instanceID: 9058}
+      Script: {instanceID: 9006}
     - Class: 114
-      Script: {instanceID: 9174}
+      Script: {instanceID: 9072}
     - Class: 114
-      Script: {instanceID: 9186}
+      Script: {instanceID: 9132}
     - Class: 114
-      Script: {instanceID: 9348}
+      Script: {instanceID: 9250}
     - Class: 114
-      Script: {instanceID: 9550}
+      Script: {instanceID: 9262}
     - Class: 114
-      Script: {instanceID: 9736}
+      Script: {instanceID: 9428}
     - Class: 114
-      Script: {instanceID: 9830}
+      Script: {instanceID: 9632}
     - Class: 114
-      Script: {instanceID: 10096}
+      Script: {instanceID: 9822}
     - Class: 114
-      Script: {instanceID: 10734}
+      Script: {instanceID: 9920}
     - Class: 114
-      Script: {instanceID: 10816}
+      Script: {instanceID: 10188}
     - Class: 114
-      Script: {instanceID: 10826}
+      Script: {instanceID: 10834}
     - Class: 114
-      Script: {instanceID: 11278}
+      Script: {instanceID: 10916}
     - Class: 114
-      Script: {instanceID: 11524}
+      Script: {instanceID: 10926}
     - Class: 114
-      Script: {instanceID: 11712}
+      Script: {instanceID: 11388}
+    - Class: 114
+      Script: {instanceID: 11638}
+    - Class: 114
+      Script: {instanceID: 11828}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -310,6 +306,8 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 258
       Script: {instanceID: 0}
     - Class: 73398921
       Script: {instanceID: 0}
@@ -343,41 +341,41 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1706}
+      Script: {instanceID: 1724}
     - Class: 114
-      Script: {instanceID: 1710}
+      Script: {instanceID: 1728}
     - Class: 114
-      Script: {instanceID: 1712}
+      Script: {instanceID: 1730}
     - Class: 114
-      Script: {instanceID: 1714}
+      Script: {instanceID: 1732}
     - Class: 114
-      Script: {instanceID: 3434}
+      Script: {instanceID: 3394}
     - Class: 114
-      Script: {instanceID: 3450}
+      Script: {instanceID: 3410}
     - Class: 114
-      Script: {instanceID: 4222}
+      Script: {instanceID: 4206}
     - Class: 114
-      Script: {instanceID: 4344}
+      Script: {instanceID: 4330}
     - Class: 114
-      Script: {instanceID: 5248}
+      Script: {instanceID: 5252}
     - Class: 114
-      Script: {instanceID: 5508}
+      Script: {instanceID: 5514}
     - Class: 114
-      Script: {instanceID: 7326}
+      Script: {instanceID: 7368}
     - Class: 114
-      Script: {instanceID: 7452}
+      Script: {instanceID: 7494}
     - Class: 114
-      Script: {instanceID: 8396}
+      Script: {instanceID: 8456}
     - Class: 114
-      Script: {instanceID: 8648}
+      Script: {instanceID: 8712}
     - Class: 114
-      Script: {instanceID: 9174}
+      Script: {instanceID: 9250}
     - Class: 114
-      Script: {instanceID: 9186}
+      Script: {instanceID: 9262}
     - Class: 114
-      Script: {instanceID: 10286}
+      Script: {instanceID: 10380}
     - Class: 114
-      Script: {instanceID: 10816}
+      Script: {instanceID: 10916}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -440,45 +438,45 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1710}
+      Script: {instanceID: 1728}
     - Class: 114
-      Script: {instanceID: 1712}
+      Script: {instanceID: 1730}
     - Class: 114
-      Script: {instanceID: 1714}
+      Script: {instanceID: 1732}
     - Class: 114
-      Script: {instanceID: 2136}
+      Script: {instanceID: 2062}
     - Class: 114
-      Script: {instanceID: 2538}
+      Script: {instanceID: 2480}
     - Class: 114
-      Script: {instanceID: 3338}
+      Script: {instanceID: 3294}
     - Class: 114
-      Script: {instanceID: 3434}
+      Script: {instanceID: 3394}
     - Class: 114
-      Script: {instanceID: 3540}
+      Script: {instanceID: 3504}
     - Class: 114
-      Script: {instanceID: 4344}
+      Script: {instanceID: 4330}
     - Class: 114
-      Script: {instanceID: 6880}
+      Script: {instanceID: 6910}
     - Class: 114
-      Script: {instanceID: 7326}
+      Script: {instanceID: 7368}
     - Class: 114
-      Script: {instanceID: 7452}
+      Script: {instanceID: 7494}
     - Class: 114
-      Script: {instanceID: 8148}
+      Script: {instanceID: 8202}
     - Class: 114
-      Script: {instanceID: 8168}
+      Script: {instanceID: 8222}
     - Class: 114
-      Script: {instanceID: 8340}
+      Script: {instanceID: 8400}
     - Class: 114
-      Script: {instanceID: 8396}
+      Script: {instanceID: 8456}
     - Class: 114
-      Script: {instanceID: 8648}
+      Script: {instanceID: 8712}
     - Class: 114
-      Script: {instanceID: 9174}
+      Script: {instanceID: 9250}
     - Class: 114
-      Script: {instanceID: 10096}
+      Script: {instanceID: 10188}
     - Class: 114
-      Script: {instanceID: 10826}
+      Script: {instanceID: 10926}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -537,21 +535,21 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1710}
+      Script: {instanceID: 1728}
     - Class: 114
-      Script: {instanceID: 3434}
+      Script: {instanceID: 3394}
     - Class: 114
-      Script: {instanceID: 4344}
+      Script: {instanceID: 4330}
     - Class: 114
-      Script: {instanceID: 7452}
+      Script: {instanceID: 7494}
     - Class: 114
-      Script: {instanceID: 8396}
+      Script: {instanceID: 8456}
     - Class: 114
-      Script: {instanceID: 8648}
+      Script: {instanceID: 8712}
     - Class: 114
-      Script: {instanceID: 9174}
+      Script: {instanceID: 9250}
     - Class: 114
-      Script: {instanceID: 10096}
+      Script: {instanceID: 10188}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 117
@@ -605,6 +603,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptiveLut
   - hash:
       serializedVersion: 2
       Hash: f69dfc6409fbbd89d3689368e99688a8
@@ -701,6 +705,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnCollisionStayMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptiveShadowmapResolution
   - hash:
       serializedVersion: 2
       Hash: c5bfd0f6f4664318b8b9f50d88408421
@@ -895,6 +905,12 @@ ScriptsOnlyBuild:
     className: CinemachineHardLookAt
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptiveSorting
+  - hash:
+      serializedVersion: 2
       Hash: 1f0602e7bad1e0a9cba31ce292eee8bb
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
@@ -923,6 +939,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_SelectionCaret
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptiveShadowDistance
   - hash:
       serializedVersion: 2
       Hash: 34746f5ad4a8189141ddf65a40069ea1
@@ -979,6 +1001,12 @@ ScriptsOnlyBuild:
     className: Cinemachine3rdPersonFollow
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptiveBatching
+  - hash:
+      serializedVersion: 2
       Hash: e571e0e5778ec982e99868623decff7a
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
@@ -1007,6 +1035,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: ToggleGroup
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptiveFramerate
   - hash:
       serializedVersion: 2
       Hash: b639d97cb780d0d99a2bfb3ad1935732
@@ -1069,6 +1103,12 @@ ScriptsOnlyBuild:
     className: VFXPropertyBinder
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptiveShadowQuality
+  - hash:
+      serializedVersion: 2
       Hash: 8d35f16c5022311c6f4d9432be73bfcf
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
@@ -1097,6 +1137,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: VariablesAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.Simulator.Editor.dll
+    namespaceName: UnityEditor.AdaptivePerformance.Simulator.Editor
+    className: SimulatorProviderLoader
   - hash:
       serializedVersion: 2
       Hash: 2388eb9e99b86b3813e7b6dbfe4b3e0c
@@ -1165,12 +1211,6 @@ ScriptsOnlyBuild:
     className: CinemachineFramingTransposer
   - hash:
       serializedVersion: 2
-      Hash: 5648183942e1c22d510c7a8406031fc8
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: ExtendedFlycam
-  - hash:
-      serializedVersion: 2
       Hash: 488d91f4859e3a3601789b810540a24f
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
@@ -1199,6 +1239,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Core.Runtime.dll
     namespaceName: UnityEngine.Rendering.UI
     className: DebugUIHandlerToggleHistory
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptivePerformanceManager
   - hash:
       serializedVersion: 2
       Hash: 2574ac7d50617d23cdefe4ad22f5e1ad
@@ -1241,6 +1287,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX
     className: IncrementStripIndexOnStart
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptiveViewDistance
   - hash:
       serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
@@ -1427,6 +1479,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnCancelMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptiveTransparency
   - hash:
       serializedVersion: 2
       Hash: 32fce7b97c39bff4b4f6c0f53f7e6bf1
@@ -1625,6 +1683,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: ChannelMixer
+  - hash:
+      serializedVersion: 2
+      Hash: a0bfd04b77824c07d9435ef76eafb204
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptivePerformanceGeneralSettings
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptiveShadowCascade
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1829,6 +1899,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.RenderPipelines.Universal.Runtime.dll
     namespaceName: UnityEngine.Rendering.Universal
     className: LiftGammaGain
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptiveResolution
   - hash:
       serializedVersion: 2
       Hash: bb6b9a25e695d7981ce2d853a697a828
@@ -2173,16 +2249,40 @@ ScriptsOnlyBuild:
     className: playerController
   - hash:
       serializedVersion: 2
+      Hash: 75031d5182dabfe0b66124eac716b177
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: IAdaptivePerformanceSettings
+  - hash:
+      serializedVersion: 2
       Hash: b5eb08b578a2f2d80bb106cbe65ab501
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineStoryboard
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptiveLOD
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptiveMSAA
+  - hash:
+      serializedVersion: 2
       Hash: 23d669c8bf2983ca4a3df160658318a6
     assemblyName: Cinemachine.dll
     namespaceName: Cinemachine
     className: CinemachineStateDrivenCamera
+  - hash:
+      serializedVersion: 2
+      Hash: 023e1c84ff33489e45cfcca9e19c242b
+    assemblyName: Unity.AdaptivePerformance.dll
+    namespaceName: UnityEngine.AdaptivePerformance
+    className: AdaptivePerformanceManagerSettings
   - hash:
       serializedVersion: 2
       Hash: 134520f170644886bce038a4038a42c9
@@ -2357,118 +2457,10 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualEffectGraph.Runtime.dll
     namespaceName: UnityEngine.VFX.Utility
     className: VFXRaycastBinder
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptiveLut
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptiveShadowDistance
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptiveTransparency
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptiveViewDistance
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptiveShadowCascade
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptiveShadowQuality
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptivePerformanceManager
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptiveLOD
-  - hash:
-      serializedVersion: 2
-      Hash: 75031d5182dabfe0b66124eac716b177
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: IAdaptivePerformanceSettings
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptiveShadowmapResolution
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptiveFramerate
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptiveMSAA
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.Simulator.Editor.dll
-    namespaceName: UnityEditor.AdaptivePerformance.Simulator.Editor
-    className: SimulatorProviderLoader
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptiveSorting
-  - hash:
-      serializedVersion: 2
-      Hash: 023e1c84ff33489e45cfcca9e19c242b
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptivePerformanceManagerSettings
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptiveBatching
-  - hash:
-      serializedVersion: 2
-      Hash: a0bfd04b77824c07d9435ef76eafb204
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptivePerformanceGeneralSettings
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Unity.AdaptivePerformance.dll
-    namespaceName: UnityEngine.AdaptivePerformance
-    className: AdaptiveResolution
   platform: 19
   scenePathNames:
   - Assets/Scenes/MainMap.unity
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/VFXTesting.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/temp/builds/fmp builds/v1/fmp-pre.exe
+  playerPath: C:/Users/ewanr/Documents/Builds/fmpv1/Eldham Unholy Annihalation.exe

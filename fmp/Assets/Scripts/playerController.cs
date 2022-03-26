@@ -19,7 +19,11 @@ public class playerController : MonoBehaviour
     private int attackIndex = 1;
     private bool isGrounded, isCrouching, isAttacking, isWalking, isTurning, canMove;
 
-    void Start() => Cursor.lockState = CursorLockMode.Locked;
+    void Start() 
+    { 
+        Application.targetFrameRate = -1;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     void Update()
     {
