@@ -7,12 +7,12 @@ using UnityEngine.Audio;
 public class MenuScript : MonoBehaviour
 {
     private bool buttonAvailable = true, isCreepy = false;
-    private int level = 1, pIsFullscreen, pGraphicsPreset;
+    private int  pIsFullscreen, pGraphicsPreset;
     private float pMasterVolume, pMusicVolume, pVfxVolume;
 
     public Slider masterSlider, musicSlider, vfxSlider;
     public GameObject settingsMenu, howToPlayScreen;
-    public Button continueButton, backButton;
+    public Button newGameButton, backButton;
 
     public AudioClip[] clips;
     public AudioSource musicSource, vfxSource;
@@ -53,17 +53,9 @@ public class MenuScript : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    public void ContinueGame()
-    {
-        Sounds buttonSound = (buttonAvailable) ? Sounds.continueClick : Sounds.clickDeny;
-        vfxSource.PlayOneShot(clips[(int)buttonSound]);
-        if (buttonAvailable)
-            Invoke("LoadScene", 1.5f);
-    }
 
     public void StartGame()
     {
-        level = 2;
         vfxSource.PlayOneShot(clips[(int)Sounds.startClick]);
         Invoke("LoadScene", 1.5f);
     }
@@ -95,7 +87,7 @@ public class MenuScript : MonoBehaviour
 
     public void ChangeMenuScreen(bool isMain)
     {
-        Button selectedButton = (isMain) ? continueButton : backButton;
+        Button selectedButton = (isMain) ? newGameButton : backButton;
         selectedButton.Select();
     }
 
@@ -106,5 +98,5 @@ public class MenuScript : MonoBehaviour
     public void GenericClick() => vfxSource.PlayOneShot(clips[(int)Sounds.genericClick]);
 
     private void EndGame() => Application.Quit();
-    private void LoadScene() => SceneManager.LoadScene(level); 
+    private void LoadScene() => SceneManager.LoadScene(1); 
 }

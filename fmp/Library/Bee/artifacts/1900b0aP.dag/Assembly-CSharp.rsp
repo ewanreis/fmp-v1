@@ -290,6 +290,7 @@
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Animation.Rigging.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Burst.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.Mathematics.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aP.dag/Unity.ProGrids.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.RenderPipeline.Universal.ShaderLibrary.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.RenderPipelines.Core.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aP.dag/Unity.RenderPipelines.Core.ShaderLibrary.ref.dll"
@@ -308,6 +309,7 @@
 "Assets/Scripts/IngameMenu.cs"
 "Assets/Scripts/MenuScript.cs"
 "Assets/Scripts/playerController.cs"
+"Assets/Scripts/WIndmillSpin.cs"
 -langversion:8.0
 
 /deterministic

@@ -19,6 +19,7 @@
 -a="C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PlayerScriptAssemblies\Unity.RenderPipelines.ShaderGraph.ShaderGraphLibrary.dll"
 -a="C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PlayerScriptAssemblies\Unity.AdaptivePerformance.dll"
 -a="C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PlayerScriptAssemblies\Unity.VisualScripting.State.dll"
+-a="C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PlayerScriptAssemblies\Unity.ProGrids.dll"
 -a="C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0\Runtime\AOT\Newtonsoft.Json.dll"
 -a="C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.burst@1.5.5\Unity.Burst.Unsafe.dll"
 -a="C:\Users\ewanr\Documents\GitHub\fmp\fmp\Library\PackageCache\com.unity.burst@1.5.5\Unity.Burst.CodeGen\Unity.Burst.Cecil.Mdb.dll"
