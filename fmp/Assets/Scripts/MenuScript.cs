@@ -4,19 +4,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
+
 public class MenuScript : MonoBehaviour
 {
     private bool buttonAvailable = true, isCreepy = false;
     private int  pIsFullscreen, pGraphicsPreset;
-    private float pMasterVolume, pMusicVolume, pVfxVolume;
+    private float pMasterVolume, pMusicVolume, pVfxVolume, pBrightness;
 
-    public Slider masterSlider, musicSlider, vfxSlider;
+    public Slider masterSlider, musicSlider, vfxSlider, brightnessSlider;
     public GameObject settingsMenu, howToPlayScreen;
     public Button newGameButton, backButton;
 
     public AudioClip[] clips;
     public AudioSource musicSource, vfxSource;
     public AudioMixer audioMixer;
+
+     public Volume renderingVolume;
+     public LiftGammaGain liftGammaGain;
 
     enum Sounds
     {
@@ -34,6 +40,8 @@ public class MenuScript : MonoBehaviour
 
     void Start()
     {
+        if (!renderingVolume.profile.TryGet(out liftGammaGain)) throw new System.NullReferenceException(nameof(liftGammaGain));
+        pBrightness = PlayerPrefs.GetFloat("playerBrightness", 0.75f);
         pMasterVolume = PlayerPrefs.GetFloat("playerMasterVolume", 0);
         pMusicVolume = PlayerPrefs.GetFloat("playerMusicVolume", 0);
         pVfxVolume = PlayerPrefs.GetFloat("playerVfxVolume", 0);
@@ -44,6 +52,8 @@ public class MenuScript : MonoBehaviour
         masterSlider.value = pMasterVolume;
         musicSlider.value = pMusicVolume;
         vfxSlider.value = pVfxVolume;
+        brightnessSlider.value = pBrightness;
+        SetGammaAlpha(pBrightness);
         Screen.fullScreen = (pIsFullscreen == 0) ? false : true;
         Sounds music = (isCreepy) ? Sounds.menuMusicCreepy : Sounds.menuMusic;
         Cursor.lockState = CursorLockMode.None;
@@ -90,7 +100,11 @@ public class MenuScript : MonoBehaviour
         Button selectedButton = (isMain) ? newGameButton : backButton;
         selectedButton.Select();
     }
-
+    public void SetGammaAlpha(float gammaAlpha) 
+    {
+         liftGammaGain.gamma.Override(new Vector4(1f, 1f, 1f, gammaAlpha));
+         PlayerPrefs.SetFloat("playerBrightness", gammaAlpha);
+    }
     public void SetGraphicsPreset(int preset) => print(preset);
     public void SetFullscreen(bool isFullscreen) => Screen.fullScreen = isFullscreen;
     public void ContinueHover() => vfxSource.PlayOneShot(clips[ (buttonAvailable) ? (int)Sounds.continueHover : (int)Sounds.hoverDeny ]);

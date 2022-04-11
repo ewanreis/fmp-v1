@@ -358,6 +358,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/Packages/Laterns and candles/scripts/CameraFacing.cs"
 "Assets/Scripts/IngameMenu.cs"
+"Assets/Scripts/LookAtCamera.cs"
 "Assets/Scripts/MenuScript.cs"
 "Assets/Scripts/playerController.cs"
 "Assets/Scripts/WIndmillSpin.cs"
