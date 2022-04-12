@@ -1,8 +1,4 @@
 Library\Bee\artifacts\movedfrom\Unity.2D.Sprite.Editor.ref.dll_15977261275114544680.movedfrom
-Library\Bee\artifacts\movedfrom\Unity.AdaptivePerformance.Editor.ref.dll_1304015732807928959.movedfrom
-Library\Bee\artifacts\movedfrom\Unity.AdaptivePerformance.Simulator.Editor.ref.dll_6960031398818800425.movedfrom
-Library\Bee\artifacts\movedfrom\Unity.AdaptivePerformance.Simulator.Extension.ref.dll_2479301254404088713.movedfrom
-Library\Bee\artifacts\movedfrom\Unity.AdaptivePerformance.ref.dll_17328270619749320274.movedfrom
 Library\Bee\artifacts\movedfrom\Unity.Animation.Rigging.Editor.ref.dll_15120923716135186232.movedfrom
 Library\Bee\artifacts\movedfrom\Unity.Animation.Rigging.ref.dll_11667054969188453385.movedfrom
 Library\Bee\artifacts\movedfrom\Unity.Burst.Editor.ref.dll_16355153736048737481.movedfrom
@@ -23,7 +19,6 @@ Library\Bee\artifacts\movedfrom\Unity.RenderPipelines.Universal.Shaders.ref.dll_
 Library\Bee\artifacts\movedfrom\Unity.Rider.Editor.ref.dll_11193012430168537007.movedfrom
 Library\Bee\artifacts\movedfrom\Unity.Searcher.Editor.ref.dll_1348794520514444814.movedfrom
 Library\Bee\artifacts\movedfrom\Unity.ShaderGraph.Editor.ref.dll_1103405175732373968.movedfrom
-Library\Bee\artifacts\movedfrom\Unity.Subsystem.Registration.ref.dll_8030987906518691830.movedfrom
 Library\Bee\artifacts\movedfrom\Unity.Sysroot.Linux_x86_64.ref.dll_2650282225779114623.movedfrom
 Library\Bee\artifacts\movedfrom\Unity.SysrootPackage.Editor.ref.dll_5890034076136684556.movedfrom
 Library\Bee\artifacts\movedfrom\Unity.TextMeshPro.Editor.ref.dll_1557689244747631494.movedfrom

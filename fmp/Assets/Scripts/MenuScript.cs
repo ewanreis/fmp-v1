@@ -9,8 +9,8 @@ using UnityEngine.Rendering.Universal;
 
 public class MenuScript : MonoBehaviour
 {
-    private bool buttonAvailable = true, isCreepy = false;
-    private int  pIsFullscreen, pGraphicsPreset;
+    private bool postProcessingEnabled;
+    private int pIsFullscreen, pGraphicsPreset, pPostProcessingEnabled;
     private float pMasterVolume, pMusicVolume, pVfxVolume, pBrightness;
 
     public Slider masterSlider, musicSlider, vfxSlider, brightnessSlider;
@@ -21,8 +21,12 @@ public class MenuScript : MonoBehaviour
     public AudioSource musicSource, vfxSource;
     public AudioMixer audioMixer;
 
-     public Volume renderingVolume;
-     public LiftGammaGain liftGammaGain;
+    public Volume renderingVolume;
+    public LiftGammaGain liftGammaGain;
+    public Tonemapping toneMap;
+    public FilmGrain filmGrain;
+    public Vignette vignette;
+    public DepthOfField depthOfField;
 
     enum Sounds
     {
@@ -41,25 +45,36 @@ public class MenuScript : MonoBehaviour
     void Start()
     {
         if (!renderingVolume.profile.TryGet(out liftGammaGain)) throw new System.NullReferenceException(nameof(liftGammaGain));
+        if (!renderingVolume.profile.TryGet(out toneMap)) throw new System.NullReferenceException(nameof(toneMap));
+        if (!renderingVolume.profile.TryGet(out filmGrain)) throw new System.NullReferenceException(nameof(filmGrain));
+        if (!renderingVolume.profile.TryGet(out vignette)) throw new System.NullReferenceException(nameof(vignette));
+        if (!renderingVolume.profile.TryGet(out depthOfField)) throw new System.NullReferenceException(nameof(depthOfField));
+
+
         pBrightness = PlayerPrefs.GetFloat("playerBrightness", 0.75f);
         pMasterVolume = PlayerPrefs.GetFloat("playerMasterVolume", 0);
         pMusicVolume = PlayerPrefs.GetFloat("playerMusicVolume", 0);
         pVfxVolume = PlayerPrefs.GetFloat("playerVfxVolume", 0);
         pIsFullscreen = PlayerPrefs.GetInt("playerFullscreen", 0);
+        pPostProcessingEnabled = PlayerPrefs.GetInt("playerPostProcessingEnabled", 0);
+
         audioMixer.SetFloat("masterVolume", pMasterVolume);
         audioMixer.SetFloat("musicVolume", pMusicVolume);
         audioMixer.SetFloat("vfxVolume", pVfxVolume);
+
         masterSlider.value = pMasterVolume;
         musicSlider.value = pMusicVolume;
         vfxSlider.value = pVfxVolume;
         brightnessSlider.value = pBrightness;
-        SetGammaAlpha(pBrightness);
+
+        postProcessingEnabled = (pPostProcessingEnabled == 0) ? false : true;
         Screen.fullScreen = (pIsFullscreen == 0) ? false : true;
-        Sounds music = (isCreepy) ? Sounds.menuMusicCreepy : Sounds.menuMusic;
         Cursor.lockState = CursorLockMode.None;
         settingsMenu.SetActive(false);
         howToPlayScreen.SetActive(false);
-        musicSource.PlayOneShot(clips[(int)music], 0.2f);
+        musicSource.PlayOneShot(clips[(int)Sounds.menuMusic], 0.2f);
+        SetGammaAlpha(pBrightness);
+        TogglePP(postProcessingEnabled);
         PlayerPrefs.Save();
     }
 
@@ -100,14 +115,37 @@ public class MenuScript : MonoBehaviour
         Button selectedButton = (isMain) ? newGameButton : backButton;
         selectedButton.Select();
     }
+
+    public void TogglePP(bool enabled)
+    {
+        if(enabled)
+        {
+            toneMap.active = true;
+            vignette.active = true;
+            filmGrain.active = true;
+            depthOfField.active = true;
+            QualitySettings.antiAliasing = 8;
+            PlayerPrefs.SetInt("playerPostProcessingEnabled", 1);
+        }
+        else
+        {
+            toneMap.active = false;
+            vignette.active = false;
+            filmGrain.active = false;
+            depthOfField.active = false;
+            QualitySettings.antiAliasing = 0;
+            PlayerPrefs.SetInt("playerPostProcessingEnabled", 0);
+        }
+    }
+
     public void SetGammaAlpha(float gammaAlpha) 
     {
          liftGammaGain.gamma.Override(new Vector4(1f, 1f, 1f, gammaAlpha));
          PlayerPrefs.SetFloat("playerBrightness", gammaAlpha);
     }
+
     public void SetGraphicsPreset(int preset) => print(preset);
     public void SetFullscreen(bool isFullscreen) => Screen.fullScreen = isFullscreen;
-    public void ContinueHover() => vfxSource.PlayOneShot(clips[ (buttonAvailable) ? (int)Sounds.continueHover : (int)Sounds.hoverDeny ]);
     public void StartHover() => vfxSource.PlayOneShot(clips[(int)Sounds.startHover]);
     public void GenericClick() => vfxSource.PlayOneShot(clips[(int)Sounds.genericClick]);
 
