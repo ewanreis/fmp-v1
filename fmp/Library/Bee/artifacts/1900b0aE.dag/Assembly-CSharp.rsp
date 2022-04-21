@@ -354,7 +354,9 @@
 "Assets/Packages/Laterns and candles/scripts/CameraFacing.cs"
 "Assets/Scripts/IngameMenu.cs"
 "Assets/Scripts/LookAtCamera.cs"
+"Assets/Scripts/MapManager.cs"
 "Assets/Scripts/MenuScript.cs"
+"Assets/Scripts/PauseMenu.cs"
 "Assets/Scripts/playerController.cs"
 "Assets/Scripts/WIndmillSpin.cs"
 -langversion:8.0

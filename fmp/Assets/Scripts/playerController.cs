@@ -27,14 +27,16 @@ public class playerController : MonoBehaviour
 
     void Update()
     {
-        GetPlayerInput();
-        if (isAttacking) canMove = false;
-        if (playerStamina < 100) playerStamina += (3 * Time.deltaTime);
-        xRotation += mouseInputX;
-        staminaBar.value = playerStamina;
-        healthBar.value = playerHealth;
-        print(playerStamina);
-        SetAnimations();
+        if(!PauseMenu.isPaused)
+        {
+            GetPlayerInput();
+            if (isAttacking) canMove = false;
+            if (playerStamina < 100) playerStamina += (3 * Time.deltaTime);
+            xRotation += mouseInputX;
+            staminaBar.value = playerStamina;
+            healthBar.value = playerHealth;
+            SetAnimations();
+        }
     }
 
     public void StartAttack(int attack)
