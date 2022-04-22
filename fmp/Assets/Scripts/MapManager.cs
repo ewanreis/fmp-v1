@@ -4,16 +4,18 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
+using TMPro;
 
 public class MapManager : MonoBehaviour
 {
-    // Audio
+    #region Audio
     public AudioSource musicSource, vfxSource;
     public AudioMixer audioMixer;
     public AudioClip[] clips;
+    #endregion
 
-
-    // Graphics
+    #region Graphics
+    // Post Processing
     public Volume renderingVolume;
     public LiftGammaGain liftGammaGain;
     public Tonemapping toneMap;
@@ -21,10 +23,20 @@ public class MapManager : MonoBehaviour
     public Vignette vignette;
     public DepthOfField depthOfField;
 
-    // Player Preferences
+    // Graphics Quality
+    //public RenderPipelineAsset[] qualityLevels;
+    public TMP_Dropdown qualityDropdown;
+
+    // Nature
+    public Terrain terrain;
+    public float grassDistance, grassDensity;
+    #endregion
+
+    #region Player Preferences
     private int pIsFullscreen, pGraphicsPreset, pPostProcessingEnabled;
-    private float pMasterVolume, pMusicVolume, pVfxVolume, pBrightness;
-    private bool postProcessingEnabled;
+    public float pMasterVolume, pMusicVolume, pVfxVolume, pBrightness;
+    public bool postProcessingEnabled;
+    #endregion
 
     enum SFX
     {
@@ -55,11 +67,13 @@ public class MapManager : MonoBehaviour
         TogglePP(postProcessingEnabled);
 
     }
-    void Update() 
+    /*void Update() 
     { 
         SetGammaAlpha(pBrightness);
         TogglePP(postProcessingEnabled);
-    }
+        SetGrassDensity(grassDensity);
+        SetGrassDistance(grassDistance);
+    }*/
 
     public void TogglePP(bool enabled)
     {
@@ -89,4 +103,12 @@ public class MapManager : MonoBehaviour
          PlayerPrefs.SetFloat("playerBrightness", gammaAlpha);
     }
 
+    public void SetQualityLevel(int qualityLevel)
+    {
+        QualitySettings.SetQualityLevel(qualityLevel);
+        //QualitySettings.renderPipeline = qualityLevels[qualityLevel];
+    }
+
+    public void SetGrassDensity(float density) => Terrain.activeTerrain.detailObjectDensity = density;
+    public void SetGrassDistance(float distance) => Terrain.activeTerrain.detailObjectDistance = distance;
 }

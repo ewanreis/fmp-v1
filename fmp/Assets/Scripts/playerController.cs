@@ -17,7 +17,7 @@ public class playerController : MonoBehaviour
     private Vector3 moveDir, velocity, direction;
     private float xRotation, turnSmoothVelocity, targetAngle, angle, mouseInputX, groundDistance = 0.4f, speed = 4;
     private int attackIndex = 1;
-    private bool isGrounded, isCrouching, isAttacking, isWalking, isTurning, canMove;
+    private bool isGrounded, isCrouching, isAttacking, isWalking, isTurning, canMove = true;
 
     void Start() 
     { 
@@ -116,7 +116,7 @@ public class playerController : MonoBehaviour
         #endregion // Moves the player
 
         #region Turning
-        playerBody.transform.rotation = Quaternion.Euler(0, xRotation, 0);
+        playerBody.transform.rotation = Quaternion.Euler(0, xRotation * 2, 0);
         isTurning = (mouseInputX == 0) ? false : true;
         #endregion // Gets the input from the mouse and turns the player
 
