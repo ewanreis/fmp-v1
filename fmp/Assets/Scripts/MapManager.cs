@@ -109,6 +109,26 @@ public class MapManager : MonoBehaviour
         //QualitySettings.renderPipeline = qualityLevels[qualityLevel];
     }
 
-    public void SetGrassDensity(float density) => Terrain.activeTerrain.detailObjectDensity = density;
-    public void SetGrassDistance(float distance) => Terrain.activeTerrain.detailObjectDistance = distance;
+    public void SetGrassDensity(int densityLevel) 
+    {
+        grassDensity = densityLevel switch
+        {
+            0 => 0.15f,
+            1 => 0.3f,
+            2 => 0.5f,
+            _ => 0.3f
+        };
+        Terrain.activeTerrain.detailObjectDensity = grassDensity;
+    } 
+    public void SetGrassDistance(int distanceLevel) 
+    {
+        grassDistance = distanceLevel switch
+        {
+            0 => 10,
+            1 => 35,
+            2 => 50,
+            _ => 35
+        };
+        Terrain.activeTerrain.detailObjectDistance = grassDistance;
+    }
 }
