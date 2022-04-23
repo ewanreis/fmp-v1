@@ -6,6 +6,7 @@ public class LookAtCamera : MonoBehaviour
 {
     public Camera cam;
     public Transform head;
+    void Start() => cam = Camera.main;
     void LateUpdate()
      {
         transform.LookAt(cam.transform);

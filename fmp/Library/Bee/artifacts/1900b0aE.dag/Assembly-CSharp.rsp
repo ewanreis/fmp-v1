@@ -308,6 +308,8 @@
 -r:"C:/Users/ewanr/Documents/GitHub/fmp/fmp/Library/PackageCache/com.unity.cinemachine@2.7.9/Runtime/ThirdParty/clipper_library.dll"
 -r:"C:/Users/ewanr/Documents/GitHub/fmp/fmp/Library/PackageCache/com.unity.nuget.newtonsoft-json@2.0.0/Runtime/Newtonsoft.Json.dll"
 -r:"C:/Users/ewanr/Documents/GitHub/fmp/fmp/Library/PackageCache/com.unity.visualscripting@1.6.1/Runtime/VisualScripting.Flow/Dependencies/NCalc/Unity.VisualScripting.Antlr3.Runtime.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Autodesk.Fbx.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Autodesk.Fbx.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Cinemachine.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/com.unity.cinemachine.editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.2D.Sprite.Editor.ref.dll"
@@ -315,6 +317,8 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Animation.Rigging.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Burst.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Burst.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Formats.Fbx.Editor.ref.dll"
+-r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Formats.Fbx.Runtime.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Mathematics.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.Mathematics.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.PlasticSCM.Editor.ref.dll"
@@ -351,6 +355,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
+"Assets/EnemyScript.cs"
 "Assets/Packages/Laterns and candles/scripts/CameraFacing.cs"
 "Assets/Scripts/IngameMenu.cs"
 "Assets/Scripts/LookAtCamera.cs"
@@ -358,7 +363,9 @@
 "Assets/Scripts/MenuScript.cs"
 "Assets/Scripts/PauseMenu.cs"
 "Assets/Scripts/playerController.cs"
+"Assets/Scripts/SpawningManager.cs"
 "Assets/Scripts/WIndmillSpin.cs"
+"Assets/Scripts/ZoneManager.cs"
 -langversion:8.0
 
 /deterministic

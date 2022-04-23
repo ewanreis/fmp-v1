@@ -120,10 +120,10 @@ public class playerController : MonoBehaviour
         isTurning = (mouseInputX == 0) ? false : true;
         #endregion // Gets the input from the mouse and turns the player
 
-        #region Jumping
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        /*#region Jumping
         if (isGrounded && velocity.y < 0) velocity.y = -2f;
         if (Input.GetButtonDown("Jump") && isGrounded) velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
-        #endregion // Checks if the player is grounded, then jumps when assigned Jump button is pressed
+        #endregion // Checks if the player is grounded, then jumps when assigned Jump button is pressed */
     }
 }
