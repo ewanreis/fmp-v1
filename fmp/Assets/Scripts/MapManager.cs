@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 using TMPro;
 
 public class MapManager : MonoBehaviour
@@ -11,6 +12,7 @@ public class MapManager : MonoBehaviour
     #region Audio
     public AudioSource musicSource, vfxSource;
     public AudioMixer audioMixer;
+    public Slider masterSlider, musicSlider, vfxSlider;
     public AudioClip[] clips;
     #endregion
 
@@ -24,8 +26,9 @@ public class MapManager : MonoBehaviour
     public DepthOfField depthOfField;
 
     // Graphics Quality
-    //public RenderPipelineAsset[] qualityLevels;
-    public TMP_Dropdown qualityDropdown;
+    public Toggle fullscreenToggle, postProcessingToggle;
+    public Slider brightnessSlider;
+    public TMP_Dropdown distanceDropdown, densityDropdown, qualityDropdown;
 
     // Nature
     public Terrain terrain;
@@ -33,7 +36,7 @@ public class MapManager : MonoBehaviour
     #endregion
 
     #region Player Preferences
-    private int pIsFullscreen, pGraphicsPreset, pPostProcessingEnabled;
+    private int pIsFullscreen, pGraphicsPreset, pPostProcessingEnabled, pDensityLevel, pDistanceLevel;
     public float pMasterVolume, pMusicVolume, pVfxVolume, pBrightness;
     public bool postProcessingEnabled;
     #endregion
@@ -50,6 +53,16 @@ public class MapManager : MonoBehaviour
 
     void Start()
     {
+        pPostProcessingEnabled = PlayerPrefs.GetInt("playerPostProcessingEnabled", 1);
+        pGraphicsPreset = PlayerPrefs.GetInt("playerGraphicsPreset", 1);
+        pIsFullscreen = PlayerPrefs.GetInt("playerFullscreen", 0);
+        pBrightness = PlayerPrefs.GetFloat("playerBrightness", 0.75f);
+        pMasterVolume = PlayerPrefs.GetFloat("playerMasterVolume", 0);
+        pMusicVolume = PlayerPrefs.GetFloat("playerMusicVolume", 0);
+        pVfxVolume = PlayerPrefs.GetFloat("playerVfxVolume", 0);
+        pDensityLevel = PlayerPrefs.GetInt("playerDensityLevel", 1);
+        pDistanceLevel = PlayerPrefs.GetInt("playerDistanceLevel", 1);
+
         if (!renderingVolume.profile.TryGet(out liftGammaGain)) throw new System.NullReferenceException(nameof(liftGammaGain));
         if (!renderingVolume.profile.TryGet(out toneMap)) throw new System.NullReferenceException(nameof(toneMap));
         if (!renderingVolume.profile.TryGet(out filmGrain)) throw new System.NullReferenceException(nameof(filmGrain));
@@ -61,19 +74,43 @@ public class MapManager : MonoBehaviour
         audioMixer.SetFloat("vfxVolume", pVfxVolume);
 
         postProcessingEnabled = (pPostProcessingEnabled == 0) ? false : true;
+        postProcessingToggle.isOn = (pPostProcessingEnabled == 0) ? false : true;
         Screen.fullScreen = (pIsFullscreen == 0) ? false : true;
+        fullscreenToggle.isOn = (pIsFullscreen == 0) ? false : true;
+        masterSlider.value = pMasterVolume;
+        musicSlider.value = pMusicVolume;
+        vfxSlider.value = pVfxVolume;
+        brightnessSlider.value = pBrightness;
+        distanceDropdown.value = pDistanceLevel;
+        densityDropdown.value = pDensityLevel;
+        qualityDropdown.value = pGraphicsPreset;
 
         SetGammaAlpha(pBrightness);
         TogglePP(postProcessingEnabled);
-
+        SetGrassDensity(pDensityLevel);
+        SetGrassDistance(pDistanceLevel);
+        SetVolumeMaster(pMasterVolume);
+        SetVolumeMusic(pMusicVolume);
+        SetVolumeVfx(pVfxVolume);
     }
-    /*void Update() 
-    { 
-        SetGammaAlpha(pBrightness);
-        TogglePP(postProcessingEnabled);
-        SetGrassDensity(grassDensity);
-        SetGrassDistance(grassDistance);
-    }*/
+
+    public void SetVolumeMaster(float volume)  
+    {
+        audioMixer.SetFloat("masterVolume", volume); 
+        PlayerPrefs.SetFloat("playerMasterVolume", volume); 
+    }
+
+    public void SetVolumeMusic(float volume)
+    {
+        audioMixer.SetFloat("musicVolume", volume);
+        PlayerPrefs.SetFloat("playerMusicVolume", volume);
+    }
+
+    public void SetVolumeVfx(float volume)
+    {
+        audioMixer.SetFloat("vfxVolume", volume);
+        PlayerPrefs.SetFloat("playerVfxVolume", volume);
+    }
 
     public void TogglePP(bool enabled)
     {
@@ -106,7 +143,7 @@ public class MapManager : MonoBehaviour
     public void SetQualityLevel(int qualityLevel)
     {
         QualitySettings.SetQualityLevel(qualityLevel);
-        //QualitySettings.renderPipeline = qualityLevels[qualityLevel];
+        PlayerPrefs.SetInt("playerGraphicsPreset", qualityLevel);
     }
 
     public void SetGrassDensity(int densityLevel) 
@@ -119,6 +156,7 @@ public class MapManager : MonoBehaviour
             _ => 0.3f
         };
         Terrain.activeTerrain.detailObjectDensity = grassDensity;
+        PlayerPrefs.SetInt("playerDensityLevel", densityLevel);
     } 
     public void SetGrassDistance(int distanceLevel) 
     {
@@ -130,5 +168,12 @@ public class MapManager : MonoBehaviour
             _ => 35
         };
         Terrain.activeTerrain.detailObjectDistance = grassDistance;
+        PlayerPrefs.SetInt("playerDistanceLevel", distanceLevel);
+    }
+    public void SetFullscreen(bool isFullscreen) 
+    {
+        Screen.fullScreen = isFullscreen;
+        int fullscreenInt = (isFullscreen) ? 1 : 0;
+        PlayerPrefs.SetInt("playerFullscreen", fullscreenInt);
     }
 }
