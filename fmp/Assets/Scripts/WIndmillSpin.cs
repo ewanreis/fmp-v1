@@ -5,8 +5,8 @@ using UnityEngine;
 public class WIndmillSpin : MonoBehaviour
 {
 
-    void Update()
+    void FixedUpdate()
     {
-             transform.Rotate(new Vector3(0,1,0));
+        transform.Rotate(new Vector3(0,1,0));
     }
 }
