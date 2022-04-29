@@ -10,14 +10,15 @@ using TMPro;
 public class MapManager : MonoBehaviour
 {
     #region Audio
-    public AudioSource musicSource, vfxSource;
+    [Header("Audio")]
     public AudioMixer audioMixer;
+    public AudioSource musicSource, vfxSource;
     public Slider masterSlider, musicSlider, vfxSlider;
     public AudioClip[] clips;
     #endregion
 
     #region Graphics
-    // Post Processing
+    [Header("Post Processing")]
     public Volume renderingVolume;
     public LiftGammaGain liftGammaGain;
     public Tonemapping toneMap;
@@ -25,17 +26,19 @@ public class MapManager : MonoBehaviour
     public Vignette vignette;
     public DepthOfField depthOfField;
 
-    // Graphics Quality
+    [Header("Graphics Quality")]
     public Toggle fullscreenToggle, postProcessingToggle;
     public Slider brightnessSlider;
     public TMP_Dropdown distanceDropdown, densityDropdown, qualityDropdown;
 
     // Nature
+    [Header("Nature")]
     public Terrain terrain;
     public float grassDistance, grassDensity;
     #endregion
 
     #region Player Preferences
+    [Header("Player Preferences")]
     private int pIsFullscreen, pGraphicsPreset, pPostProcessingEnabled, pDensityLevel, pDistanceLevel;
     public float pMasterVolume, pMusicVolume, pVfxVolume, pBrightness;
     public bool postProcessingEnabled;
