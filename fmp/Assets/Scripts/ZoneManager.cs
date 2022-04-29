@@ -10,6 +10,5 @@ public class ZoneManager : MonoBehaviour
     {
         if (other.attachedRigidbody)
             activeZone = zoneNumber;
-        //print(activeZone);
     }
 }
