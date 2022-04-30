@@ -9,7 +9,7 @@ public class SpawningManager : MonoBehaviour
 {
     private const float ghoulPercentage = 0.6f, goblinPercentage = 0.3f, knightPercentage = 0.1f;
 
-    public Vector3[,] spawnArea;
+    private Vector3[,] spawnArea = new Vector3[7,2];
 
 
     [SerializeField]
@@ -43,30 +43,39 @@ public class SpawningManager : MonoBehaviour
 
     void Start()
     {
-        round = 1;
+        round = 0;
 
         spawnArea[1, 0] = new Vector3(18, 1, 12);
-        spawnArea[1, 1] = new Vector3(0, 1, 20);
+        spawnArea[1, 1] = new Vector3(-8, 1, 18);
 
         spawnArea[2, 0] = new Vector3(0, 1, 0);
         spawnArea[2, 1] = new Vector3(0, 1, 0);
+        
+
 
     }
 
     void Update()
     {
-        CalculateSpawnChance(round, false, false);
-        CalculateMonsterStats(round);
-        zoneToSpawn = ZoneManager.activeZone;
-        enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy").Length;
-        if(enemiesLeft == 0) 
-            StartNewRound();
-        RoundDisplay.text = round.ToString();
-        EnemyRemainingDisplay.text = enemiesLeft.ToString();
+        if(!PauseMenu.isPaused)
+        {
+            zoneToSpawn = ZoneManager.activeZone;
+            enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy").Length;
+            if(enemiesLeft == 0) 
+                StartNewRound();
+            RoundDisplay.text = round.ToString();
+            EnemyRemainingDisplay.text = enemiesLeft.ToString();
+        }
     }
 
     private void StartNewRound()
     {
+        ghoulsSpawned = 0;
+        goblinsSpawned = 0;
+        knightsSpawned = 0;
+        CalculateSpawnChance(round, false, false);
+        CalculateMonsterStats(round);
+        StartCoroutine(SpawnMonsters(ghoulsToSpawn, goblinsToSpawn, knightsToSpawn, holyPercentage, bloodPercentage, zoneToSpawn));
         round++;
     }
 
@@ -101,32 +110,42 @@ public class SpawningManager : MonoBehaviour
         knightDamage = 15 + round;
     }
 
-    private void SpawnMonsters(int ghoulsTS, int goblinsTS, int knightsTS, float bloodPercent, float holyPercent, int zone)
+    private IEnumerator SpawnMonsters(int ghoulsTS, int goblinsTS, int knightsTS, float bloodPercent, float holyPercent, int zone)
     {
-        
-        while(ghoulsTS < ghoulsSpawned)
+        bool canSpawn = true;
+        Vector3 spawnLocation;
+        while(canSpawn)
         {
             xLoc = Random.Range(spawnArea[zone, 0].x , spawnArea[zone, 1].x);
             zLoc = Random.Range(spawnArea[zone, 0].z, spawnArea[zone, 1].z);
-            Vector3 spawnLocation = new Vector3(xLoc, spawnArea[zone, 0].y, zLoc);
-            Instantiate(enemyPrefabs[0], spawnLocation, Quaternion.identity);
-            ghoulsSpawned++;
-        }
-        while (goblinsTS < goblinsSpawned)
-        {
-            xLoc = Random.Range(spawnArea[zone, 0].x, spawnArea[zone, 1].x);
+            spawnLocation = new Vector3(xLoc, spawnArea[zone, 0].y, zLoc);
+            if (ghoulsTS > ghoulsSpawned)
+            {
+                Instantiate(enemyPrefabs[Random.Range(0,3)], spawnLocation, Quaternion.identity);
+                yield return new WaitForSeconds(0.1f);
+                ghoulsSpawned++;
+            }
+            xLoc = Random.Range(spawnArea[zone, 0].x , spawnArea[zone, 1].x);
             zLoc = Random.Range(spawnArea[zone, 0].z, spawnArea[zone, 1].z);
-            Vector3 spawnLocation = new Vector3(xLoc, spawnArea[zone, 0].y, zLoc);
-            Instantiate(enemyPrefabs[1], spawnLocation, Quaternion.identity);
-            goblinsSpawned++;
-        }
-        while (knightsTS < knightsSpawned)
-        {
-            xLoc = Random.Range(spawnArea[zone, 0].x, spawnArea[zone, 1].x);
+            spawnLocation = new Vector3(xLoc, spawnArea[zone, 0].y, zLoc);
+            if (goblinsTS > goblinsSpawned)
+            {
+                Instantiate(enemyPrefabs[Random.Range(3,6)], spawnLocation, Quaternion.identity);
+                yield return new WaitForSeconds(0.1f);
+                goblinsSpawned++;
+            }
+            xLoc = Random.Range(spawnArea[zone, 0].x , spawnArea[zone, 1].x);
             zLoc = Random.Range(spawnArea[zone, 0].z, spawnArea[zone, 1].z);
-            Vector3 spawnLocation = new Vector3(xLoc, spawnArea[zone, 0].y, zLoc);
-            Instantiate(enemyPrefabs[2], spawnLocation, Quaternion.identity);
-            knightsSpawned++;
+            spawnLocation = new Vector3(xLoc, spawnArea[zone, 0].y, zLoc);
+            if (knightsTS > knightsSpawned)
+            {
+                Instantiate(enemyPrefabs[Random.Range(6,8)], spawnLocation, Quaternion.identity);
+                yield return new WaitForSeconds(0.1f);
+                knightsSpawned++;
+            }
+            if (ghoulsTS == ghoulsSpawned && goblinsTS == goblinsSpawned && knightsTS == knightsSpawned)
+                canSpawn = false;
         }
+        
     }
 }
