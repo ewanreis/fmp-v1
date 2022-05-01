@@ -17,6 +17,7 @@ TagManager:
   - nGrandKnight
   - bGrandKnight
   - hGrandKnight
+  - playerAttack
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - Water
   - UI
   - Player
-  - 
+  - Door
   - 
   - 
   - 

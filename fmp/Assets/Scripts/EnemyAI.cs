@@ -12,18 +12,20 @@ public class EnemyAI : MonoBehaviour
     public Vector3 walkPoint;
 
     private bool walkPointSet, alreadyAttacked, playerInSight, playerInAttack;
+    public int damage = 0;
     public bool isWalking, isAttacking, isHurt, isIdle;
 
     [Header("Enemy Statistics")]
     public int enemyType;
     public GameObject enemyBody;
     [SerializeField]
-    private float timeBetweenAttacks, sightRange, attackRange, walkPointRange, health;
+    public float timeBetweenAttacks, sightRange, attackRange, walkPointRange, health;
 
     private void Update()
     {
         playerInSight = Physics.CheckSphere(transform.position, sightRange, playerMask);
         playerInAttack = Physics.CheckSphere(transform.position, attackRange, playerMask);
+        damage = playerController.playerAttackDamage;
         if(!playerInSight && !playerInAttack) Patrolling();
         if(playerInSight && !playerInAttack) ChasePlayer();
         if(playerInSight && playerInAttack) AttackPlayer();
@@ -87,7 +89,7 @@ public class EnemyAI : MonoBehaviour
         isWalking = false;
         isIdle = false;
         isAttacking = true;
-        enemyBody.GetComponent<Collider>().enabled = true;
+        Invoke(nameof(EnableCollider), 2f);
         if(!alreadyAttacked)
         {
             alreadyAttacked = true;
@@ -97,13 +99,22 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.tag == "PlayerAttack")
+        {
+            TakeDamage(damage);
+        }
+    }
+    private void EnableCollider() => enemyBody.GetComponent<Collider>().enabled = true;
+
     private void ResetAttack() => alreadyAttacked = false;
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damageTaken)
     {
         isHurt = true;
-        health -= damage;
-        Invoke(nameof(StopHurt), 1F);
+        health -= damageTaken;
+        Invoke(nameof(StopHurt), 5f);
         if(health <= 0)
             Invoke(nameof(DestroyEnemy), 0.5f);
     }

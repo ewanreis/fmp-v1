@@ -358,6 +358,8 @@
 "Assets/Packages/Laterns and candles/scripts/CameraFacing.cs"
 "Assets/Scripts/EnemyAI.cs"
 "Assets/Scripts/IngameMenu.cs"
+"Assets/Scripts/Interactable.cs"
+"Assets/Scripts/Interactor.cs"
 "Assets/Scripts/LookAtCamera.cs"
 "Assets/Scripts/MapManager.cs"
 "Assets/Scripts/MenuScript.cs"
