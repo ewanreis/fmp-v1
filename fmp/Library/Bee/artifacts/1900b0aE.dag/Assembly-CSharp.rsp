@@ -357,7 +357,6 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/VSSettingsProvider.ref.dll"
 "Assets/Packages/Laterns and candles/scripts/CameraFacing.cs"
 "Assets/Scripts/EnemyAI.cs"
-"Assets/Scripts/EnemyScript.cs"
 "Assets/Scripts/IngameMenu.cs"
 "Assets/Scripts/LookAtCamera.cs"
 "Assets/Scripts/MapManager.cs"

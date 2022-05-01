@@ -100,9 +100,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Grand Knight
-
-'
+  m_text: Knight
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a0b2fa8085f77eb41bc8b0088cc5dff9, type: 2}
   m_sharedMaterial: {fileID: -2730582354403053911, guid: a0b2fa8085f77eb41bc8b0088cc5dff9, type: 2}
@@ -129,7 +127,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.35
+  m_fontSize: 45.05
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -231,6 +229,7 @@ GameObject:
   - component: {fileID: -1357923593437976024}
   - component: {fileID: -5031530454003519431}
   - component: {fileID: 3764542891743024746}
+  - component: {fileID: 7761057616454227918}
   m_Layer: 0
   m_Name: Knight v2
   m_TagString: Enemy
@@ -247,7 +246,7 @@ Transform:
   m_GameObject: {fileID: 3833358806886310423}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 6.757558, y: 0, z: 12.85346}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3654788724759131301}
   - {fileID: 3833358805351230258}
@@ -297,6 +296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 3764542891743024746}
+  enemyAnimator: {fileID: 7761057616454227918}
   player: {fileID: 0}
   ground:
     serializedVersion: 2
@@ -305,9 +305,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
-  timeBetweenAttacks: 1
-  sightRange: 10
-  attackRange: 2
+  isWalking: 0
+  isAttacking: 0
+  isHurt: 0
+  isIdle: 0
+  enemyType: 0
+  enemyBody: {fileID: 4175886165262380575}
+  timeBetweenAttacks: 5
+  sightRange: 40
+  attackRange: 1
   walkPointRange: 5
   health: 0
 --- !u!195 &3764542891743024746
@@ -332,18 +338,38 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &7700812396048406428
-MonoBehaviour:
+--- !u!95 &7761057616454227918
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3833358806886310423}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: d05e170786c3e0e4ebf9b6c7253b0cac, type: 3}
+  m_Controller: {fileID: 9100000, guid: 1474a77b5c29383438cd43d2731c3868, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!135 &2969717545825382745
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4175886165262380575}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42b205469b5e7c0409de79f638898690, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Radius: 1.19
+  m_Center: {x: 0, y: 1.04, z: 0}
 --- !u!1001 &3833358806581220174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -403,10 +429,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Knight_Ani
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d05e170786c3e0e4ebf9b6c7253b0cac, type: 3}
+      propertyPath: m_TagString
+      value: nKnight
+      objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: d05e170786c3e0e4ebf9b6c7253b0cac, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: cd63c552dbd00cb4582afad805383200, type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d05e170786c3e0e4ebf9b6c7253b0cac, type: 3}
 --- !u!1 &4175886165262380575 stripped

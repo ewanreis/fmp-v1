@@ -968,9 +968,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6792028927287399146}
   - component: {fileID: 6803015997911799071}
+  - component: {fileID: 1801916663704426351}
   m_Layer: 0
   m_Name: Survivor
-  m_TagString: Untagged
+  m_TagString: nGhoul
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1107,6 +1108,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.024710417, y: -0.07380134, z: 0.003683433}
     m_Extent: {x: 1.1547704, y: 1.0429721, z: 0.27236152}
   m_DirtyAABB: 0
+--- !u!135 &1801916663704426351
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5095243116446405991}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1547705
+  m_Center: {x: -0.024710411, y: 1.0269275, z: 0.0007041544}
 --- !u!1 &5705499026512024818
 GameObject:
   m_ObjectHideFlags: 0
@@ -1958,6 +1972,7 @@ GameObject:
   - component: {fileID: -552246713582111539}
   - component: {fileID: 3507387051718915513}
   - component: {fileID: 9054500527181946243}
+  - component: {fileID: 6609628966675453859}
   m_Layer: 0
   m_Name: Ghoul v2
   m_TagString: Enemy
@@ -2025,6 +2040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 9054500527181946243}
+  enemyAnimator: {fileID: 6609628966675453859}
   player: {fileID: 0}
   ground:
     serializedVersion: 2
@@ -2033,8 +2049,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
+  isWalking: 0
+  isAttacking: 0
+  isHurt: 0
+  isIdle: 0
+  enemyType: 0
+  enemyBody: {fileID: 5095243116446405991}
   timeBetweenAttacks: 1
-  sightRange: 10
+  sightRange: 30
   attackRange: 2
   walkPointRange: 5
   health: 0
@@ -2060,6 +2082,25 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &6609628966675453859
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7861104682982558587}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: b8490264e4908ee419d45ea2ef3d8656, type: 3}
+  m_Controller: {fileID: 9100000, guid: efbf2c79124073443836e1858a2ebc01, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7881531325778377077
 GameObject:
   m_ObjectHideFlags: 0

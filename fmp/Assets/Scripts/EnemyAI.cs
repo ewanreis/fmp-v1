@@ -6,14 +6,17 @@ using UnityEngine.AI;
 public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
+    public Animator enemyAnimator;
     public Transform player;
     public LayerMask ground, playerMask;
     public Vector3 walkPoint;
 
     private bool walkPointSet, alreadyAttacked, playerInSight, playerInAttack;
+    public bool isWalking, isAttacking, isHurt, isIdle;
 
     [Header("Enemy Statistics")]
     public int enemyType;
+    public GameObject enemyBody;
     [SerializeField]
     private float timeBetweenAttacks, sightRange, attackRange, walkPointRange, health;
 
@@ -21,10 +24,18 @@ public class EnemyAI : MonoBehaviour
     {
         playerInSight = Physics.CheckSphere(transform.position, sightRange, playerMask);
         playerInAttack = Physics.CheckSphere(transform.position, attackRange, playerMask);
-
         if(!playerInSight && !playerInAttack) Patrolling();
         if(playerInSight && !playerInAttack) ChasePlayer();
         if(playerInSight && playerInAttack) AttackPlayer();
+        SetAnimations();
+    }
+
+    private void SetAnimations()
+    {
+        enemyAnimator.SetBool("isWalking", isWalking);
+        enemyAnimator.SetBool("isAttacking", isAttacking);
+        enemyAnimator.SetBool("isHurt", isHurt);
+        enemyAnimator.SetBool("isIdle", isIdle);
     }
 
     private void Awake()
@@ -35,8 +46,19 @@ public class EnemyAI : MonoBehaviour
 
     private void Patrolling()
     {
-        if(!walkPointSet) SearchWalkPoint();
-        if(walkPointSet) agent.SetDestination(walkPoint);
+        if(!walkPointSet)
+        {
+            SearchWalkPoint();
+            isIdle = true;
+            isWalking = false;
+            isAttacking = false;
+        }
+        if(walkPointSet) 
+        {
+            agent.SetDestination(walkPoint);
+            isIdle = false;
+            isWalking = true;
+        }
         Vector3 distanceToWalkPoint = transform.position - walkPoint;
         if (distanceToWalkPoint.magnitude < 1f) walkPointSet = false;
     }
@@ -50,15 +72,27 @@ public class EnemyAI : MonoBehaviour
             walkPointSet = true;
     }
 
-    private void ChasePlayer() => agent.SetDestination(player.position);
+    private void ChasePlayer() 
+    {
+        agent.SetDestination(player.position);
+        isAttacking = false;
+        isIdle = false;
+        isWalking = true;
+    }
 
     private void AttackPlayer()
     {
         agent.SetDestination(transform.position);
         transform.LookAt(player);
+        isWalking = false;
+        isIdle = false;
+        isAttacking = true;
+        enemyBody.GetComponent<Collider>().enabled = true;
         if(!alreadyAttacked)
         {
             alreadyAttacked = true;
+            isAttacking = false;
+            enemyBody.GetComponent<Collider>().enabled = false;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
@@ -67,9 +101,12 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        isHurt = true;
         health -= damage;
+        Invoke(nameof(StopHurt), 1F);
         if(health <= 0)
             Invoke(nameof(DestroyEnemy), 0.5f);
     }
+    private void StopHurt() => isHurt = false;
     private void DestroyEnemy() => Destroy(gameObject);
 }

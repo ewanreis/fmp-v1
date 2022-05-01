@@ -545,6 +545,7 @@ GameObject:
   - component: {fileID: -380066642749646244}
   - component: {fileID: -4710484446446105602}
   - component: {fileID: -7655452121156253838}
+  - component: {fileID: -1863197364142232827}
   m_Layer: 0
   m_Name: Goblin v1
   m_TagString: Enemy
@@ -612,6 +613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: -7655452121156253838}
+  enemyAnimator: {fileID: -1863197364142232827}
   player: {fileID: 0}
   ground:
     serializedVersion: 2
@@ -620,9 +622,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
+  isWalking: 0
+  isAttacking: 0
+  isHurt: 0
+  isIdle: 0
+  enemyType: 0
+  enemyBody: {fileID: 3174193981103335332}
   timeBetweenAttacks: 1
-  sightRange: 10
-  attackRange: 2
+  sightRange: 30
+  attackRange: 1
   walkPointRange: 5
   health: 0
 --- !u!195 &-7655452121156253838
@@ -647,6 +655,25 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &-1863197364142232827
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1006200528792180032}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 838d1ae98f003194b86c732ff15ecf64, type: 3}
+  m_Controller: {fileID: 9100000, guid: 21b332e51a0e99244a68e54dbdb1118d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1022038814487361971
 GameObject:
   m_ObjectHideFlags: 0
@@ -1123,9 +1150,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7264803102170120397}
   - component: {fileID: 5657368909876102941}
+  - component: {fileID: 1344643093997074765}
   m_Layer: 0
   m_Name: PumpkinHulk
-  m_TagString: Untagged
+  m_TagString: nGoblin
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1262,6 +1290,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0000062584877, y: 0.007499516, z: 0.0032339543}
     m_Extent: {x: 1.4727759, y: 1.0212235, z: 0.359397}
   m_DirtyAABB: 0
+--- !u!135 &1344643093997074765
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3174193981103335332}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.35
+  m_Center: {x: -0.000006261638, y: 1.0204294, z: -0.01340957}
 --- !u!1 &3440226472133318337
 GameObject:
   m_ObjectHideFlags: 0

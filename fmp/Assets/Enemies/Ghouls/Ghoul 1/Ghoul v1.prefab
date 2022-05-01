@@ -540,6 +540,7 @@ GameObject:
   - component: {fileID: 6526562037809980055}
   - component: {fileID: 8038976935916880238}
   - component: {fileID: 7882096474543826441}
+  - component: {fileID: -2108740655350346904}
   m_Layer: 0
   m_Name: Ghoul v1
   m_TagString: Enemy
@@ -609,6 +610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 7882096474543826441}
+  enemyAnimator: {fileID: -2108740655350346904}
   player: {fileID: 0}
   ground:
     serializedVersion: 2
@@ -617,8 +619,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
+  isWalking: 0
+  isAttacking: 0
+  isHurt: 0
+  isIdle: 0
+  enemyType: 0
+  enemyBody: {fileID: 8127012709546174113}
   timeBetweenAttacks: 1
-  sightRange: 10
+  sightRange: 30
   attackRange: 2
   walkPointRange: 5
   health: 20
@@ -644,6 +652,25 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!95 &-2108740655350346904
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2509274084329613568}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: f24bd8ce8d047404bac7458e582a1336, type: 3}
+  m_Controller: {fileID: 9100000, guid: efbf2c79124073443836e1858a2ebc01, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2582150522184741457
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,9 +2212,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6592089991950070603}
   - component: {fileID: 4819012404220367366}
+  - component: {fileID: 891010873278307023}
   m_Layer: 0
   m_Name: ZombieGirl_Body
-  m_TagString: Untagged
+  m_TagString: nGhoul
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2320,6 +2348,19 @@ SkinnedMeshRenderer:
     m_Center: {x: 0.022535414, y: -0.070666075, z: 0.015175439}
     m_Extent: {x: 0.9986702, y: 1.032883, z: 0.19180453}
   m_DirtyAABB: 0
+--- !u!135 &891010873278307023
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8127012709546174113}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.03
+  m_Center: {x: 0.022535421, y: 1.13, z: 0.012246706}
 --- !u!1 &8188000190605149479
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,20 +15,17 @@ public class SpawningManager : MonoBehaviour
     [SerializeField]
     [Header("Ghoul Statistics")]
     private int ghoulsToSpawn;
-    [SerializeField]
-    private float ghoulHealth, ghoulDamage;
+    public static float ghoulHealth, ghoulDamage;
 
     [SerializeField]
     [Header("Goblin Statistics")]
     private int goblinsToSpawn;
-    [SerializeField]
-    private float goblinHealth, goblinDamage;
+    public static float goblinHealth, goblinDamage;
 
     [SerializeField]
     [Header("Knight Statistics")]
     private int knightsToSpawn;
-    [SerializeField]
-    private float knightHealth, knightDamage;
+    public static float knightHealth, knightDamage;
 
     [Space(10)]
     public GameObject[] enemyPrefabs;
@@ -43,7 +40,7 @@ public class SpawningManager : MonoBehaviour
 
     void Start()
     {
-        round = 0;
+        round = 10;
 
         spawnArea[1, 0] = new Vector3(18, 1, 12);
         spawnArea[1, 1] = new Vector3(-8, 1, 18);

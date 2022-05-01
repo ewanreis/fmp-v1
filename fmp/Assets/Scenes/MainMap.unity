@@ -10968,11 +10968,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4223342462343633227, guid: 07562fdba9f452e4bb14c8e520640a0d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 7.19376e-10
+      value: -7.19376e-10
       objectReference: {fileID: 0}
     - target: {fileID: 4223342462343633227, guid: 07562fdba9f452e4bb14c8e520640a0d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1.3121993e-11
+      value: -1.3121993e-11
       objectReference: {fileID: 0}
     - target: {fileID: 4223342462343633227, guid: 07562fdba9f452e4bb14c8e520640a0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -20846,14 +20846,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ghoulsToSpawn: 0
-  ghoulHealth: 0
-  ghoulDamage: 0
   goblinsToSpawn: 0
-  goblinHealth: 0
-  goblinDamage: 0
   knightsToSpawn: 0
-  knightHealth: 0
-  knightDamage: 0
   enemyPrefabs:
   - {fileID: 2509274084329613568, guid: c1a4f24756a40c04a8bc9ed4620bec2a, type: 3}
   - {fileID: 7861104682982558587, guid: 614a43ae893647e44b2573852247d3e9, type: 3}
@@ -21903,11 +21897,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967081825434, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -5.9646676e-10
+      value: 8.023482e-10
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967081825434, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 5.7627134e-14
+      value: -7.751819e-14
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967274677084, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.w
@@ -21919,11 +21913,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967274677084, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1.3080311e-23
+      value: -1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967274677084, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1.3068765e-24
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967325745236, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalPosition.y
@@ -21931,23 +21925,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967325745236, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.25
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967325745236, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9994627
+      value: 0.99933654
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967325745236, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.03277713
+      value: 0.0364215
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967325745236, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000029786314
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967325745236, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -9.768347e-10
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967650859675, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_CameraRadius

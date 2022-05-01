@@ -5,6 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - nGhoul
+  - bGhoul
+  - hGhoul
+  - nGoblin
+  - bGoblin
+  - hGoblin
+  - nKnight
+  - bKnight
+  - hKnight
+  - nGrandKnight
+  - bGrandKnight
+  - hGrandKnight
   layers:
   - Default
   - TransparentFX

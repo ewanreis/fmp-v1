@@ -15,7 +15,7 @@ public class playerController : MonoBehaviour
 
     private Vector2 movementInput;
     private Vector3 moveDir, velocity, direction;
-    private float xRotation, turnSmoothVelocity, targetAngle, angle, mouseInputX, groundDistance = 0.4f, speed = 4;
+    private float xRotation, turnSmoothVelocity, targetAngle, angle, mouseInputX, groundDistance = 0.4f, speed = 4, regenDelay = 0;
     private int attackIndex = 1;
     private bool isGrounded, isCrouching, isAttacking, isWalking, isTurning, canMove = true;
 
@@ -38,6 +38,20 @@ public class playerController : MonoBehaviour
             SetAnimations();
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        float damage = 0;
+        if(other.gameObject.tag == "nGhoul")
+            damage = SpawningManager.ghoulDamage;
+        if(other.gameObject.tag == "nGoblin")
+            damage = SpawningManager.goblinDamage;
+        if(other.gameObject.tag == "nKnight")
+            damage = SpawningManager.goblinDamage;
+        TakeDamage(damage);
+    }
+
+    private void TakeDamage(float damage) => playerHealth -= damage;
 
     public void StartAttack(int attack)
     {
@@ -121,9 +135,14 @@ public class playerController : MonoBehaviour
         #endregion // Gets the input from the mouse and turns the player
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
-        /*#region Jumping
-        if (isGrounded && velocity.y < 0) velocity.y = -2f;
-        if (Input.GetButtonDown("Jump") && isGrounded) velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
-        #endregion // Checks if the player is grounded, then jumps when assigned Jump button is pressed */
+
+        // Health Regen
+        if(playerHealth < 100 && regenDelay < 20f)
+            regenDelay += 0.1f;
+        if(playerHealth < 100 && regenDelay >= 20f)
+            playerHealth++;
+        if(playerHealth == 100)
+            regenDelay = 0;
+
     }
 }

@@ -443,9 +443,10 @@ GameObject:
   m_Component:
   - component: {fileID: 183721607087779929}
   - component: {fileID: 3878225179608660442}
+  - component: {fileID: 7579364211933268740}
   m_Layer: 0
   m_Name: Paladin_J_Nordstrom
-  m_TagString: Untagged
+  m_TagString: nKnight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -569,6 +570,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00046998262, y: -0.122077644, z: -0.009631701}
     m_Extent: {x: 1.1083269, y: 1.1206226, z: 0.22373053}
   m_DirtyAABB: 0
+--- !u!135 &7579364211933268740
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1171318595109720499}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1206242
+  m_Center: {x: -0.00091518054, y: 1.1204553, z: -0.0035739606}
 --- !u!1 &1173843745443409108
 GameObject:
   m_ObjectHideFlags: 0
@@ -681,7 +695,7 @@ Animator:
   m_GameObject: {fileID: 1303751600685243686}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 2a4b388c8fb81bf47b1c69d3820e0c1e, type: 3}
-  m_Controller: {fileID: 9100000, guid: cd63c552dbd00cb4582afad805383200, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1474a77b5c29383438cd43d2731c3868, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -733,6 +747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: -376567348939773588}
+  enemyAnimator: {fileID: 911480122355303658}
   player: {fileID: 0}
   ground:
     serializedVersion: 2
@@ -741,9 +756,15 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
-  timeBetweenAttacks: 1
-  sightRange: 10
-  attackRange: 2
+  isWalking: 0
+  isAttacking: 0
+  isHurt: 0
+  isIdle: 0
+  enemyType: 0
+  enemyBody: {fileID: 1171318595109720499}
+  timeBetweenAttacks: 5
+  sightRange: 40
+  attackRange: 1
   walkPointRange: 5
   health: 0
 --- !u!195 &-376567348939773588
