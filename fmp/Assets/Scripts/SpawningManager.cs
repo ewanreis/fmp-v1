@@ -11,6 +11,8 @@ public class SpawningManager : MonoBehaviour
 
     private Vector3[,] spawnArea = new Vector3[7,2];
 
+    public static int round;
+
 
     [SerializeField]
     [Header("Ghoul Statistics")]
@@ -30,7 +32,7 @@ public class SpawningManager : MonoBehaviour
     [Space(10)]
     public GameObject[] enemyPrefabs;
     
-    public int round, enemiesLeft, enemiesToSpawn, zoneToSpawn;
+    public int enemiesLeft, enemiesToSpawn, zoneToSpawn;
     public TMP_Text RoundDisplay, EnemyRemainingDisplay;
 
     public int ghoulsSpawned = 0, goblinsSpawned = 0, knightsSpawned = 0;
@@ -67,6 +69,7 @@ public class SpawningManager : MonoBehaviour
         ghoulsSpawned = 0;
         goblinsSpawned = 0;
         knightsSpawned = 0;
+        print(round);
         CalculateSpawnChance(round, false, false);
         CalculateMonsterStats(round);
         StartCoroutine(SpawnMonsters(ghoulsToSpawn, goblinsToSpawn, knightsToSpawn, holyPercentage, bloodPercentage, zoneToSpawn));

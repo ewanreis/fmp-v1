@@ -14,20 +14,21 @@ public class playerController : MonoBehaviour
     public LayerMask groundMask;
     public float mouseSensitivity;
     public TMP_Text moneyCounter;
-    public SphereCollider playerAttackCollider;
-    public static int playerAttackDamage = 0, playerMoney = 100;
+
+    public static int playerMoney = 0, attackIndex = 1;
+    public static float playerStamina = 100;
+    public static bool canMove = true, isAttacking = false;
 
     private Vector2 movementInput;
     private Vector3 moveDir, velocity, direction;
-    private float xRotation, turnSmoothVelocity, turnSmoothTime = 0.1f, targetAngle, angle, mouseInputX, groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f,  playerStamina = 100, playerHealth = 100;
-    private int attackIndex = 1;
-    private bool isGrounded, isCrouching, isAttacking, isWalking, isTurning, canMove = true, damaged = false, alreadyAttacked;
+    private float xRotation, turnSmoothVelocity, turnSmoothTime = 0.1f, targetAngle, angle, mouseInputX, groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100;
+
+    private bool isGrounded, isCrouching, isWalking, isTurning, damaged = false;
 
     void Start() 
     { 
         Application.targetFrameRate = -1;
         Cursor.lockState = CursorLockMode.Locked;
-        playerAttackCollider.radius = 0;
     }
 
     void Update()
@@ -38,13 +39,18 @@ public class playerController : MonoBehaviour
         {
             GetPlayerInput();
             if (isAttacking) canMove = false;
-            if (playerStamina < 100) playerStamina += (3 * Time.deltaTime);
             xRotation += mouseInputX;
             staminaBar.value = playerStamina;
             healthBar.value = playerHealth;
             SetAnimations();
         }
     }
+
+    public void StartAttack(int attack) 
+    {
+        isAttacking = true;
+        attackIndex = attack;
+    } 
 
     private void OnTriggerEnter(Collider other)
     {
@@ -68,55 +74,7 @@ public class playerController : MonoBehaviour
 
     private void TakeDamage(float damage) => playerHealth -= damage;
 
-    public void StartAttack(int attack)
-    {
-        int staminaCost = attack switch
-        {
-            1 => 25, 2 => 10, 3 => 30,
-            4 => 50, 5 => 20, 6 => 60,
-            7 => 25, 8 => 50, 9 => 25,
-            _ => 0
-        };
-        int duration = attack switch
-        {
-            1 => 2, 2 => 5, 3 => 2,
-            4 => 5, 5 => 2, 6 => 6,
-            7 => 2, 8 => 5, 9 => 2,
-            _ => 5
-        };
-        playerStamina -= staminaCost;
-        string printAttack = attack switch
-        {
-            1 => "Swirling Chaos", 2 => "Gravity Pull", 3 => "Amplified Gravity", 
-            4 => "Black Hole", 5 => "Galactic Pull", 6 => "Gravity Well",
-            7 => "7", 8 => "8", 9 => "9",
-            _ => "Error"
-        };
-        playerAttackDamage = attack switch
-        {
-            1 => 10, 2 => 50, 3 => 100,
-            4 => 20, 5 => 40, 6 => 75,
-            _ => 0
-        };
-        float attackRadius = 10f;
-        playerAttackCollider.enabled = true;
-        playerAttackCollider.radius = attackRadius;
-        
-        if(!alreadyAttacked)
-        {
-            alreadyAttacked = true;
-            Invoke(nameof(ResetAttack), duration);
-        }
-        canMove = true;
-    }
-
-    private void ResetAttack() 
-    {
-        playerAttackCollider.enabled = false;
-        alreadyAttacked = false;
-        isAttacking = false;
-        playerAttackDamage = 0;
-    } 
+   
         
 
     void SetAnimations()
@@ -163,7 +121,7 @@ public class playerController : MonoBehaviour
             targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            if (speed > 4) playerStamina -= (6 * Time.deltaTime);
+            if (speed > 4) playerStamina -= (0.4f);
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
         #endregion // Moves the player
@@ -181,6 +139,10 @@ public class playerController : MonoBehaviour
             playerHealth++;
         if(playerHealth == 100)
             regenDelay = 0;
+
+        // Stamina Regen
+        if (playerStamina < 100) 
+            playerStamina += 0.3f;
 
         // Damage Delay
         damageDelay -= 0.1f;

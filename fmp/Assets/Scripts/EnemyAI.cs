@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -10,22 +11,25 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
     public LayerMask ground, playerMask;
     public Vector3 walkPoint;
+    public Slider healthBarSlider;
 
     private bool walkPointSet, alreadyAttacked, playerInSight, playerInAttack;
-    public int damage = 0;
+    public int damage = 0, currentRound;
     public bool isWalking, isAttacking, isHurt, isIdle;
+    private bool damaged;
 
     [Header("Enemy Statistics")]
-    public int enemyType;
     public GameObject enemyBody;
+    public int enemyType, moneyDrop;
     [SerializeField]
-    public float timeBetweenAttacks, sightRange, attackRange, walkPointRange, health;
+    public float timeBetweenAttacks, sightRange, attackRange, walkPointRange, health, damageDelay = 2f;
 
     private void Update()
     {
         playerInSight = Physics.CheckSphere(transform.position, sightRange, playerMask);
         playerInAttack = Physics.CheckSphere(transform.position, attackRange, playerMask);
-        damage = playerController.playerAttackDamage;
+        damage = PlayerAttackSystem.playerAttackDamage;
+        healthBarSlider.value = health;
         if(!playerInSight && !playerInAttack) Patrolling();
         if(playerInSight && !playerInAttack) ChasePlayer();
         if(playerInSight && playerInAttack) AttackPlayer();
@@ -44,6 +48,24 @@ public class EnemyAI : MonoBehaviour
     {
         player = GameObject.Find("Player").transform;
         agent = GetComponent<NavMeshAgent>();
+
+        currentRound = SpawningManager.round;
+        health = enemyType switch
+        {
+            0 => 20 +((float)currentRound / 10),
+            1 => 40 +((float)currentRound / 10),
+            2 => 125 +((float)currentRound / 10),
+            _ => 0
+        };
+        damage = enemyType switch
+        {
+            0 => 1 + currentRound,
+            1 => 5 + currentRound,
+            2 => 15 + currentRound,
+            _ => 0
+        };
+        healthBarSlider.maxValue = health;
+        healthBarSlider.value = health;
     }
 
     private void Patrolling()
@@ -115,9 +137,38 @@ public class EnemyAI : MonoBehaviour
         isHurt = true;
         health -= damageTaken;
         Invoke(nameof(StopHurt), 5f);
+    }
+
+    void FixedUpdate()
+    {
+        damageDelay -= 0.1f;
+        if(damageDelay <= 0)
+            damaged = false;
         if(health <= 0)
             Invoke(nameof(DestroyEnemy), 0.5f);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        float damage = 0;
+        if(damaged != true)
+        {
+            if(other.gameObject.tag == "playerAttack")
+                damage = PlayerAttackSystem.playerAttackDamage;
+        }
+        if(damage > 0)
+        {
+            damaged = true;
+            damageDelay = 2f;
+        }
+        TakeDamage(damage);
+    }
+
+    private void TakeDamage(float damage) => health -= damage;
     private void StopHurt() => isHurt = false;
-    private void DestroyEnemy() => Destroy(gameObject);
+    private void DestroyEnemy() 
+    {
+        playerController.playerMoney += moneyDrop;
+        Destroy(gameObject);
+    }
 }

@@ -364,6 +364,7 @@
 "Assets/Scripts/MapManager.cs"
 "Assets/Scripts/MenuScript.cs"
 "Assets/Scripts/PauseMenu.cs"
+"Assets/Scripts/PlayerAttackSystem.cs"
 "Assets/Scripts/playerController.cs"
 "Assets/Scripts/SpawningManager.cs"
 "Assets/Scripts/WIndmillSpin.cs"
