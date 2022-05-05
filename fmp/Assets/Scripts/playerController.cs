@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 public class playerController : MonoBehaviour
 {
-    private const float gravity = -9.8f, jumpHeight = 3;
+    private const float gravity = -9.8f, turnSmoothTime = 0.1f;
 
     public CharacterController controller;
     public Animator playerAnimator;
@@ -21,8 +21,7 @@ public class playerController : MonoBehaviour
 
     private Vector2 movementInput;
     private Vector3 moveDir, velocity, direction;
-    private float xRotation, turnSmoothVelocity, turnSmoothTime = 0.1f, targetAngle, angle, mouseInputX, groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100;
-
+    private float xRotation, turnSmoothVelocity, targetAngle, angle, mouseInputX, groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100;
     private bool isGrounded, isCrouching, isWalking, isTurning, damaged = false;
 
     void Start() 
@@ -34,11 +33,9 @@ public class playerController : MonoBehaviour
     void Update()
     {
         moneyCounter.text = $"{playerMoney}";
-        //print($"{playerAttackDamage}");
         if(!PauseMenu.isPaused)
         {
             GetPlayerInput();
-            if (isAttacking) canMove = false;
             xRotation += mouseInputX;
             staminaBar.value = playerStamina;
             healthBar.value = playerHealth;

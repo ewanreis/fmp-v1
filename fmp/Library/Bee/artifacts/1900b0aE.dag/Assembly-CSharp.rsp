@@ -366,6 +366,7 @@
 "Assets/Scripts/PauseMenu.cs"
 "Assets/Scripts/PlayerAttackSystem.cs"
 "Assets/Scripts/playerController.cs"
+"Assets/Scripts/PlayerVFXManager.cs"
 "Assets/Scripts/SpawningManager.cs"
 "Assets/Scripts/WIndmillSpin.cs"
 "Assets/Scripts/ZoneManager.cs"

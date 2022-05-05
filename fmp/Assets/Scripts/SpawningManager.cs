@@ -10,9 +10,9 @@ public class SpawningManager : MonoBehaviour
     private const float ghoulPercentage = 0.6f, goblinPercentage = 0.3f, knightPercentage = 0.1f;
 
     private Vector3[,] spawnArea = new Vector3[7,2];
+    private bool canSpawn = false;
 
     public static int round;
-
 
     [SerializeField]
     [Header("Ghoul Statistics")]
@@ -32,11 +32,14 @@ public class SpawningManager : MonoBehaviour
     [Space(10)]
     public GameObject[] enemyPrefabs;
     
-    public int enemiesLeft, enemiesToSpawn, zoneToSpawn;
+    [SerializeField]
+    private int enemiesLeft, enemiesToSpawn, zoneToSpawn;
     public TMP_Text RoundDisplay, EnemyRemainingDisplay;
 
-    public int ghoulsSpawned = 0, goblinsSpawned = 0, knightsSpawned = 0;
-    public float xLoc, zLoc;
+    [SerializeField]
+    private int ghoulsSpawned = 0, goblinsSpawned = 0, knightsSpawned = 0;
+    [SerializeField]
+    private float xLoc, zLoc;
 
     private float totalPercentage, bloodPercentage, holyPercentage, remainingPercentage;
 
@@ -57,7 +60,7 @@ public class SpawningManager : MonoBehaviour
         {
             zoneToSpawn = ZoneManager.activeZone;
             enemiesLeft = GameObject.FindGameObjectsWithTag("Enemy").Length;
-            if(enemiesLeft == 0) 
+            if(enemiesLeft == 0 && canSpawn == false) 
                 StartNewRound();
             RoundDisplay.text = round.ToString();
             EnemyRemainingDisplay.text = enemiesLeft.ToString();
@@ -69,7 +72,6 @@ public class SpawningManager : MonoBehaviour
         ghoulsSpawned = 0;
         goblinsSpawned = 0;
         knightsSpawned = 0;
-        print(round);
         CalculateSpawnChance(round, false, false);
         CalculateMonsterStats(round);
         StartCoroutine(SpawnMonsters(ghoulsToSpawn, goblinsToSpawn, knightsToSpawn, holyPercentage, bloodPercentage, zoneToSpawn));
@@ -109,8 +111,9 @@ public class SpawningManager : MonoBehaviour
 
     private IEnumerator SpawnMonsters(int ghoulsTS, int goblinsTS, int knightsTS, float bloodPercent, float holyPercent, int zone)
     {
-        bool canSpawn = true;
+        canSpawn = true;
         Vector3 spawnLocation;
+        yield return new WaitForSeconds(3f);
         while(canSpawn)
         {
             xLoc = Random.Range(spawnArea[zone, 0].x , spawnArea[zone, 1].x);
@@ -141,7 +144,10 @@ public class SpawningManager : MonoBehaviour
                 knightsSpawned++;
             }
             if (ghoulsTS == ghoulsSpawned && goblinsTS == goblinsSpawned && knightsTS == knightsSpawned)
+            {
+                Debug.Log($"Spawned {ghoulsSpawned + goblinsSpawned + knightsSpawned} monsters\nIndividual Spawned:\nGhouls: {ghoulsSpawned}\nGoblins:{goblinsSpawned}\nKnights:{knightsSpawned}");
                 canSpawn = false;
+            }
         }
         
     }
