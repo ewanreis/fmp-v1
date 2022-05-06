@@ -29,6 +29,7 @@ public class EnemyAI : MonoBehaviour
         playerInSight = Physics.CheckSphere(transform.position, sightRange, playerMask);
         playerInAttack = Physics.CheckSphere(transform.position, attackRange, playerMask);
         damage = PlayerAttackSystem.playerAttackDamage;
+        health = Mathf.Floor(health);
         healthBarSlider.value = health;
         if(!playerInSight && !playerInAttack) Patrolling();
         if(playerInSight && !playerInAttack) ChasePlayer();

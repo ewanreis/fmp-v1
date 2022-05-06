@@ -18,9 +18,9 @@ public class Interactor : MonoBehaviour
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 3f, interacableLayer))
         {
             cost = hit.collider.GetComponent<Interactable>().doorOpenCost;
-            interactText.text = $"Press E to Unlock Door for ${cost}";
+            interactText.text = $"Press F to Unlock Door for ${cost}";
             onInteract = hit.collider.GetComponent<Interactable>().onInteract;
-            if(Input.GetKeyDown(KeyCode.E) && playerController.playerMoney > cost)
+            if(Input.GetKeyDown(KeyCode.F) && playerController.playerMoney > cost)
             {
                 playerController.playerMoney -= cost;
                 onInteract.Invoke();

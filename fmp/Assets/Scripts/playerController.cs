@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 public class playerController : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class playerController : MonoBehaviour
     private Vector3 moveDir, velocity, direction;
     private float xRotation, turnSmoothVelocity, targetAngle, angle, mouseInputX, groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100;
     private bool isGrounded, isCrouching, isWalking, isTurning, damaged = false;
+    private bool[] attackButtonPressed = new bool[3];
+    private int playerClass = 1;
 
     void Start() 
     { 
@@ -36,11 +39,15 @@ public class playerController : MonoBehaviour
         if(!PauseMenu.isPaused)
         {
             GetPlayerInput();
+            attackIndex = AttackInputSwitcher();
             xRotation += mouseInputX;
             staminaBar.value = playerStamina;
             healthBar.value = playerHealth;
             SetAnimations();
         }
+
+        if(playerHealth <= 0)
+            SceneManager.LoadScene(2);
     }
 
     public void StartAttack(int attack) 
@@ -56,24 +63,27 @@ public class playerController : MonoBehaviour
         {
             if(other.gameObject.tag == "nGhoul")
                 damage = SpawningManager.ghoulDamage;
+
             if(other.gameObject.tag == "nGoblin")
                 damage = SpawningManager.goblinDamage;
+
             if(other.gameObject.tag == "nKnight")
                 damage = SpawningManager.goblinDamage;
         }
         if(damage > 0)
         {
             damaged = true;
-            damageDelay = 2f;
+            damageDelay = 1f;
         }
         TakeDamage(damage);
     }
 
-    private void TakeDamage(float damage) => playerHealth -= damage;
-
-   
+    private void TakeDamage(float damage)
+    {
+        regenDelay = 0;
+        playerHealth -= damage;
+    }
         
-
     void SetAnimations()
     {
         playerAnimator.SetFloat("horizontalMove", movementInput.x * speed / 4);
@@ -82,14 +92,41 @@ public class playerController : MonoBehaviour
         playerAnimator.SetBool("crouching", isCrouching);
         playerAnimator.SetBool("attacking", isAttacking);
         playerAnimator.SetBool("jumping", !isGrounded);
-        playerAnimator.SetInteger("attackIndex", attackIndex);
+
+        if(PlayerAttackSystem.attackCooldown <= 0)
+            playerAnimator.SetInteger("attackIndex", attackIndex);
     }
+
+    private int AttackInputSwitcher()
+    {
+        int index = 0, attackButtonIndex = playerClass switch
+        {
+            1 => 0,
+            2 => 3,
+            3 => 6,
+            _ => 0
+        };
+
+        if (attackButtonPressed[0]) index = 1 + attackButtonIndex;
+        if (attackButtonPressed[1]) index = 2 + attackButtonIndex;
+        if (attackButtonPressed[2]) index = 3 + attackButtonIndex;
+
+        if (index != 0 && PlayerAttackSystem.attackCooldown <= 0) isAttacking = true;
+
+        return index;
+    }
+    
 
     void GetPlayerInput()
     {
         isCrouching = (Input.GetKey(KeyCode.LeftControl)) ? true : false;
-        isAttacking = (Input.GetButtonDown("Fire1")) ? true : false;
-        if (Input.GetButtonDown("Fire2") == true) attackIndex++;
+        attackButtonPressed[0] = (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0)) ? true : false;
+        attackButtonPressed[1] = (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(2)) ? true : false;
+        attackButtonPressed[2] = (Input.GetKeyDown(KeyCode.R) || Input.GetMouseButtonDown(1)) ? true : false;
+
+        if (!attackButtonPressed[0] && !attackButtonPressed[0] && !attackButtonPressed[0])
+            isAttacking = false;    
+
         movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         movementInput.x = (Input.GetAxisRaw("Horizontal") == 0) ? 0 : movementInput.x;
         movementInput.y = (Input.GetAxisRaw("Vertical") == 0) ? 0 : movementInput.y;
@@ -139,7 +176,7 @@ public class playerController : MonoBehaviour
 
         // Stamina Regen
         if (playerStamina < 100) 
-            playerStamina += 0.3f;
+            playerStamina += 0.1f;
 
         // Damage Delay
         damageDelay -= 0.1f;

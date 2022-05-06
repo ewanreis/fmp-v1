@@ -22,38 +22,54 @@ public class PlayerAttackSystem : MonoBehaviour
     public Collider playerLineCollider;
     public GameObject player;
     public static int playerAttackDamage = 0;
-    public static float attackDuration;
+    public static float attackDuration, attackCooldown = 0;
     public static bool attackState = false;
     private bool alreadyAttacked;
-    private int staminaCost;
+    private int staminaCost, attack;
+
     private void Start() => playerAreaCollider.radius = 0;
+
+    private void FixedUpdate()
+    {
+        if (attackCooldown != 0f) 
+            attackCooldown -= 0.1f;
+    }
+
     private void Update() 
     {
         this.transform.position = player.transform.position;
         this.transform.rotation = player.transform.rotation;
-        if(playerController.isAttacking == true)
+        attack = playerController.attackIndex;
+
+        if (playerController.isAttacking == true && attackCooldown <= 0)
+                StartAttack();
+    }
+
+    private void StartAttack()
+    {
+        attackState = true;
+        int staminaCost = GetStaminaCost(attack);
+        float attackDuration = GetAttackDuration(attack), attackRadius = GetAttackRadius(attack);
+        playerAttackDamage = GetAttackDamage(attack);
+        ForceMode forceMode = GetForceMode(attack);
+        AccuracyMode accuracyMode = GetAccuracyMode(attack);
+        playerAreaCollider.radius = attackRadius;
+
+        if (accuracyMode == AccuracyMode.sphere)
+            playerAreaCollider.enabled = true;
+
+        if (accuracyMode == AccuracyMode.line)
+            playerLineCollider.enabled = true;
+
+        playerController.canMove = false;
+
+        if (!alreadyAttacked)
         {
-            attackState = true;
-            int attack = playerController.attackIndex, staminaCost = GetStaminaCost(attack);
-            float attackDuration = GetAttackDuration(attack), attackRadius = GetAttackRadius(attack);
-            playerAttackDamage = GetAttackDamage(attack);
-            ForceMode forceMode = GetForceMode(attack);
-            AccuracyMode accuracyMode = GetAccuracyMode(attack);
-
-            playerAreaCollider.radius = attackRadius;
-            if(accuracyMode == AccuracyMode.sphere)
-                playerAreaCollider.enabled = true;
-            if(accuracyMode == AccuracyMode.line)
-                playerLineCollider.enabled = true;
-            playerController.canMove = false;
-
-            if(!alreadyAttacked)
-            {
-                alreadyAttacked = true;
-                playerController.playerStamina -= staminaCost;
-                playerController.isAttacking = false;
-                Invoke(nameof(ResetAttack), attackDuration);
-            }
+            attackCooldown = GetAttackCooldown(attack);
+            alreadyAttacked = true;
+            playerController.playerStamina -= staminaCost;
+            playerController.isAttacking = false;
+            Invoke(nameof(ResetAttack), attackDuration);
         }
     }
 
@@ -78,6 +94,19 @@ public class PlayerAttackSystem : MonoBehaviour
         7 => 25,
         8 => 30,
         9 => 100,
+        _ => 0
+    };
+    public int GetAttackCooldown(int attack) => attack switch
+    {
+        1 => 3,
+        2 => 5,
+        3 => 10,
+        4 => 3,
+        5 => 5,
+        6 => 10,
+        7 => 3,
+        8 => 5,
+        9 => 10,
         _ => 0
     };
     public float GetAttackDuration(int attack) => attack switch
