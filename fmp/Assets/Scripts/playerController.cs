@@ -22,9 +22,11 @@ public class playerController : MonoBehaviour
 
     private Vector2 movementInput;
     private Vector3 moveDir, velocity, direction;
-    private float xRotation, turnSmoothVelocity, targetAngle, angle, mouseInputX, groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100;
-    private bool isGrounded, isCrouching, isWalking, isTurning, damaged = false;
+    private float xRotation, turnSmoothVelocity, targetAngle, angle, mouseInputX;
     private bool[] attackButtonPressed = new bool[3];
+
+    private float groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100;
+    private bool isGrounded, isCrouching, isWalking, isTurning, damaged = false;
     private int playerClass = 1;
 
     void Start() 
@@ -83,7 +85,7 @@ public class playerController : MonoBehaviour
         regenDelay = 0;
         playerHealth -= damage;
     }
-        
+
     void SetAnimations()
     {
         playerAnimator.SetFloat("horizontalMove", movementInput.x * speed / 4);
@@ -93,8 +95,13 @@ public class playerController : MonoBehaviour
         playerAnimator.SetBool("attacking", isAttacking);
         playerAnimator.SetBool("jumping", !isGrounded);
 
+        
+
         if(PlayerAttackSystem.attackCooldown <= 0)
             playerAnimator.SetInteger("attackIndex", attackIndex);
+        if(!isAttacking)
+            playerAnimator.SetInteger("attackIndex", 0);
+        
     }
 
     private int AttackInputSwitcher()
@@ -106,12 +113,14 @@ public class playerController : MonoBehaviour
             3 => 6,
             _ => 0
         };
+        if (!isAttacking && !PlayerVFXManager.isPlaying)
+        {
+            if (attackButtonPressed[0]) index = 1 + attackButtonIndex;
+            if (attackButtonPressed[1]) index = 2 + attackButtonIndex;
+            if (attackButtonPressed[2]) index = 3 + attackButtonIndex;
+        }
 
-        if (attackButtonPressed[0]) index = 1 + attackButtonIndex;
-        if (attackButtonPressed[1]) index = 2 + attackButtonIndex;
-        if (attackButtonPressed[2]) index = 3 + attackButtonIndex;
-
-        if (index != 0 && PlayerAttackSystem.attackCooldown <= 0) isAttacking = true;
+        if (index != 0 && PlayerAttackSystem.attackCooldown <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying) isAttacking = true;
 
         return index;
     }
@@ -120,12 +129,15 @@ public class playerController : MonoBehaviour
     void GetPlayerInput()
     {
         isCrouching = (Input.GetKey(KeyCode.LeftControl)) ? true : false;
-        attackButtonPressed[0] = (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0)) ? true : false;
-        attackButtonPressed[1] = (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(2)) ? true : false;
-        attackButtonPressed[2] = (Input.GetKeyDown(KeyCode.R) || Input.GetMouseButtonDown(1)) ? true : false;
+        if (!isAttacking && !PlayerVFXManager.isPlaying)
+        {
+            attackButtonPressed[0] = (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0)) ? true : false;
+            attackButtonPressed[1] = (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(2)) ? true : false;
+            attackButtonPressed[2] = (Input.GetKeyDown(KeyCode.R) || Input.GetMouseButtonDown(1)) ? true : false;
+        }
 
         if (!attackButtonPressed[0] && !attackButtonPressed[0] && !attackButtonPressed[0])
-            isAttacking = false;    
+            isAttacking = false;
 
         movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         movementInput.x = (Input.GetAxisRaw("Horizontal") == 0) ? 0 : movementInput.x;
@@ -144,18 +156,25 @@ public class playerController : MonoBehaviour
         #region Walking
         isWalking = (movementInput.x != 0 || movementInput.y != 0) ? true : false;
         direction = new Vector3(movementInput.x, 0f, movementInput.y).normalized;
+
         if (playerStamina > 0)
-        {
+        {   // Check if the player can sprint
             if (Input.GetKey(KeyCode.LeftShift) && speed < 8) speed += 0.1f;
             else if (!Input.GetKey(KeyCode.LeftShift) && speed > 4) speed -= 0.1f;
         }
-        else if(speed > 4) speed -= 0.1f;
+
+        else if(speed > 4) 
+            speed -= 0.1f;
+
         if(direction.magnitude >= 0.1f && canMove)
         {
             targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
             angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
             moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            if (speed > 4) playerStamina -= (0.4f);
+
+            if (speed > 4) 
+                playerStamina -= (0.4f);
+
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
         #endregion // Moves the player
@@ -164,6 +183,8 @@ public class playerController : MonoBehaviour
         playerBody.transform.rotation = Quaternion.Euler(0, xRotation * 2, 0);
         isTurning = (mouseInputX == 0) ? false : true;
         #endregion // Gets the input from the mouse and turns the player
+
+        // Check if the player is touching the ground
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         // Health Regen

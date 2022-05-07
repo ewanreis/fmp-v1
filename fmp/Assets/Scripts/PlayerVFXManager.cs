@@ -6,8 +6,9 @@ public class PlayerVFXManager : MonoBehaviour
 {
     public GameObject player;
     public VisualEffect[] vfx;
-    private int vfxIndex;
-    private bool isPlaying = false;
+    private int vfxIndex = 0;
+    private float waitDuration;
+    public static bool isPlaying = false;
 
     private void Start()
     {
@@ -15,31 +16,27 @@ public class PlayerVFXManager : MonoBehaviour
             vfx[i].Stop();
     }
 
-    private void Update()
+    public void StartAttackVFX(float duration) 
     {
-        if(PlayerAttackSystem.attackState == true && isPlaying == false)
-            StartCoroutine(AttackVFX());
-    }
+        waitDuration = duration;
+        StartCoroutine(AttackVFX());
+    } 
 
-    IEnumerator AttackVFX()
+    IEnumerator AttackVFX() 
     {
         isPlaying = true;
-        int vfxIndex = playerController.attackIndex - 1;
 
-        if (playerController.attackIndex == 0)
-            vfxIndex = 1;
-
-        float duration = PlayerAttackSystem.attackDuration;
+        if (playerController.attackIndex > 0)
+            vfxIndex = playerController.attackIndex - 1;
 
         vfx[vfxIndex].transform.position = player.transform.position;
         vfx[vfxIndex].transform.rotation = player.transform.rotation;
         vfx[vfxIndex].Reinit();
         vfx[vfxIndex].Play();
-
-        yield return new WaitForSeconds(duration);
+        print(waitDuration);
+        yield return new WaitForSeconds(waitDuration + 0.2f);
+        print("stop");
         vfx[vfxIndex].Stop();
         isPlaying = false;
-
-        yield return null;
     }
 }

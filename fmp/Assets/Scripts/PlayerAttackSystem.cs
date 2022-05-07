@@ -20,14 +20,20 @@ public class PlayerAttackSystem : MonoBehaviour
 {
     public SphereCollider playerAreaCollider;
     public Collider playerLineCollider;
-    public GameObject player;
+    public GameObject player, vfxManager;
     public static int playerAttackDamage = 0;
     public static float attackDuration, attackCooldown = 0;
     public static bool attackState = false;
     private bool alreadyAttacked;
     private int staminaCost, attack;
 
-    private void Start() => playerAreaCollider.radius = 0;
+    private PlayerVFXManager vfxScript;
+
+    private void Start() 
+    {
+        playerAreaCollider.radius = 0;
+        vfxScript = vfxManager.GetComponent<PlayerVFXManager>();
+    } 
 
     private void FixedUpdate()
     {
@@ -50,11 +56,11 @@ public class PlayerAttackSystem : MonoBehaviour
         attackState = true;
         int staminaCost = GetStaminaCost(attack);
         float attackDuration = GetAttackDuration(attack), attackRadius = GetAttackRadius(attack);
+        vfxScript.StartAttackVFX(attackDuration);
         playerAttackDamage = GetAttackDamage(attack);
         ForceMode forceMode = GetForceMode(attack);
         AccuracyMode accuracyMode = GetAccuracyMode(attack);
         playerAreaCollider.radius = attackRadius;
-
         if (accuracyMode == AccuracyMode.sphere)
             playerAreaCollider.enabled = true;
 
@@ -96,6 +102,7 @@ public class PlayerAttackSystem : MonoBehaviour
         9 => 100,
         _ => 0
     };
+
     public int GetAttackCooldown(int attack) => attack switch
     {
         1 => 3,
@@ -109,6 +116,7 @@ public class PlayerAttackSystem : MonoBehaviour
         9 => 10,
         _ => 0
     };
+    
     public float GetAttackDuration(int attack) => attack switch
     {
         1 => 1f,
@@ -122,6 +130,7 @@ public class PlayerAttackSystem : MonoBehaviour
         9 => 2,
         _ => 0
     };
+
     public float GetAttackRadius(int attack) => attack switch
     {
         1 => 5,
@@ -132,6 +141,7 @@ public class PlayerAttackSystem : MonoBehaviour
         9 => 5,
         _ => 0
     };
+
     public int GetAttackDamage(int attack) => attack switch
     {
         1 => 5,
@@ -145,6 +155,7 @@ public class PlayerAttackSystem : MonoBehaviour
         9 => 75,
         _ => 0
     };
+
     public ForceMode GetForceMode(int attack) => attack switch
     {
         1 => ForceMode.pull, 
@@ -158,6 +169,7 @@ public class PlayerAttackSystem : MonoBehaviour
         9 => ForceMode.freeze,
         _ => ForceMode.none
     };
+
     public AccuracyMode GetAccuracyMode(int attack) => attack switch
     {
         1 => AccuracyMode.sphere,
@@ -171,6 +183,7 @@ public class PlayerAttackSystem : MonoBehaviour
         9 => AccuracyMode.sphere,
         _ => AccuracyMode.sphere
     }; 
+
 }
 
             /*  

@@ -20,7 +20,7 @@ MonoBehaviour:
     x: 656
     y: -1289
     width: 931
-    height: 2508
+    height: 2488
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -235,7 +235,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614921}
   - {fileID: 8926484042661614925}
   m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
+  m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_MasterSlot: {fileID: 8926484042661614920}
   m_MasterData:
@@ -244,7 +244,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.AABox, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"center":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":5.0,"y":5.0,"z":5.0}}'
+      m_SerializableObject: '{"center":{"x":0.0,"y":0.0,"z":0.0},"size":{"x":10.0,"y":10.0,"z":10.0}}'
     m_Space: 0
   m_Property:
     name: bounds
@@ -547,7 +547,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614942}
   - {fileID: 8926484042661614964}
   dataType: 0
-  capacity: 65536
+  capacity: 655360
   stripCapacity: 16
   particlePerStripCount: 16
   m_Space: 0
@@ -707,7 +707,6 @@ MonoBehaviour:
   m_UICollapsed: 0
   m_UISuperCollapsed: 0
   m_InputSlots:
-  - {fileID: 8926484042661615417}
   - {fileID: 8926484042661614965}
   m_OutputSlots: []
   m_Label: 
@@ -728,9 +727,9 @@ MonoBehaviour:
   zTestMode: 0
   colorMapping: 0
   uvMode: 0
-  useSoftParticle: 1
+  useSoftParticle: 0
   sortPriority: 0
-  sort: 0
+  sort: 1
   indirectDraw: 0
   computeCulling: 0
   frustumCulling: 0
@@ -1016,7 +1015,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Position, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"position":{"x":0.0,"y":2.0,"z":0.0}}'
+      m_SerializableObject: '{"position":{"x":0.0,"y":4.0,"z":0.0}}'
     m_Space: 0
   m_Property:
     name: Center
@@ -2768,40 +2767,6 @@ MonoBehaviour:
   m_Direction: 1
   m_LinkedSlots:
   - {fileID: 8926484042661615410}
---- !u!114 &8926484042661615417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f780aa281814f9842a7c076d436932e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_UIIgnoredErrors: []
-  m_Parent: {fileID: 0}
-  m_Children: []
-  m_UIPosition: {x: 0, y: 0}
-  m_UICollapsed: 1
-  m_UISuperCollapsed: 0
-  m_MasterSlot: {fileID: 8926484042661615417}
-  m_MasterData:
-    m_Owner: {fileID: 8926484042661614964}
-    m_Value:
-      m_Type:
-        m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-          PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1
-    m_Space: 2147483647
-  m_Property:
-    name: softParticleFadeDistance
-    m_serializedType:
-      m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
-        PublicKeyToken=b77a5c561934e089
-  m_Direction: 0
-  m_LinkedSlots: []
 --- !u!114 &8926484042661615418
 MonoBehaviour:
   m_ObjectHideFlags: 0

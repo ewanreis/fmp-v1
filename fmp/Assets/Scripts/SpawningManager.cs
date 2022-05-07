@@ -10,8 +10,6 @@ public class SpawningManager : MonoBehaviour
     private const float ghoulPercentage = 0.6f, goblinPercentage = 0.3f, knightPercentage = 0.1f;
     public static int round;
     private Vector3[,] spawnArea = new Vector3[7,2];
-    
-
 
     [SerializeField]
     [Header("Ghoul Statistics")]

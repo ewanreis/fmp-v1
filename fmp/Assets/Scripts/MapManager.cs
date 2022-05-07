@@ -9,7 +9,7 @@ using TMPro;
 
 public class MapManager : MonoBehaviour
 {
-    #region Audio
+    #region Audio Settings
     [Header("Audio")]
     public AudioMixer audioMixer;
     public AudioSource musicSource, vfxSource;
@@ -17,7 +17,7 @@ public class MapManager : MonoBehaviour
     public AudioClip[] clips;
     #endregion
 
-    #region Graphics
+    #region Graphics Settings
     [Header("Post Processing")]
     public Volume renderingVolume;
     public LiftGammaGain liftGammaGain;
@@ -27,11 +27,10 @@ public class MapManager : MonoBehaviour
     public DepthOfField depthOfField;
 
     [Header("Graphics Quality")]
-    public Toggle fullscreenToggle, postProcessingToggle;
     public Slider brightnessSlider;
+    public Toggle fullscreenToggle, postProcessingToggle;
     public TMP_Dropdown distanceDropdown, densityDropdown, qualityDropdown;
 
-    // Nature
     [Header("Nature")]
     public Terrain terrain;
     public float grassDistance, grassDensity;
@@ -39,9 +38,9 @@ public class MapManager : MonoBehaviour
 
     #region Player Preferences
     [Header("Player Preferences")]
+    public bool postProcessingEnabled;
     private int pIsFullscreen, pGraphicsPreset, pPostProcessingEnabled, pDensityLevel, pDistanceLevel;
     public float pMasterVolume, pMusicVolume, pVfxVolume, pBrightness;
-    public bool postProcessingEnabled;
     #endregion
 
     enum SFX
@@ -56,6 +55,12 @@ public class MapManager : MonoBehaviour
 
     void Start()
     {
+        SetPlayerPreferences();
+    }
+
+    private void SetPlayerPreferences()
+    {
+        // Gets all of the variables from the Player Prefs
         pPostProcessingEnabled = PlayerPrefs.GetInt("playerPostProcessingEnabled", 1);
         pGraphicsPreset = PlayerPrefs.GetInt("playerGraphicsPreset", 1);
         pIsFullscreen = PlayerPrefs.GetInt("playerFullscreen", 0);
@@ -66,20 +71,25 @@ public class MapManager : MonoBehaviour
         pDensityLevel = PlayerPrefs.GetInt("playerDensityLevel", 1);
         pDistanceLevel = PlayerPrefs.GetInt("playerDistanceLevel", 1);
 
+        // Gets the post processing volume profiles
         if (!renderingVolume.profile.TryGet(out liftGammaGain)) throw new System.NullReferenceException(nameof(liftGammaGain));
         if (!renderingVolume.profile.TryGet(out toneMap)) throw new System.NullReferenceException(nameof(toneMap));
         if (!renderingVolume.profile.TryGet(out filmGrain)) throw new System.NullReferenceException(nameof(filmGrain));
         if (!renderingVolume.profile.TryGet(out vignette)) throw new System.NullReferenceException(nameof(vignette));
         if (!renderingVolume.profile.TryGet(out depthOfField)) throw new System.NullReferenceException(nameof(depthOfField));
 
+        // Setting the volume on the audio mixer channels
         audioMixer.SetFloat("masterVolume", pMasterVolume);
         audioMixer.SetFloat("musicVolume", pMusicVolume);
         audioMixer.SetFloat("vfxVolume", pVfxVolume);
 
+        // Toggling post processing and fullscreen based on player prefs
         postProcessingEnabled = (pPostProcessingEnabled == 0) ? false : true;
         postProcessingToggle.isOn = (pPostProcessingEnabled == 0) ? false : true;
         Screen.fullScreen = (pIsFullscreen == 0) ? false : true;
         fullscreenToggle.isOn = (pIsFullscreen == 0) ? false : true;
+
+        // Setting the menu sliders to correspond to the saved Player Pref values
         masterSlider.value = pMasterVolume;
         musicSlider.value = pMusicVolume;
         vfxSlider.value = pVfxVolume;
@@ -88,6 +98,7 @@ public class MapManager : MonoBehaviour
         densityDropdown.value = pDensityLevel;
         qualityDropdown.value = pGraphicsPreset;
 
+        // Setting the brightness, post processing, foliage settings and volume settings
         SetGammaAlpha(pBrightness);
         TogglePP(postProcessingEnabled);
         SetGrassDensity(pDensityLevel);
@@ -117,21 +128,17 @@ public class MapManager : MonoBehaviour
 
     public void TogglePP(bool enabled)
     {
+        toneMap.active = enabled;
+        vignette.active = enabled;
+        filmGrain.active = enabled;
+        depthOfField.active = enabled;
         if(enabled)
         {
-            toneMap.active = true;
-            vignette.active = true;
-            filmGrain.active = true;
-            depthOfField.active = true;
             QualitySettings.antiAliasing = 8;
             PlayerPrefs.SetInt("playerPostProcessingEnabled", 1);
         }
         else
         {
-            toneMap.active = false;
-            vignette.active = false;
-            filmGrain.active = false;
-            depthOfField.active = false;
             QualitySettings.antiAliasing = 0;
             PlayerPrefs.SetInt("playerPostProcessingEnabled", 0);
         }
