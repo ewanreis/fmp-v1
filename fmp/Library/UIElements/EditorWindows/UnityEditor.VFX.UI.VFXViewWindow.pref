@@ -16,5 +16,5 @@ MonoBehaviour:
   - __PanelContainer__rootVisualContainer__VFXView__UnityEditor.Experimental.GraphView.GraphView+PersistedViewTransform
   - __PanelContainer__rootVisualContainer__VFXView__UnityEditor.Experimental.GraphView.GraphView+PersistedSelection
   m_Values:
-  - '{"position":{"x":-1484.0,"y":1545.0,"z":0.0},"scale":{"x":1.3224999904632569,"y":1.3224999904632569,"z":1.0}}'
+  - '{"position":{"x":34.0,"y":295.0,"z":0.0},"scale":{"x":0.44397953152656557,"y":0.44397953152656557,"z":1.0}}'
   - '{"m_Version":1343,"m_SelectedElementsArray":[]}'
