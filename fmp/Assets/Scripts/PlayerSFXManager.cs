@@ -9,7 +9,7 @@ public class PlayerSFXManager : MonoBehaviour
     public AudioClip doorOpenSound, doorDenySound;
     public AudioSource vfxSource;
 
-    public static bool damageSFX, attackSFX, newRoundSFX, doorInteractSFX, doorOpenSFX;
+    public static bool damageSFX, attackSFX, newRoundSFX, doorOpenSFX, doorDenySFX;
     public static int attackIndexSFX;
 
     void Update()
@@ -20,8 +20,10 @@ public class PlayerSFXManager : MonoBehaviour
             PlayAttackSounds(attackSFX, attackIndexSFX);
         if(newRoundSFX)
             PlayNewRoundSound(newRoundSFX);
-        if(doorInteractSFX)
-            PlayDoorSound(doorOpenSFX);
+        if(doorOpenSFX)
+            PlayDoorOpen();
+        if(doorDenySFX)
+            PlayDoorDeny();
     }
 
     private void PlayDamageSounds(bool damaged)
@@ -34,15 +36,23 @@ public class PlayerSFXManager : MonoBehaviour
     private void PlayAttackSounds(bool attacking, int index)
     {
         vfxSource.PlayOneShot(playerAttackSounds[index]);
+        attackSFX = false;
     }
 
     private void PlayNewRoundSound(bool newRound)
     {
-
+        vfxSource.PlayOneShot(newRoundSounds[Random.Range(0,1)]);
+        newRoundSFX = false;
     }
 
-    private void PlayDoorSound(bool openable)
+    private void PlayDoorOpen()
     {
-
+        vfxSource.PlayOneShot(doorOpenSound);
+        doorOpenSFX = false;
+    }
+    private void PlayDoorDeny()
+    {
+        vfxSource.PlayOneShot(doorDenySound);
+        doorDenySFX = false;
     }
 }

@@ -21,11 +21,11 @@ public class PlayerAttackSystem : MonoBehaviour
     public SphereCollider playerAreaCollider;
     public Collider playerLineCollider;
     public GameObject player, vfxManager;
-    public static int playerAttackDamage = 0;
+    public static int playerAttackDamage = 0, staminaCost;
     public static float attackDuration, attackCooldown = 0;
     public static bool attackState = false;
     private bool alreadyAttacked;
-    private int staminaCost, attack;
+    private int attack;
 
     private PlayerVFXManager vfxScript;
 
@@ -46,15 +46,16 @@ public class PlayerAttackSystem : MonoBehaviour
         this.transform.position = player.transform.position;
         this.transform.rotation = player.transform.rotation;
         attack = playerController.attackIndex;
-
-        if (playerController.isAttacking == true && attackCooldown <= 0)
-                StartAttack();
+        staminaCost = GetStaminaCost(playerController.attackIndex);
+        if (playerController.isAttacking == true && attackCooldown <= 0 && playerController.playerStamina >= staminaCost)
+            StartAttack();
+        
     }
 
     private void StartAttack()
     {
         attackState = true;
-        int staminaCost = GetStaminaCost(attack);
+        playerController.playerStamina -= staminaCost;
         float attackDuration = GetAttackDuration(attack), attackRadius = GetAttackRadius(attack);
         vfxScript.StartAttackVFX(attackDuration);
         playerAttackDamage = GetAttackDamage(attack);
@@ -73,7 +74,6 @@ public class PlayerAttackSystem : MonoBehaviour
         {
             attackCooldown = GetAttackCooldown(attack);
             alreadyAttacked = true;
-            playerController.playerStamina -= staminaCost;
             playerController.isAttacking = false;
             Invoke(nameof(ResetAttack), attackDuration);
         }
@@ -92,8 +92,8 @@ public class PlayerAttackSystem : MonoBehaviour
     public int GetStaminaCost(int attack) => attack switch
     {
         1 => 10,
-        2 => 10,
-        3 => 20,
+        2 => 15,
+        3 => 30,
         4 => 20,
         5 => 20,
         6 => 15,
@@ -119,9 +119,9 @@ public class PlayerAttackSystem : MonoBehaviour
     
     public float GetAttackDuration(int attack) => attack switch
     {
-        1 => 1f,
-        2 => .2f,
-        3 => 1,
+        1 => 2f,
+        2 => 1.2f,
+        3 => 3,
         4 => 1,
         5 => 1,
         6 => 3,

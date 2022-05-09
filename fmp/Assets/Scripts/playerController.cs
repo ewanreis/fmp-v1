@@ -41,7 +41,7 @@ public class playerController : MonoBehaviour
         if(!PauseMenu.isPaused)
         {
             GetPlayerInput();
-            attackIndex = AttackInputSwitcher();
+            AttackInputSwitcher();
             xRotation += mouseInputX;
             staminaBar.value = playerStamina;
             healthBar.value = playerHealth;
@@ -49,13 +49,16 @@ public class playerController : MonoBehaviour
         }
 
         if(playerHealth <= 0)
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene("DeathScene", LoadSceneMode.Single);
     }
 
     public void StartAttack(int attack) 
     {
-        isAttacking = true;
-        attackIndex = attack;
+        if(PlayerAttackSystem.attackCooldown <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying && playerStamina >= PlayerAttackSystem.staminaCost)
+        {
+            isAttacking = true;
+            attackIndex = attack;
+        }
     } 
 
     private void OnTriggerEnter(Collider other)
@@ -84,29 +87,42 @@ public class playerController : MonoBehaviour
     {
         regenDelay = 0;
         playerHealth -= damage;
+        if(damage > 0)
+            PlayerSFXManager.damageSFX = true;
     }
 
     void SetAnimations()
     {
+        if(playerStamina < PlayerAttackSystem.staminaCost || PlayerAttackSystem.attackCooldown > 0)
+        {
+            isAttacking = false;
+            attackIndex = 0;
+        }
         playerAnimator.SetFloat("horizontalMove", movementInput.x * speed / 4);
         playerAnimator.SetFloat("verticalMove", (movementInput.y * speed) / 4);
         playerAnimator.SetFloat("horizontalMouse", mouseInputX);
         playerAnimator.SetBool("crouching", isCrouching);
-        playerAnimator.SetBool("attacking", isAttacking);
+        
         playerAnimator.SetBool("jumping", !isGrounded);
 
-        
-
-        if(PlayerAttackSystem.attackCooldown <= 0)
+        if(isAttacking == true && playerStamina >= PlayerAttackSystem.staminaCost)
+        {
+            playerAnimator.SetBool("attacking", isAttacking);
             playerAnimator.SetInteger("attackIndex", attackIndex);
-        if(!isAttacking)
+        }
+        else
+        {
+            playerAnimator.SetBool("attacking", false);
             playerAnimator.SetInteger("attackIndex", 0);
+        }
+
         
     }
 
-    private int AttackInputSwitcher()
+    private void AttackInputSwitcher()
     {
-        int index = 0, attackButtonIndex = playerClass switch
+        attackIndex = 0;
+        int attackButtonIndex = playerClass switch
         {
             1 => 0,
             2 => 3,
@@ -115,14 +131,13 @@ public class playerController : MonoBehaviour
         };
         if (!isAttacking && !PlayerVFXManager.isPlaying)
         {
-            if (attackButtonPressed[0]) index = 1 + attackButtonIndex;
-            if (attackButtonPressed[1]) index = 2 + attackButtonIndex;
-            if (attackButtonPressed[2]) index = 3 + attackButtonIndex;
+            if (attackButtonPressed[0]) attackIndex = 1 + attackButtonIndex;
+            if (attackButtonPressed[1]) attackIndex = 2 + attackButtonIndex;
+            if (attackButtonPressed[2]) attackIndex = 3 + attackButtonIndex;
         }
-
-        if (index != 0 && PlayerAttackSystem.attackCooldown <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying) isAttacking = true;
-
-        return index;
+        if (attackIndex != 0 && PlayerAttackSystem.attackCooldown <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying && playerStamina >= PlayerAttackSystem.staminaCost)
+            isAttacking = true;
+        //print($"is attacking:{isAttacking}\nattack Index: {attackIndex}\nplayer Stamina: {playerStamina}\nstamina cost {PlayerAttackSystem.staminaCost}\ncooldown {PlayerAttackSystem.attackCooldown}");
     }
     
 

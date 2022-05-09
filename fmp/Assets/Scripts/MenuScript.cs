@@ -16,6 +16,7 @@ public class MenuScript : MonoBehaviour
     public Slider masterSlider, musicSlider, vfxSlider, brightnessSlider;
     public GameObject settingsMenu, howToPlayScreen;
     public Button newGameButton, backButton;
+    public GameObject mainMenu;
 
     public AudioClip[] clips;
     public AudioSource musicSource, vfxSource;
@@ -42,8 +43,9 @@ public class MenuScript : MonoBehaviour
         genericClick // 9
     }
 
-    void Start()
+    private void Start()
     {
+        DontDestroyOnLoad (transform.gameObject);
         SetPlayerPreferences();
     }
 
@@ -93,7 +95,7 @@ public class MenuScript : MonoBehaviour
     public void StartGame()
     {
         vfxSource.PlayOneShot(clips[(int)Sounds.startClick]);
-        Invoke("LoadScene", 1.5f);
+        Invoke("LoadMainMap", 1.5f);
     }
 
     public void QuitGame()
@@ -157,5 +159,8 @@ public class MenuScript : MonoBehaviour
     public void GenericClick() => vfxSource.PlayOneShot(clips[(int)Sounds.genericClick]);
 
     private void EndGame() => Application.Quit();
-    private void LoadScene() => SceneManager.LoadScene(1); 
+    private void LoadMainMap() 
+    {
+        SceneManager.LoadScene("MainMap", LoadSceneMode.Single); 
+    } 
 }

@@ -24,11 +24,16 @@ public class Interactor : MonoBehaviour
             interactText.text = $"Press F to Unlock Door for ${cost}";
             onInteract = hit.collider.GetComponent<Interactable>().onInteract;
 
-            if(Input.GetKeyDown(KeyCode.F) && playerController.playerMoney > cost)
+            if(Input.GetKeyDown(KeyCode.F) && playerController.playerMoney < cost)
+                PlayerSFXManager.doorDenySFX = true;
+
+            if(Input.GetKeyDown(KeyCode.F) && playerController.playerMoney >= cost)
             {
+                PlayerSFXManager.doorOpenSFX = true;
                 playerController.playerMoney -= cost;
                 onInteract.Invoke();
             }
+            
         }
         else
         {

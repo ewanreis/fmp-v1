@@ -43,6 +43,6 @@ public class PauseMenu : MonoBehaviour
     }
     public void OpenSubMenu() => vfxSource.PlayOneShot(pauseSounds[1]);
     public void CloseSubMenu() => vfxSource.PlayOneShot(pauseSounds[0]);
-    public void ReturnToMenu() => SceneManager.LoadScene(0); 
+    public void ReturnToMenu() => SceneManager.LoadScene("MainMenu", LoadSceneMode.Single); 
     public void QuitGame() => Application.Quit();
 }
