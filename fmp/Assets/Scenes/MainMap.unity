@@ -6940,8 +6940,8 @@ GameObject:
   m_Component:
   - component: {fileID: 478189139}
   - component: {fileID: 478189138}
-  - component: {fileID: 478189140}
   - component: {fileID: 478189137}
+  - component: {fileID: 478189140}
   m_Layer: 0
   m_Name: PlayerAttack
   m_TagString: playerAttack
@@ -7003,8 +7003,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 20}
-  m_Center: {x: 0, y: 1, z: 9.5}
+  m_Size: {x: 1, y: 0.5, z: 10}
+  m_Center: {x: 0, y: 0, z: 5}
 --- !u!1 &484567732
 GameObject:
   m_ObjectHideFlags: 0
@@ -12572,11 +12572,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4223342462343633227, guid: 07562fdba9f452e4bb14c8e520640a0d, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -7.19376e-10
+      value: 5.0111937e-10
       objectReference: {fileID: 0}
     - target: {fileID: 4223342462343633227, guid: 07562fdba9f452e4bb14c8e520640a0d, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.3121994e-11
+      value: 9.140818e-12
       objectReference: {fileID: 0}
     - target: {fileID: 4223342462343633227, guid: 07562fdba9f452e4bb14c8e520640a0d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -24509,15 +24509,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967081825434, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.00009661369
+      value: 0.00009661532
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967081825434, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000001071198
+      value: -1.3442486e-10
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967081825434, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.0349239e-13
+      value: 1.29875e-14
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967081825435, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_Lens.m_SensorSize.x
@@ -24561,7 +24561,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967325745236, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1e-45
+      value: -1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 2981888967325745236, guid: 2980346970bc59a44b21afc990a2d883, type: 3}
       propertyPath: m_LocalRotation.z

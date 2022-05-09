@@ -25,7 +25,7 @@ public class Interactor : MonoBehaviour
             onInteract = hit.collider.GetComponent<Interactable>().onInteract;
 
             if(Input.GetKeyDown(KeyCode.F) && playerController.playerMoney < cost)
-                PlayerSFXManager.doorDenySFX = true;
+                PlayerSFXManager.denySFX = true;
 
             if(Input.GetKeyDown(KeyCode.F) && playerController.playerMoney >= cost)
             {

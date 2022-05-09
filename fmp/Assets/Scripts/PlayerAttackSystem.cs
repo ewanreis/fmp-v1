@@ -22,8 +22,10 @@ public class PlayerAttackSystem : MonoBehaviour
     public Collider playerLineCollider;
     public GameObject player, vfxManager;
     public static int playerAttackDamage = 0, staminaCost;
-    public static float attackDuration, attackCooldown = 0;
+    public static float attackDuration;
+    public static float[] attackCooldown = new float[9];
     public static bool attackState = false;
+    public static ForceMode forceMode = ForceMode.none;
     private bool alreadyAttacked;
     private int attack;
 
@@ -32,13 +34,18 @@ public class PlayerAttackSystem : MonoBehaviour
     private void Start() 
     {
         playerAreaCollider.radius = 0;
+        playerAreaCollider.enabled = false;
+        playerLineCollider.enabled = false;
         vfxScript = vfxManager.GetComponent<PlayerVFXManager>();
     } 
 
     private void FixedUpdate()
     {
-        if (attackCooldown != 0f) 
-            attackCooldown -= 0.1f;
+        print($"{attackCooldown[1]}, {attackCooldown[2]}, {attackCooldown[3]}");
+        for(int i = 0; i < 9; i++)
+        {
+            attackCooldown[i] -= 0.1f;
+        }
     }
 
     private void Update() 
@@ -47,43 +54,52 @@ public class PlayerAttackSystem : MonoBehaviour
         this.transform.rotation = player.transform.rotation;
         attack = playerController.attackIndex;
         staminaCost = GetStaminaCost(playerController.attackIndex);
-        if (playerController.isAttacking == true && attackCooldown <= 0 && playerController.playerStamina >= staminaCost)
+        if (playerController.isAttacking == true && playerController.playerStamina >= staminaCost)
             StartAttack();
         
     }
 
     private void StartAttack()
     {
-        attackState = true;
-        playerController.playerStamina -= staminaCost;
-        float attackDuration = GetAttackDuration(attack), attackRadius = GetAttackRadius(attack);
-        vfxScript.StartAttackVFX(attackDuration);
-        playerAttackDamage = GetAttackDamage(attack);
-        ForceMode forceMode = GetForceMode(attack);
-        AccuracyMode accuracyMode = GetAccuracyMode(attack);
-        playerAreaCollider.radius = attackRadius;
-        if (accuracyMode == AccuracyMode.sphere)
-            playerAreaCollider.enabled = true;
-
-        if (accuracyMode == AccuracyMode.line)
-            playerLineCollider.enabled = true;
-
-        playerController.canMove = false;
-
-        if (!alreadyAttacked)
+        int tempCoolDown = GetAttackCooldown(attack);
+        
+        if(!((attackCooldown[attack] + tempCoolDown) > tempCoolDown))
         {
-            attackCooldown = GetAttackCooldown(attack);
-            alreadyAttacked = true;
-            playerController.isAttacking = false;
-            Invoke(nameof(ResetAttack), attackDuration);
+            attackState = true;
+            attackCooldown[attack] = GetAttackCooldown(attack);
+            playerController.playerStamina -= staminaCost;
+            float attackDuration = GetAttackDuration(attack), attackRadius = GetAttackRadius(attack);
+            vfxScript.StartAttackVFX(attackDuration);
+            PlayerSFXManager.attackSFX = true;
+            PlayerSFXManager.attackIndexSFX = attack;
+            playerAttackDamage = GetAttackDamage(attack);
+            forceMode = GetForceMode(attack);
+            AccuracyMode accuracyMode = GetAccuracyMode(attack);
+            playerAreaCollider.radius = attackRadius;
+            if (accuracyMode == AccuracyMode.sphere)
+                playerAreaCollider.enabled = true;
+
+            if (accuracyMode == AccuracyMode.line)
+                playerLineCollider.enabled = true;
+
+            playerController.canMove = false;
+
+            if (!alreadyAttacked)
+            {
+                alreadyAttacked = true;
+                playerController.isAttacking = false;
+                Invoke(nameof(ResetAttack), attackDuration);
+            }
         }
+        
     }
 
     private void ResetAttack() 
     {
         playerAreaCollider.enabled = false;
-        playerLineCollider.enabled = true;
+        playerLineCollider.enabled = false;
         playerController.canMove = true;
+        forceMode = ForceMode.none;
         attackState = false;
         alreadyAttacked = false;
         playerAttackDamage = 0;
@@ -105,9 +121,9 @@ public class PlayerAttackSystem : MonoBehaviour
 
     public int GetAttackCooldown(int attack) => attack switch
     {
-        1 => 3,
-        2 => 5,
-        3 => 10,
+        1 => 25,
+        2 => 35,
+        3 => 45,
         4 => 3,
         5 => 5,
         6 => 10,
@@ -121,7 +137,7 @@ public class PlayerAttackSystem : MonoBehaviour
     {
         1 => 2f,
         2 => 1.2f,
-        3 => 3,
+        3 => 2,
         4 => 1,
         5 => 1,
         6 => 3,
@@ -145,7 +161,7 @@ public class PlayerAttackSystem : MonoBehaviour
     public int GetAttackDamage(int attack) => attack switch
     {
         1 => 5,
-        2 => 10,
+        2 => 20,
         3 => 25,
         4 => 10,
         5 => 20,

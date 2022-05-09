@@ -16,7 +16,6 @@ public class MenuScript : MonoBehaviour
     public Slider masterSlider, musicSlider, vfxSlider, brightnessSlider;
     public GameObject settingsMenu, howToPlayScreen;
     public Button newGameButton, backButton;
-    public GameObject mainMenu;
 
     public AudioClip[] clips;
     public AudioSource musicSource, vfxSource;
@@ -45,7 +44,7 @@ public class MenuScript : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad (transform.gameObject);
+        Time.timeScale = 1;
         SetPlayerPreferences();
     }
 
@@ -161,6 +160,7 @@ public class MenuScript : MonoBehaviour
     private void EndGame() => Application.Quit();
     private void LoadMainMap() 
     {
+        print("hey");
         SceneManager.LoadScene("MainMap", LoadSceneMode.Single); 
     } 
 }

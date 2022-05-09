@@ -122,18 +122,11 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider other)
-    {
-        if(other.gameObject.tag == "PlayerAttack")
-        {
-            TakeDamage(damage);
-        }
-    }
     private void EnableCollider() => enemyBody.GetComponent<Collider>().enabled = true;
 
     private void ResetAttack() => alreadyAttacked = false;
 
-    public void TakeDamage(int damageTaken)
+    public void TakeDamage(float damageTaken)
     {
         isHurt = true;
         health -= damageTaken;
@@ -155,7 +148,15 @@ public class EnemyAI : MonoBehaviour
         if(damaged != true)
         {
             if(other.gameObject.tag == "playerAttack")
+            {
                 damage = PlayerAttackSystem.playerAttackDamage;
+                switch(PlayerAttackSystem.forceMode)
+                {
+                    case ForceMode.pull: PullTowardsPlayer(); break;
+                    case ForceMode.push: PushFromPlayer(); break;
+                    case ForceMode.freeze: Freeze(); break;
+                }
+            }
         }
         if(damage > 0)
         {
@@ -165,7 +166,24 @@ public class EnemyAI : MonoBehaviour
         TakeDamage(damage);
     }
 
-    private void TakeDamage(float damage) => health -= damage;
+    private void PullTowardsPlayer()
+    {
+        var step =  10 * Time.deltaTime; // calculate distance to move
+        transform.position = Vector3.MoveTowards(transform.position, player.position, step);
+    }
+
+    private void PushFromPlayer()
+    {
+        var step =  10 * Time.deltaTime; // calculate distance to move
+        transform.position = -Vector3.MoveTowards(transform.position, player.position, step);
+    }
+    private void Freeze()
+    {
+        agent.SetDestination(transform.position);
+        isIdle = true;
+    }
+
+    //private void TakeDamage(float damage) => health -= damage;
     private void StopHurt() => isHurt = false;
     private void DestroyEnemy() 
     {

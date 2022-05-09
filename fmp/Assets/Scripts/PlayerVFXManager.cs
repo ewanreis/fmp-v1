@@ -33,9 +33,7 @@ public class PlayerVFXManager : MonoBehaviour
         vfx[vfxIndex].transform.rotation = player.transform.rotation;
         vfx[vfxIndex].Reinit();
         vfx[vfxIndex].Play();
-        print(waitDuration);
         yield return new WaitForSeconds(waitDuration + 0.2f);
-        print("stop");
         vfx[vfxIndex].Stop();
         isPlaying = false;
     }

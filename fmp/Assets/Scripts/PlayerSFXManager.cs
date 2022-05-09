@@ -6,10 +6,10 @@ using UnityEngine.Audio;
 public class PlayerSFXManager : MonoBehaviour
 {
     public AudioClip[] playerDamagedSounds, playerAttackSounds, newRoundSounds;
-    public AudioClip doorOpenSound, doorDenySound;
+    public AudioClip doorOpenSound, denySound;
     public AudioSource vfxSource;
 
-    public static bool damageSFX, attackSFX, newRoundSFX, doorOpenSFX, doorDenySFX;
+    public static bool damageSFX, attackSFX, newRoundSFX, doorOpenSFX, denySFX;
     public static int attackIndexSFX;
 
     void Update()
@@ -22,8 +22,8 @@ public class PlayerSFXManager : MonoBehaviour
             PlayNewRoundSound(newRoundSFX);
         if(doorOpenSFX)
             PlayDoorOpen();
-        if(doorDenySFX)
-            PlayDoorDeny();
+        if(denySFX)
+            PlayDeny();
     }
 
     private void PlayDamageSounds(bool damaged)
@@ -37,6 +37,7 @@ public class PlayerSFXManager : MonoBehaviour
     {
         vfxSource.PlayOneShot(playerAttackSounds[index]);
         attackSFX = false;
+        attackIndexSFX = 0;
     }
 
     private void PlayNewRoundSound(bool newRound)
@@ -50,9 +51,9 @@ public class PlayerSFXManager : MonoBehaviour
         vfxSource.PlayOneShot(doorOpenSound);
         doorOpenSFX = false;
     }
-    private void PlayDoorDeny()
+    private void PlayDeny()
     {
-        vfxSource.PlayOneShot(doorDenySound);
-        doorDenySFX = false;
+        vfxSource.PlayOneShot(denySound);
+        denySFX = false;
     }
 }

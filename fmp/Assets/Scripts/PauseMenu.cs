@@ -10,7 +10,11 @@ public class PauseMenu : MonoBehaviour
     public AudioSource vfxSource;
     public static bool isPaused;
 
-    void Start() => pauseMenu.SetActive(false);
+    void Start() 
+    {
+        isPaused = false;
+        pauseMenu.SetActive(false);
+    } 
 
     void Update()
     {

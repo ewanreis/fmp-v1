@@ -54,7 +54,7 @@ public class playerController : MonoBehaviour
 
     public void StartAttack(int attack) 
     {
-        if(PlayerAttackSystem.attackCooldown <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying && playerStamina >= PlayerAttackSystem.staminaCost)
+        if(PlayerAttackSystem.attackCooldown[attack] <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying && playerStamina >= PlayerAttackSystem.staminaCost)
         {
             isAttacking = true;
             attackIndex = attack;
@@ -93,7 +93,7 @@ public class playerController : MonoBehaviour
 
     void SetAnimations()
     {
-        if(playerStamina < PlayerAttackSystem.staminaCost || PlayerAttackSystem.attackCooldown > 0)
+        if(playerStamina < PlayerAttackSystem.staminaCost || PlayerAttackSystem.attackCooldown[attackIndex] > 0)
         {
             isAttacking = false;
             attackIndex = 0;
@@ -135,7 +135,7 @@ public class playerController : MonoBehaviour
             if (attackButtonPressed[1]) attackIndex = 2 + attackButtonIndex;
             if (attackButtonPressed[2]) attackIndex = 3 + attackButtonIndex;
         }
-        if (attackIndex != 0 && PlayerAttackSystem.attackCooldown <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying && playerStamina >= PlayerAttackSystem.staminaCost)
+        if (attackIndex != 0 && PlayerAttackSystem.attackCooldown[attackIndex] <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying && playerStamina >= PlayerAttackSystem.staminaCost)
             isAttacking = true;
         //print($"is attacking:{isAttacking}\nattack Index: {attackIndex}\nplayer Stamina: {playerStamina}\nstamina cost {PlayerAttackSystem.staminaCost}\ncooldown {PlayerAttackSystem.attackCooldown}");
     }
