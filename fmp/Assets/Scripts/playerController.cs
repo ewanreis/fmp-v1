@@ -16,7 +16,7 @@ public class playerController : MonoBehaviour
     public float mouseSensitivity;
     public TMP_Text moneyCounter;
 
-    public static int playerMoney = 0, attackIndex = 1;
+    public static int playerMoney = 0, attackIndex = 1, playerClass = 1;
     public static float playerStamina = 100;
     public static bool canMove = true, isAttacking = false;
 
@@ -27,7 +27,6 @@ public class playerController : MonoBehaviour
 
     private float groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100;
     private bool isGrounded, isCrouching, isWalking, isTurning, damaged = false;
-    private int playerClass = 1;
 
     void Start() 
     { 

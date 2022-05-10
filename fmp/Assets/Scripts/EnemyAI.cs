@@ -150,12 +150,12 @@ public class EnemyAI : MonoBehaviour
             if(other.gameObject.tag == "playerAttack")
             {
                 damage = PlayerAttackSystem.playerAttackDamage;
-                switch(PlayerAttackSystem.forceMode)
+                /*switch(PlayerAttackSystem.forceMode)
                 {
                     case ForceMode.pull: PullTowardsPlayer(); break;
                     case ForceMode.push: PushFromPlayer(); break;
                     case ForceMode.freeze: Freeze(); break;
-                }
+                }*/
             }
         }
         if(damage > 0)
@@ -166,7 +166,7 @@ public class EnemyAI : MonoBehaviour
         TakeDamage(damage);
     }
 
-    private void PullTowardsPlayer()
+    /*private void PullTowardsPlayer()
     {
         var step =  10 * Time.deltaTime; // calculate distance to move
         transform.position = Vector3.MoveTowards(transform.position, player.position, step);
@@ -175,13 +175,13 @@ public class EnemyAI : MonoBehaviour
     private void PushFromPlayer()
     {
         var step =  10 * Time.deltaTime; // calculate distance to move
-        transform.position = -Vector3.MoveTowards(transform.position, player.position, step);
+        transform.position = Vector3.MoveTowards(transform.position, -player.position, step);
     }
     private void Freeze()
     {
         agent.SetDestination(transform.position);
         isIdle = true;
-    }
+    }*/
 
     //private void TakeDamage(float damage) => health -= damage;
     private void StopHurt() => isHurt = false;

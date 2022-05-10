@@ -41,7 +41,7 @@ public class PlayerAttackSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
-        print($"{attackCooldown[1]}, {attackCooldown[2]}, {attackCooldown[3]}");
+        //print($"{attackCooldown[1]}, {attackCooldown[2]}, {attackCooldown[3]}");
         for(int i = 0; i < 9; i++)
         {
             attackCooldown[i] -= 0.1f;
@@ -201,10 +201,3 @@ public class PlayerAttackSystem : MonoBehaviour
     }; 
 
 }
-
-            /*  
-            1 => "Swirling Chaos", 2 => "Gravity Pull", 3 => "Amplified Gravity", 
-            4 => "Beam of Light", 5 => "Solar Flare", 6 => "Heatwave",
-            7 => "Chaotic Pull", 8 => "Chaotic Push", 9 => "Self Regeneration",
-            _ => "Error"
-            */

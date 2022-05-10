@@ -70,6 +70,7 @@ public class SpawningManager : MonoBehaviour
         knightsSpawned = 0;
         CalculateSpawnChance(round, false, false);
         CalculateMonsterStats(round);
+        PlayerSFXManager.newRoundSFX = true;
         StartCoroutine(SpawnMonsters(ghoulsToSpawn, goblinsToSpawn, knightsToSpawn, holyPercentage, bloodPercentage, zoneToSpawn));
         round++;
     }

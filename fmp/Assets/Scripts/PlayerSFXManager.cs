@@ -42,7 +42,7 @@ public class PlayerSFXManager : MonoBehaviour
 
     private void PlayNewRoundSound(bool newRound)
     {
-        vfxSource.PlayOneShot(newRoundSounds[Random.Range(0,1)]);
+        vfxSource.PlayOneShot(newRoundSounds[Random.Range(0,2)]);
         newRoundSFX = false;
     }
 
