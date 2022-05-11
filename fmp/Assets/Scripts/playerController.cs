@@ -16,7 +16,7 @@ public class playerController : MonoBehaviour
     public float mouseSensitivity;
     public TMP_Text moneyCounter;
 
-    public static int playerMoney = 1000, attackIndex = 1, playerClass = 1;
+    public static int playerMoney = 1000, attackIndex = 1, playerClass = 1, maxHealth = 100;
     public static float playerStamina = 100;
     public static bool canMove = true, isAttacking = false;
 
@@ -43,6 +43,7 @@ public class playerController : MonoBehaviour
             AttackInputSwitcher();
             xRotation += mouseInputX;
             staminaBar.value = playerStamina;
+            healthBar.maxValue = maxHealth;
             healthBar.value = playerHealth;
             SetAnimations();
         }
@@ -56,7 +57,6 @@ public class playerController : MonoBehaviour
         if (attackIndex >= 0 && PlayerAttackSystem.attackCooldown[attackIndex] <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying && playerStamina >= PlayerAttackSystem.staminaCost)
             isAttacking = true;
         attackIndex = attack;
-        print($"{attack}, {attackIndex}");
     } 
 
     private void OnTriggerEnter(Collider other)
@@ -187,11 +187,11 @@ public class playerController : MonoBehaviour
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         // Health Regen
-        if(playerHealth < 100 && regenDelay < 30f)
+        if(playerHealth < maxHealth && regenDelay < 30f)
             regenDelay += 0.1f;
-        if(playerHealth < 100 && regenDelay >= 30f)
+        if(playerHealth < maxHealth && regenDelay >= 30f)
             playerHealth++;
-        if(playerHealth == 100)
+        if(playerHealth == maxHealth)
             regenDelay = 0;
 
         // Stamina Regen

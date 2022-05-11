@@ -21,7 +21,7 @@ public class PlayerAttackSystem : MonoBehaviour
     public SphereCollider playerAreaCollider;
     public Collider playerLineCollider;
     public GameObject player, vfxManager;
-    public static int playerAttackDamage = 0, staminaCost;
+    public static int playerAttackDamage = 0, staminaCost, damageModifier = 0;
     public static float attackDuration;
     public static float[] attackCooldown = new float[10];
     public static bool attackState = false;
@@ -72,7 +72,7 @@ public class PlayerAttackSystem : MonoBehaviour
             vfxScript.StartAttackVFX(attackDuration);
             PlayerSFXManager.attackSFX = true;
             PlayerSFXManager.attackIndexSFX = attack;
-            playerAttackDamage = GetAttackDamage(attack);
+            playerAttackDamage = GetAttackDamage(attack) + damageModifier;
             forceMode = GetForceMode(attack);
             AccuracyMode accuracyMode = GetAccuracyMode(attack);
             playerAreaCollider.radius = attackRadius;
@@ -161,14 +161,14 @@ public class PlayerAttackSystem : MonoBehaviour
     public int GetAttackDamage(int attack) => attack switch
     {
         0 => 2,
-        1 => 5,
-        2 => 10,
-        3 => 10,
-        4 => 15,
-        5 => 20,
-        6 => 30,
-        7 => 40,
-        8 => 50,
+        1 => 4,
+        2 => 6,
+        3 => 4,
+        4 => 8,
+        5 => 12,
+        6 => 8,
+        7 => 16,
+        8 => 24,
         _ => 0
     };
 

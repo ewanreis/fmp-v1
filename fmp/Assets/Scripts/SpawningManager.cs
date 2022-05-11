@@ -9,7 +9,7 @@ public class SpawningManager : MonoBehaviour
 {
     private const float ghoulPercentage = 0.6f, goblinPercentage = 0.3f, knightPercentage = 0.1f;
     public static int round;
-    private Vector3[,] spawnArea = new Vector3[7,2];
+    private Vector3[,] spawnArea = new Vector3[8,2];
 
     [SerializeField]
     [Header("Ghoul Statistics")]
@@ -39,13 +39,28 @@ public class SpawningManager : MonoBehaviour
 
     void Start()
     {
-        round = 0;
+        round = 50;
 
         spawnArea[1, 0] = new Vector3(18, 1, 12);
         spawnArea[1, 1] = new Vector3(-8, 1, 18);
 
-        spawnArea[2, 0] = new Vector3(0, 1, 0);
-        spawnArea[2, 1] = new Vector3(0, 1, 0);
+        spawnArea[2, 0] = new Vector3(-35, 1, 15);
+        spawnArea[2, 1] = new Vector3(-28, 1, 35);
+
+        spawnArea[3, 0] = new Vector3(-7, 2.5f, 50);
+        spawnArea[3, 1] = new Vector3(7, 2.5f, 65);
+
+        spawnArea[4, 0] = new Vector3(31, 1, 70);
+        spawnArea[4, 1] = new Vector3(50, 1, 21);
+
+        spawnArea[5, 0] = new Vector3(30, 1, -20);
+        spawnArea[5, 1] = new Vector3(-20, 1, -42);
+
+        spawnArea[6, 0] = new Vector3(-40, 1, -80);
+        spawnArea[6, 1] = new Vector3(6, 1, -60);
+
+        spawnArea[7, 0] = new Vector3(40, 3, -100);
+        spawnArea[7, 1] = new Vector3(-40, 3, -118);
     }
 
     void Update()

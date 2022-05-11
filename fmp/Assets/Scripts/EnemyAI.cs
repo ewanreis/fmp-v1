@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class EnemyAI : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class EnemyAI : MonoBehaviour
     public LayerMask ground, playerMask;
     public Vector3 walkPoint;
     public Slider healthBarSlider;
+    public VisualEffect deathEffect, deathEffectInstance;
 
     private bool walkPointSet, alreadyAttacked, playerInSight, playerInAttack;
     public int damage = 0, currentRound;
@@ -48,6 +50,7 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
+        deathEffect = GameObject.Find("Death Effect").GetComponent<VisualEffect>();
         agent = GetComponent<NavMeshAgent>();
 
         currentRound = SpawningManager.round;
@@ -156,7 +159,7 @@ public class EnemyAI : MonoBehaviour
         if(damage > 0)
         {
             damaged = true;
-            damageDelay = 2f;
+            damageDelay = .5f;
         }
     }
     private void OnTriggerStay(Collider other)
@@ -173,7 +176,7 @@ public class EnemyAI : MonoBehaviour
         if(damage > 0)
         {
             damaged = true;
-            damageDelay = 2f;
+            damageDelay = .5f;
         }
     }
 
@@ -183,6 +186,8 @@ public class EnemyAI : MonoBehaviour
     private void DestroyEnemy() 
     {
         playerController.playerMoney += moneyDrop;
+        deathEffectInstance = Instantiate(deathEffect, transform.position, Quaternion.identity);
+        Destroy(deathEffectInstance.gameObject, 60f);
         Destroy(gameObject);
     }
 }

@@ -37,7 +37,6 @@ public class PlayerSFXManager : MonoBehaviour
     {
         vfxSource.PlayOneShot(playerAttackSounds[index]);
         attackSFX = false;
-        attackIndexSFX = 0;
     }
 
     private void PlayNewRoundSound(bool newRound)
