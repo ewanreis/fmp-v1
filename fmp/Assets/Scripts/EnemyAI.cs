@@ -130,7 +130,7 @@ public class EnemyAI : MonoBehaviour
     {
         isHurt = true;
         health -= damageTaken;
-        Invoke(nameof(StopHurt), 5f);
+        Invoke(nameof(StopHurt), 0.5f);
     }
 
     void FixedUpdate()
@@ -145,17 +145,12 @@ public class EnemyAI : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         float damage = 0;
-        if(damaged != true)
+        if(!isHurt)
         {
             if(other.gameObject.tag == "playerAttack")
             {
                 damage = PlayerAttackSystem.playerAttackDamage;
-                /*switch(PlayerAttackSystem.forceMode)
-                {
-                    case ForceMode.pull: PullTowardsPlayer(); break;
-                    case ForceMode.push: PushFromPlayer(); break;
-                    case ForceMode.freeze: Freeze(); break;
-                }*/
+                TakeDamage(damage);
             }
         }
         if(damage > 0)
@@ -163,25 +158,25 @@ public class EnemyAI : MonoBehaviour
             damaged = true;
             damageDelay = 2f;
         }
-        TakeDamage(damage);
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        float damage = 0;
+        if(!isHurt)
+        {
+            if(other.gameObject.tag == "playerAttack")
+            {
+                damage = PlayerAttackSystem.playerAttackDamage;
+                TakeDamage(damage);
+            }
+        }
+        if(damage > 0)
+        {
+            damaged = true;
+            damageDelay = 2f;
+        }
     }
 
-    /*private void PullTowardsPlayer()
-    {
-        var step =  10 * Time.deltaTime; // calculate distance to move
-        transform.position = Vector3.MoveTowards(transform.position, player.position, step);
-    }
-
-    private void PushFromPlayer()
-    {
-        var step =  10 * Time.deltaTime; // calculate distance to move
-        transform.position = Vector3.MoveTowards(transform.position, -player.position, step);
-    }
-    private void Freeze()
-    {
-        agent.SetDestination(transform.position);
-        isIdle = true;
-    }*/
 
     //private void TakeDamage(float damage) => health -= damage;
     private void StopHurt() => isHurt = false;

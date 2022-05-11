@@ -16,7 +16,7 @@ public class playerController : MonoBehaviour
     public float mouseSensitivity;
     public TMP_Text moneyCounter;
 
-    public static int playerMoney = 0, attackIndex = 1, playerClass = 1;
+    public static int playerMoney = 1000, attackIndex = 1, playerClass = 1;
     public static float playerStamina = 100;
     public static bool canMove = true, isAttacking = false;
 
@@ -53,11 +53,10 @@ public class playerController : MonoBehaviour
 
     public void StartAttack(int attack) 
     {
-        if(PlayerAttackSystem.attackCooldown[attack] <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying && playerStamina >= PlayerAttackSystem.staminaCost)
-        {
+        if (attackIndex >= 0 && PlayerAttackSystem.attackCooldown[attackIndex] <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying && playerStamina >= PlayerAttackSystem.staminaCost)
             isAttacking = true;
-            attackIndex = attack;
-        }
+        attackIndex = attack;
+        print($"{attack}, {attackIndex}");
     } 
 
     private void OnTriggerEnter(Collider other)
@@ -92,35 +91,19 @@ public class playerController : MonoBehaviour
 
     void SetAnimations()
     {
-        if(playerStamina < PlayerAttackSystem.staminaCost || PlayerAttackSystem.attackCooldown[attackIndex] > 0)
-        {
-            isAttacking = false;
-            attackIndex = 0;
-        }
         playerAnimator.SetFloat("horizontalMove", movementInput.x * speed / 4);
         playerAnimator.SetFloat("verticalMove", (movementInput.y * speed) / 4);
         playerAnimator.SetFloat("horizontalMouse", mouseInputX);
         playerAnimator.SetBool("crouching", isCrouching);
-        
         playerAnimator.SetBool("jumping", !isGrounded);
-
-        if(isAttacking == true && playerStamina >= PlayerAttackSystem.staminaCost)
-        {
-            playerAnimator.SetBool("attacking", isAttacking);
-            playerAnimator.SetInteger("attackIndex", attackIndex);
-        }
-        else
-        {
-            playerAnimator.SetBool("attacking", false);
-            playerAnimator.SetInteger("attackIndex", 0);
-        }
-
-        
+        playerAnimator.SetBool("attacking", isAttacking);
+        playerAnimator.SetInteger("attackIndex", attackIndex);
     }
 
     private void AttackInputSwitcher()
     {
-        attackIndex = 0;
+        bool canAttack = false;
+        attackIndex = -1;
         int attackButtonIndex = playerClass switch
         {
             1 => 0,
@@ -130,11 +113,13 @@ public class playerController : MonoBehaviour
         };
         if (!isAttacking && !PlayerVFXManager.isPlaying)
         {
-            if (attackButtonPressed[0]) attackIndex = 1 + attackButtonIndex;
-            if (attackButtonPressed[1]) attackIndex = 2 + attackButtonIndex;
-            if (attackButtonPressed[2]) attackIndex = 3 + attackButtonIndex;
+            if (attackButtonPressed[0]) attackIndex = 0 + attackButtonIndex;
+            if (attackButtonPressed[1]) attackIndex = 1 + attackButtonIndex;
+            if (attackButtonPressed[2]) attackIndex = 2 + attackButtonIndex;
+            if(attackButtonPressed[0] || attackButtonPressed[1] || attackButtonPressed[2])
+                canAttack = (attackIndex >= 0 && PlayerAttackSystem.attackCooldown[attackIndex] <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying && playerStamina >= PlayerAttackSystem.staminaCost) ? true : false;
         }
-        if (attackIndex != 0 && PlayerAttackSystem.attackCooldown[attackIndex] <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying && playerStamina >= PlayerAttackSystem.staminaCost)
+        if (canAttack)
             isAttacking = true;
         //print($"is attacking:{isAttacking}\nattack Index: {attackIndex}\nplayer Stamina: {playerStamina}\nstamina cost {PlayerAttackSystem.staminaCost}\ncooldown {PlayerAttackSystem.attackCooldown}");
     }
@@ -211,7 +196,7 @@ public class playerController : MonoBehaviour
 
         // Stamina Regen
         if (playerStamina < 100) 
-            playerStamina += 0.1f;
+            playerStamina += 0.5f;
 
         // Damage Delay
         damageDelay -= 0.1f;

@@ -26,8 +26,8 @@ public class PlayerVFXManager : MonoBehaviour
     {
         isPlaying = true;
 
-        if (playerController.attackIndex > 0)
-            vfxIndex = playerController.attackIndex - 1;
+        if (playerController.attackIndex >= 0)
+            vfxIndex = playerController.attackIndex;
 
         vfx[vfxIndex].transform.position = player.transform.position;
         vfx[vfxIndex].transform.rotation = player.transform.rotation;

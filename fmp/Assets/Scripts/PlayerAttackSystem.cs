@@ -23,7 +23,7 @@ public class PlayerAttackSystem : MonoBehaviour
     public GameObject player, vfxManager;
     public static int playerAttackDamage = 0, staminaCost;
     public static float attackDuration;
-    public static float[] attackCooldown = new float[9];
+    public static float[] attackCooldown = new float[10];
     public static bool attackState = false;
     public static ForceMode forceMode = ForceMode.none;
     private bool alreadyAttacked;
@@ -53,7 +53,7 @@ public class PlayerAttackSystem : MonoBehaviour
         this.transform.position = player.transform.position;
         this.transform.rotation = player.transform.rotation;
         attack = playerController.attackIndex;
-        staminaCost = GetStaminaCost(playerController.attackIndex);
+        staminaCost = GetStaminaCost(attack);
         if (playerController.isAttacking == true && playerController.playerStamina >= staminaCost)
             StartAttack();
         
@@ -107,96 +107,96 @@ public class PlayerAttackSystem : MonoBehaviour
 
     public int GetStaminaCost(int attack) => attack switch
     {
-        1 => 10,
-        2 => 15,
-        3 => 30,
+        0 => 10,
+        1 => 15,
+        2 => 30,
+        3 => 20,
         4 => 20,
-        5 => 20,
-        6 => 15,
-        7 => 25,
-        8 => 30,
-        9 => 100,
+        5 => 15,
+        6 => 25,
+        7 => 30,
+        8 => 100,
         _ => 0
     };
 
     public int GetAttackCooldown(int attack) => attack switch
     {
-        1 => 25,
-        2 => 35,
-        3 => 45,
-        4 => 3,
-        5 => 5,
-        6 => 10,
-        7 => 3,
-        8 => 5,
-        9 => 10,
+        0 => 45,
+        1 => 55,
+        2 => 65,
+        3 => 3,
+        4 => 5,
+        5 => 10,
+        6 => 3,
+        7 => 5,
+        8 => 10,
         _ => 0
     };
     
     public float GetAttackDuration(int attack) => attack switch
     {
-        1 => 2f,
-        2 => 1.2f,
-        3 => 2,
-        4 => 1,
-        5 => 1,
-        6 => 3,
-        7 => 2,
-        8 => 3,
-        9 => 2,
+        0 => 2.3f,
+        1 => 2.3f,
+        2 => 2.267f,
+        3 => 2.6f,
+        4 => 3.267f,
+        5 => 2.7f,
+        6 => 2.167f,
+        7 => 2.2f,
+        8 => 4.3f,
         _ => 0
     };
 
     public float GetAttackRadius(int attack) => attack switch
     {
-        1 => 5,
-        3 => 5,
+        0 => 5,
+        2 => 5,
+        4 => 5,
         5 => 5,
-        6 => 5,
+        7 => 5,
         8 => 5,
-        9 => 5,
         _ => 0
     };
 
     public int GetAttackDamage(int attack) => attack switch
     {
+        0 => 2,
         1 => 5,
-        2 => 20,
-        3 => 25,
-        4 => 10,
+        2 => 10,
+        3 => 10,
+        4 => 15,
         5 => 20,
-        6 => 50,
-        7 => 25,
+        6 => 30,
+        7 => 40,
         8 => 50,
-        9 => 75,
         _ => 0
     };
 
     public ForceMode GetForceMode(int attack) => attack switch
     {
+        0 => ForceMode.pull, 
         1 => ForceMode.pull, 
-        2 => ForceMode.pull, 
-        3 => ForceMode.freeze,
+        2 => ForceMode.freeze,
+        3 => ForceMode.push, 
         4 => ForceMode.push, 
-        5 => ForceMode.push, 
-        6 => ForceMode.freeze,
-        7 => ForceMode.pull, 
-        8 => ForceMode.push, 
-        9 => ForceMode.freeze,
+        5 => ForceMode.freeze,
+        6 => ForceMode.pull, 
+        7 => ForceMode.push, 
+        8 => ForceMode.freeze,
         _ => ForceMode.none
     };
 
     public AccuracyMode GetAccuracyMode(int attack) => attack switch
     {
-        1 => AccuracyMode.sphere,
-        2 => AccuracyMode.line,
-        3 => AccuracyMode.sphere,
-        4 => AccuracyMode.line,
+        0 => AccuracyMode.sphere,
+        1 => AccuracyMode.line,
+        2 => AccuracyMode.sphere,
+        3 => AccuracyMode.line,
+        4 => AccuracyMode.sphere,
         5 => AccuracyMode.sphere,
-        6 => AccuracyMode.sphere,
-        7 => AccuracyMode.line,
+        6 => AccuracyMode.line,
+        7 => AccuracyMode.sphere,
         8 => AccuracyMode.sphere,
-        9 => AccuracyMode.sphere,
         _ => AccuracyMode.sphere
     }; 
 
