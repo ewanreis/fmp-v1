@@ -39,7 +39,7 @@ public class SpawningManager : MonoBehaviour
 
     void Start()
     {
-        round = 50;
+        round = 0;
 
         spawnArea[1, 0] = new Vector3(18, 1, 12);
         spawnArea[1, 1] = new Vector3(-8, 1, 18);

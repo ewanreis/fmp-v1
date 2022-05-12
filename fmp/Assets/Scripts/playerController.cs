@@ -16,7 +16,7 @@ public class playerController : MonoBehaviour
     public float mouseSensitivity;
     public TMP_Text moneyCounter;
 
-    public static int playerMoney = 1000, attackIndex = 1, playerClass = 1, maxHealth = 100;
+    public static int playerMoney = 0, attackIndex = 0, playerClass = 1, maxHealth = 100;
     public static float playerStamina = 100;
     public static bool canMove = true, isAttacking = false;
 
@@ -94,7 +94,7 @@ public class playerController : MonoBehaviour
         playerAnimator.SetFloat("horizontalMove", movementInput.x * speed / 4);
         playerAnimator.SetFloat("verticalMove", (movementInput.y * speed) / 4);
         playerAnimator.SetFloat("horizontalMouse", mouseInputX);
-        playerAnimator.SetBool("crouching", isCrouching);
+        //playerAnimator.SetBool("crouching", isCrouching);
         playerAnimator.SetBool("jumping", !isGrounded);
         playerAnimator.SetBool("attacking", isAttacking);
         playerAnimator.SetInteger("attackIndex", attackIndex);
@@ -127,7 +127,7 @@ public class playerController : MonoBehaviour
 
     void GetPlayerInput()
     {
-        isCrouching = (Input.GetKey(KeyCode.LeftControl)) ? true : false;
+        //isCrouching = (Input.GetKey(KeyCode.LeftControl)) ? true : false;
         if (!isAttacking && !PlayerVFXManager.isPlaying)
         {
             attackButtonPressed[0] = (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0)) ? true : false;
@@ -196,7 +196,7 @@ public class playerController : MonoBehaviour
 
         // Stamina Regen
         if (playerStamina < 100) 
-            playerStamina += 0.5f;
+            playerStamina += 0.2f;
 
         // Damage Delay
         damageDelay -= 0.1f;

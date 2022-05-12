@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public enum AccuracyMode
 {
     sphere,
@@ -21,9 +21,10 @@ public class PlayerAttackSystem : MonoBehaviour
     public SphereCollider playerAreaCollider;
     public Collider playerLineCollider;
     public GameObject player, vfxManager;
+    public TMP_Text infoText;
     public static int playerAttackDamage = 0, staminaCost, damageModifier = 0;
     public static float attackDuration;
-    public static float[] attackCooldown = new float[10];
+    public static float[] attackCooldown = new float[10], maxCooldown = new float[10];
     public static bool attackState = false;
     public static ForceMode forceMode = ForceMode.none;
     private bool alreadyAttacked;
@@ -33,6 +34,8 @@ public class PlayerAttackSystem : MonoBehaviour
 
     private void Start() 
     {
+        for(int i = 0; i < 9; i++)
+            maxCooldown[i] = GetAttackCooldown(i);
         playerAreaCollider.radius = 0;
         playerAreaCollider.enabled = false;
         playerLineCollider.enabled = false;
@@ -54,16 +57,21 @@ public class PlayerAttackSystem : MonoBehaviour
         this.transform.rotation = player.transform.rotation;
         attack = playerController.attackIndex;
         staminaCost = GetStaminaCost(attack);
+        if(playerController.playerStamina < staminaCost && playerController.isAttacking == true)
+            StartCoroutine(displayText("No Stamina!"));
         if (playerController.isAttacking == true && playerController.playerStamina >= staminaCost)
             StartAttack();
         
     }
 
+
+
     private void StartAttack()
     {
         int tempCoolDown = GetAttackCooldown(attack);
-        
-        if(!((attackCooldown[attack] + tempCoolDown) > tempCoolDown))
+        if(attack == -1)
+            StartCoroutine(displayText("No Stamina!"));
+        if(!(attackCooldown[attack] > 0) && attack >= 0)
         {
             attackState = true;
             attackCooldown[attack] = GetAttackCooldown(attack);
@@ -103,6 +111,16 @@ public class PlayerAttackSystem : MonoBehaviour
         attackState = false;
         alreadyAttacked = false;
         playerAttackDamage = 0;
+    }
+
+    private IEnumerator displayText(string textToDisplay)
+    {
+        infoText.text = textToDisplay;
+        playerController.isAttacking = false;
+        yield return new WaitForSeconds(0.5f);
+        attack = 0;
+        yield return new WaitForSeconds(1.5f);
+        infoText.text = "";
     }
 
     public int GetStaminaCost(int attack) => attack switch

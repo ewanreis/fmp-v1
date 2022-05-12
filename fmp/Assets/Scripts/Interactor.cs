@@ -46,6 +46,7 @@ public class Interactor : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.F) && playerController.playerMoney >= cost)
             {
                 playerController.playerClass = (int)altarType + 1;
+                playerController.playerMoney -= cost;
                 PlayerSFXManager.doorOpenSFX = true;
                 onInteract.Invoke();
             }
@@ -55,9 +56,10 @@ public class Interactor : MonoBehaviour
         else if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 5f, extraHealthLayer))
         {
             cost = hit.collider.GetComponent<Interactable>().cost;
-            interactText.text = $"Press F to gain an extra 10 health on all attacks for ${cost}";
+            interactText.text = $"Press F to gain an extra 10 health for ${cost}";
             if(Input.GetKeyDown(KeyCode.F) && playerController.playerMoney >= cost)
             {
+                playerController.playerMoney -= cost;
                 playerController.maxHealth += 10;
                 PlayerSFXManager.doorOpenSFX = true;
             }
@@ -70,6 +72,7 @@ public class Interactor : MonoBehaviour
             interactText.text = $"Press F to gain an extra 5 damage on all attacks for ${cost}";
             if(Input.GetKeyDown(KeyCode.F) && playerController.playerMoney >= cost)
             {
+                playerController.playerMoney -= cost;
                 PlayerAttackSystem.damageModifier += 5;
                 PlayerSFXManager.doorOpenSFX = true;
             }
