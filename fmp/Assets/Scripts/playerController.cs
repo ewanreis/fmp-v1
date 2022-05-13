@@ -26,7 +26,8 @@ public class playerController : MonoBehaviour
     private bool[] attackButtonPressed = new bool[3];
 
     private float groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100;
-    private bool isGrounded, isCrouching, isWalking, isTurning, damaged = false;
+    private bool isGrounded, isCrouching, isWalking, isTurning;
+    private bool damaged = false;
 
     void Start() 
     { 
@@ -54,8 +55,15 @@ public class playerController : MonoBehaviour
 
     public void StartAttack(int attack) 
     {
-        if (attackIndex >= 0 && PlayerAttackSystem.attackCooldown[attackIndex] <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying && playerStamina >= PlayerAttackSystem.staminaCost)
+        bool canAttack = (attackIndex >= 0
+                          && PlayerAttackSystem.attackCooldown[attackIndex] <= 0
+                          && isAttacking == false
+                          && !PlayerVFXManager.isPlaying
+                          && playerStamina >= PlayerAttackSystem.staminaCost) ? true : false;
+
+        if (canAttack)
             isAttacking = true;
+
         attackIndex = attack;
     } 
 
@@ -85,6 +93,7 @@ public class playerController : MonoBehaviour
     {
         regenDelay = 0;
         playerHealth -= damage;
+
         if(damage > 0)
             PlayerSFXManager.damageSFX = true;
     }
@@ -94,7 +103,6 @@ public class playerController : MonoBehaviour
         playerAnimator.SetFloat("horizontalMove", movementInput.x * speed / 4);
         playerAnimator.SetFloat("verticalMove", (movementInput.y * speed) / 4);
         playerAnimator.SetFloat("horizontalMouse", mouseInputX);
-        //playerAnimator.SetBool("crouching", isCrouching);
         playerAnimator.SetBool("jumping", !isGrounded);
         playerAnimator.SetBool("attacking", isAttacking);
         playerAnimator.SetInteger("attackIndex", attackIndex);
@@ -102,8 +110,10 @@ public class playerController : MonoBehaviour
 
     private void AttackInputSwitcher()
     {
+        // Check if the player can attack, what class the player is and what button corresponds to what attack
         bool canAttack = false;
         attackIndex = -1;
+
         int attackButtonIndex = playerClass switch
         {
             1 => 0,
@@ -113,21 +123,29 @@ public class playerController : MonoBehaviour
         };
         if (!isAttacking && !PlayerVFXManager.isPlaying)
         {
-            if (attackButtonPressed[0]) attackIndex = 0 + attackButtonIndex;
-            if (attackButtonPressed[1]) attackIndex = 1 + attackButtonIndex;
-            if (attackButtonPressed[2]) attackIndex = 2 + attackButtonIndex;
+            if (attackButtonPressed[0]) 
+                attackIndex = 0 + attackButtonIndex;
+
+            if (attackButtonPressed[1]) 
+                attackIndex = 1 + attackButtonIndex;
+
+            if (attackButtonPressed[2]) 
+                attackIndex = 2 + attackButtonIndex;
+
             if(attackButtonPressed[0] || attackButtonPressed[1] || attackButtonPressed[2])
-                canAttack = (attackIndex >= 0 && PlayerAttackSystem.attackCooldown[attackIndex] <= 0 && isAttacking == false && !PlayerVFXManager.isPlaying && playerStamina >= PlayerAttackSystem.staminaCost) ? true : false;
+                canAttack = (attackIndex >= 0
+                             && PlayerAttackSystem.attackCooldown[attackIndex] <= 0
+                             && isAttacking == false
+                             && !PlayerVFXManager.isPlaying
+                             && playerStamina >= PlayerAttackSystem.staminaCost) ? true : false;
         }
         if (canAttack)
             isAttacking = true;
-        //print($"is attacking:{isAttacking}\nattack Index: {attackIndex}\nplayer Stamina: {playerStamina}\nstamina cost {PlayerAttackSystem.staminaCost}\ncooldown {PlayerAttackSystem.attackCooldown}");
     }
     
 
     void GetPlayerInput()
     {
-        //isCrouching = (Input.GetKey(KeyCode.LeftControl)) ? true : false;
         if (!isAttacking && !PlayerVFXManager.isPlaying)
         {
             attackButtonPressed[0] = (Input.GetKeyDown(KeyCode.Q) || Input.GetMouseButtonDown(0)) ? true : false;
@@ -138,14 +156,16 @@ public class playerController : MonoBehaviour
         if (!attackButtonPressed[0] && !attackButtonPressed[0] && !attackButtonPressed[0])
             isAttacking = false;
 
-        movementInput = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        movementInput = new Vector2(Input.GetAxis("Horizontal"),
+                                    Input.GetAxis("Vertical"));
+
         movementInput.x = (Input.GetAxisRaw("Horizontal") == 0) ? 0 : movementInput.x;
         movementInput.y = (Input.GetAxisRaw("Vertical") == 0) ? 0 : movementInput.y;
+
         mouseInputX = Input.GetAxis("Mouse X") * mouseSensitivity;
     }
 
-    // Player Physics + Movement
-    void FixedUpdate()
+    void FixedUpdate() // Player Physics + Movement
     {
         #region Gravity
         velocity.y += gravity * Time.deltaTime;
@@ -154,12 +174,18 @@ public class playerController : MonoBehaviour
 
         #region Walking
         isWalking = (movementInput.x != 0 || movementInput.y != 0) ? true : false;
-        direction = new Vector3(movementInput.x, 0f, movementInput.y).normalized;
 
-        if (playerStamina > 0)
-        {   // Check if the player can sprint
-            if (Input.GetKey(KeyCode.LeftShift) && speed < 8) speed += 0.1f;
-            else if (!Input.GetKey(KeyCode.LeftShift) && speed > 4) speed -= 0.1f;
+        direction = new Vector3(movementInput.x,
+                                0f,
+                                movementInput.y).normalized;
+
+        if (playerStamina > 0) // Check if the player can sprint
+        {   
+            if (Input.GetKey(KeyCode.LeftShift) && speed < 8)
+                speed += 0.1f;
+
+            else if (!Input.GetKey(KeyCode.LeftShift) && speed > 4)
+                speed -= 0.1f;
         }
 
         else if(speed > 4) 
@@ -167,8 +193,15 @@ public class playerController : MonoBehaviour
 
         if(direction.magnitude >= 0.1f && canMove)
         {
-            targetAngle = Mathf.Atan2(direction.x, direction.z) * Mathf.Rad2Deg + cam.eulerAngles.y;
-            angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            targetAngle = Mathf.Atan2(direction.x, direction.z)
+                            * Mathf.Rad2Deg 
+                            + cam.eulerAngles.y;
+
+            angle = Mathf.SmoothDampAngle(transform.eulerAngles.y,
+                                          targetAngle,
+                                          ref turnSmoothVelocity,
+                                          turnSmoothTime);
+
             moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
             if (speed > 4) 
@@ -189,8 +222,10 @@ public class playerController : MonoBehaviour
         // Health Regen
         if(playerHealth < maxHealth && regenDelay < 30f)
             regenDelay += 0.1f;
+
         if(playerHealth < maxHealth && regenDelay >= 30f)
             playerHealth++;
+
         if(playerHealth == maxHealth)
             regenDelay = 0;
 
@@ -200,6 +235,7 @@ public class playerController : MonoBehaviour
 
         // Damage Delay
         damageDelay -= 0.1f;
+
         if(damageDelay <= 0)
             damaged = false;
     }

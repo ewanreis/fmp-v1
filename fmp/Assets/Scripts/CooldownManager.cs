@@ -10,6 +10,7 @@ public class CooldownManager : MonoBehaviour
 
     private float[] cooldownPercent = new float[3];
     private int[] cooldownStage = new int[3];
+
     private int pClass, slotClassOffset, slotSpellOffset, attackOffset;
 
     private void Update()

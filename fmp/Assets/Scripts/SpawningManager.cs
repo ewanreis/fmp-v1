@@ -86,7 +86,12 @@ public class SpawningManager : MonoBehaviour
         CalculateSpawnChance(round, false, false);
         CalculateMonsterStats(round);
         PlayerSFXManager.newRoundSFX = true;
-        StartCoroutine(SpawnMonsters(ghoulsToSpawn, goblinsToSpawn, knightsToSpawn, holyPercentage, bloodPercentage, zoneToSpawn));
+        StartCoroutine(SpawnMonsters(ghoulsToSpawn,
+                                     goblinsToSpawn,
+                                     knightsToSpawn,
+                                     holyPercentage,
+                                     bloodPercentage,
+                                     zoneToSpawn));
         round++;
     }
 

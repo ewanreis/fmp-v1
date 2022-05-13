@@ -43,21 +43,7 @@ public class MapManager : MonoBehaviour
     public float pMasterVolume, pMusicVolume, pVfxVolume, pBrightness;
     #endregion
 
-    enum SFX
-    {
-
-    }
-
-    enum Soundtracks
-    {
-
-    }
-
-    void Start()
-    {
-        SetPlayerPreferences();
-    }
-
+    void Start() => SetPlayerPreferences();
     private void SetPlayerPreferences()
     {
         // Gets all of the variables from the Player Prefs

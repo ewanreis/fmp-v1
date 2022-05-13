@@ -19,8 +19,9 @@ public class Interactor : MonoBehaviour
     {
         RaycastHit hit;
 
+        // * Check if the player is looking at a Door
         if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 3f, doorLayer))
-        {
+        {    
             cost = hit.collider.GetComponent<Interactable>().cost;
             interactText.text = $"Press F to Unlock Door for ${cost}";
             onInteract = hit.collider.GetComponent<Interactable>().onInteract;
@@ -36,9 +37,10 @@ public class Interactor : MonoBehaviour
             }
             
         }
+
+        // * Check if the player is looking at an Altar
         else if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 5f, altarLayer))
         {
-            
             onInteract = hit.collider.GetComponent<Interactable>().onInteract;
             altarType = hit.collider.GetComponent<Interactable>().altarType;
             cost = hit.collider.GetComponent<Interactable>().cost;
@@ -53,6 +55,8 @@ public class Interactor : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.F) && playerController.playerMoney < cost)
                 PlayerSFXManager.denySFX = true;
         }
+
+        // * Check if the player is looking at a health upgrade station
         else if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 5f, extraHealthLayer))
         {
             cost = hit.collider.GetComponent<Interactable>().cost;
@@ -66,6 +70,8 @@ public class Interactor : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.F) && playerController.playerMoney < cost)
                 PlayerSFXManager.denySFX = true;
         }
+
+        // * Check if the player is looking at a damage station
         else if(Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 5f, extraDamageLayer))
         {
             cost = hit.collider.GetComponent<Interactable>().cost;
@@ -79,6 +85,7 @@ public class Interactor : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.F) && playerController.playerMoney < cost)
                 PlayerSFXManager.denySFX = true;
         }
+
         else
         {
             interactText.text = "";

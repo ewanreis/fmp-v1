@@ -57,11 +57,12 @@ public class PlayerAttackSystem : MonoBehaviour
         this.transform.rotation = player.transform.rotation;
         attack = playerController.attackIndex;
         staminaCost = GetStaminaCost(attack);
+
         if(playerController.playerStamina < staminaCost && playerController.isAttacking == true)
             StartCoroutine(displayText("No Stamina!"));
+
         if (playerController.isAttacking == true && playerController.playerStamina >= staminaCost)
             StartAttack();
-        
     }
 
 
@@ -69,8 +70,10 @@ public class PlayerAttackSystem : MonoBehaviour
     private void StartAttack()
     {
         int tempCoolDown = GetAttackCooldown(attack);
+
         if(attack == -1)
             StartCoroutine(displayText("No Stamina!"));
+            
         if(!(attackCooldown[attack] > 0) && attack >= 0)
         {
             attackState = true;
@@ -82,8 +85,8 @@ public class PlayerAttackSystem : MonoBehaviour
             PlayerSFXManager.attackIndexSFX = attack;
             playerAttackDamage = GetAttackDamage(attack) + damageModifier;
             forceMode = GetForceMode(attack);
-            AccuracyMode accuracyMode = GetAccuracyMode(attack);
             playerAreaCollider.radius = attackRadius;
+            AccuracyMode accuracyMode = GetAccuracyMode(attack);
             if (accuracyMode == AccuracyMode.sphere)
                 playerAreaCollider.enabled = true;
 
@@ -217,5 +220,4 @@ public class PlayerAttackSystem : MonoBehaviour
         8 => AccuracyMode.sphere,
         _ => AccuracyMode.sphere
     }; 
-
 }
