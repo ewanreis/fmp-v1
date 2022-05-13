@@ -240,3 +240,7 @@ public class playerController : MonoBehaviour
             damaged = false;
     }
 }
+/*
+TODO : Player Sliding
+! Player Animations still play when the player has no stamina when attacking
+*/
