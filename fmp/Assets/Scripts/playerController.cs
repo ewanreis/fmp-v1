@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
@@ -29,7 +27,7 @@ public class playerController : MonoBehaviour
     private bool isGrounded, isSliding, isWalking, isTurning;
     private bool damaged = false;
 
-    void Start() 
+    void Start()
     { 
         Application.targetFrameRate = -1;
         Cursor.lockState = CursorLockMode.Locked;
@@ -44,7 +42,7 @@ public class playerController : MonoBehaviour
             AttackInputSwitcher();
 
             if(isSliding)
-                Invoke(nameof(StopSliding), 2f);
+                Invoke(nameof(StopSliding), 1.5f);
 
             xRotation += mouseInputX;
             staminaBar.value = playerStamina;
@@ -58,7 +56,7 @@ public class playerController : MonoBehaviour
             SceneManager.LoadScene("DeathScene", LoadSceneMode.Single);
     }
 
-    public void StartAttack(int attack) 
+    public void StartAttack(int attack)
     {
         bool canAttack = (attackIndex >= 0
                           && PlayerAttackSystem.attackCooldown[attackIndex] <= 0
@@ -109,7 +107,6 @@ public class playerController : MonoBehaviour
         playerAnimator.SetFloat("horizontalMove", movementInput.x * speed / 4);
         playerAnimator.SetFloat("verticalMove", (movementInput.y * speed) / 4);
         playerAnimator.SetFloat("horizontalMouse", mouseInputX);
-        playerAnimator.SetBool("jumping", !isGrounded);
         playerAnimator.SetBool("sliding", isSliding);
         playerAnimator.SetBool("attacking", isAttacking);
         playerAnimator.SetInteger("attackIndex", attackIndex);
@@ -164,7 +161,7 @@ public class playerController : MonoBehaviour
         if (!attackButtonPressed[0] && !attackButtonPressed[0] && !attackButtonPressed[0])
             isAttacking = false;
 
-        if(Input.GetKey(KeyCode.LeftControl) && speed > 5)
+        if(Input.GetKeyDown(KeyCode.LeftControl) && speed > 4)
             isSliding = true;
 
         movementInput = new Vector2(Input.GetAxis("Horizontal"),
@@ -255,7 +252,12 @@ public class playerController : MonoBehaviour
     }
     private void StopSliding() => isSliding = false;
 }
+
 /*
-TODO : Player Sliding
+* Planned features
+TODO: Player damages enemies while sliding
+? May add player damage immunity while sliding
+
+* Issues
 ! Player Animations still play when the player has no stamina when attacking
 */

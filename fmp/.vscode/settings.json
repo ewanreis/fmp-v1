@@ -7,5 +7,6 @@
         "regen",
         "Regen",
         "Reinit"
-    ]
+    ],
+    "git.ignoreLimitWarning": true
 }
