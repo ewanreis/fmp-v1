@@ -26,7 +26,7 @@ public class playerController : MonoBehaviour
     private bool[] attackButtonPressed = new bool[3];
 
     private float groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100;
-    private bool isGrounded, isCrouching, isWalking, isTurning;
+    private bool isGrounded, isSliding, isWalking, isTurning;
     private bool damaged = false;
 
     void Start() 
@@ -42,10 +42,15 @@ public class playerController : MonoBehaviour
         {
             GetPlayerInput();
             AttackInputSwitcher();
+
+            if(isSliding)
+                Invoke(nameof(StopSliding), 2f);
+
             xRotation += mouseInputX;
             staminaBar.value = playerStamina;
             healthBar.maxValue = maxHealth;
             healthBar.value = playerHealth;
+
             SetAnimations();
         }
 
@@ -59,13 +64,14 @@ public class playerController : MonoBehaviour
                           && PlayerAttackSystem.attackCooldown[attackIndex] <= 0
                           && isAttacking == false
                           && !PlayerVFXManager.isPlaying
-                          && playerStamina >= PlayerAttackSystem.staminaCost) ? true : false;
+                          && playerStamina >= PlayerAttackSystem.staminaCost)
+                          ? true : false;
 
         if (canAttack)
             isAttacking = true;
 
         attackIndex = attack;
-    } 
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -104,6 +110,7 @@ public class playerController : MonoBehaviour
         playerAnimator.SetFloat("verticalMove", (movementInput.y * speed) / 4);
         playerAnimator.SetFloat("horizontalMouse", mouseInputX);
         playerAnimator.SetBool("jumping", !isGrounded);
+        playerAnimator.SetBool("sliding", isSliding);
         playerAnimator.SetBool("attacking", isAttacking);
         playerAnimator.SetInteger("attackIndex", attackIndex);
     }
@@ -137,7 +144,8 @@ public class playerController : MonoBehaviour
                              && PlayerAttackSystem.attackCooldown[attackIndex] <= 0
                              && isAttacking == false
                              && !PlayerVFXManager.isPlaying
-                             && playerStamina >= PlayerAttackSystem.staminaCost) ? true : false;
+                             && playerStamina >= PlayerAttackSystem.staminaCost) 
+                             ? true : false;
         }
         if (canAttack)
             isAttacking = true;
@@ -155,6 +163,9 @@ public class playerController : MonoBehaviour
 
         if (!attackButtonPressed[0] && !attackButtonPressed[0] && !attackButtonPressed[0])
             isAttacking = false;
+
+        if(Input.GetKey(KeyCode.LeftControl) && speed > 5)
+            isSliding = true;
 
         movementInput = new Vector2(Input.GetAxis("Horizontal"),
                                     Input.GetAxis("Vertical"));
@@ -180,7 +191,10 @@ public class playerController : MonoBehaviour
                                 movementInput.y).normalized;
 
         if (playerStamina > 0) // Check if the player can sprint
-        {   
+        {
+            if(isSliding && speed < 10)
+                speed += 0.1f;
+
             if (Input.GetKey(KeyCode.LeftShift) && speed < 8)
                 speed += 0.1f;
 
@@ -204,7 +218,7 @@ public class playerController : MonoBehaviour
 
             moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
 
-            if (speed > 4) 
+            if (speed > 4)
                 playerStamina -= (0.4f);
 
             controller.Move(moveDir.normalized * speed * Time.deltaTime);
@@ -231,7 +245,7 @@ public class playerController : MonoBehaviour
 
         // Stamina Regen
         if (playerStamina < 100) 
-            playerStamina += 0.2f;
+            playerStamina += 0.3f;
 
         // Damage Delay
         damageDelay -= 0.1f;
@@ -239,6 +253,7 @@ public class playerController : MonoBehaviour
         if(damageDelay <= 0)
             damaged = false;
     }
+    private void StopSliding() => isSliding = false;
 }
 /*
 TODO : Player Sliding

@@ -30,7 +30,7 @@ public class EnemyAI : MonoBehaviour
     {
         // Check if the player is in the sight range
         playerInSight = Physics.CheckSphere(transform.position,
-                                            sightRange, 
+                                            sightRange,
                                             playerMask);
 
         // Check if the player is in the attack range
@@ -118,7 +118,7 @@ public class EnemyAI : MonoBehaviour
 
         // Set the walk point in 3D space
         walkPoint = new Vector3(transform.position.x + randomX,
-                                transform.position.y, 
+                                transform.position.y,
                                 transform.position.z + randomZ);
 
         if (Physics.Raycast(walkPoint, -transform.up, 2f, ground))
@@ -191,7 +191,7 @@ public class EnemyAI : MonoBehaviour
         if(damage > 0)
         {
             damaged = true;
-            damageDelay = .5f;
+            damageDelay = 0.5f;
         }
     }
     private void OnTriggerStay(Collider other)
@@ -208,12 +208,12 @@ public class EnemyAI : MonoBehaviour
         if(damage > 0)
         {
             damaged = true;
-            damageDelay = .5f;
+            damageDelay = 0.5f;
         }
     }
 
     private void StopHurt() => isHurt = false;
-    private void DestroyEnemy() 
+    private void DestroyEnemy()
     {
         playerController.playerMoney += moneyDrop;
         deathEffectInstance = Instantiate(deathEffect,
