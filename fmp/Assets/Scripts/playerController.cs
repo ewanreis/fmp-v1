@@ -15,6 +15,7 @@ public class playerController : MonoBehaviour
     public float mouseSensitivity;
     public TMP_Text moneyCounter;
     public GameObject damageText;
+    public Rigidbody playerRB;
 
     public static int playerMoney = 0, attackIndex = 0, playerClass = 1, maxHealth = 100;
     public static float playerStamina = 100;
@@ -35,6 +36,7 @@ public class playerController : MonoBehaviour
         playerClass = 1;
         maxHealth = 100;
         playerStamina = 100;
+        playerRB = GetComponent<Rigidbody>();
         Application.targetFrameRate = -1;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -192,6 +194,7 @@ public class playerController : MonoBehaviour
         movementInput.y = (Input.GetAxisRaw("Vertical") == 0) ? 0 : movementInput.y;
 
         mouseInputX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        playerBody.transform.rotation = Quaternion.Euler(0, xRotation * 2, 0);
     }
 
     void FixedUpdate() // Player Physics + Movement
@@ -220,13 +223,13 @@ public class playerController : MonoBehaviour
                 speed -= 0.1f;
         }
 
-        else if(speed > 4) 
+        else if(speed > 4)
             speed -= 0.1f;
 
-        if(direction.magnitude >= 0.1f && canMove)
+        if(direction.magnitude >= 0.01f && canMove)
         {
             targetAngle = Mathf.Atan2(direction.x, direction.z)
-                            * Mathf.Rad2Deg 
+                            * Mathf.Rad2Deg
                             + cam.eulerAngles.y;
 
             angle = Mathf.SmoothDampAngle(transform.eulerAngles.y,
@@ -235,16 +238,14 @@ public class playerController : MonoBehaviour
                                           turnSmoothTime);
 
             moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir * speed * Time.deltaTime);
 
             if (speed > 4)
                 playerStamina -= (0.4f);
-
-            controller.Move(moveDir.normalized * speed * Time.deltaTime);
         }
         #endregion // Moves the player
 
         #region Turning
-        playerBody.transform.rotation = Quaternion.Euler(0, xRotation * 2, 0);
         isTurning = (mouseInputX == 0) ? false : true;
         #endregion // Gets the input from the mouse and turns the player
 
@@ -288,4 +289,8 @@ public class playerController : MonoBehaviour
 
 * Issues
 ! Player Animations still play when the player has no stamina when attacking
+*/
+
+/*
+        
 */

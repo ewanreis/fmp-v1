@@ -27,7 +27,7 @@ public class EnemyAI : MonoBehaviour
     private float timeBetweenAttacks, sightRange, attackRange, walkPointRange, health;
     private float damageDelay = 2f;
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Check if the player is in the sight range
         playerInSight = Physics.CheckSphere(transform.position,
@@ -49,6 +49,7 @@ public class EnemyAI : MonoBehaviour
         if(playerInSight && !playerInAttack) ChasePlayer();
         if(playerInSight && playerInAttack) AttackPlayer();
         SetAnimations();
+        CheckForDamage();
     }
 
     private void SetAnimations()
@@ -175,7 +176,7 @@ public class EnemyAI : MonoBehaviour
         Invoke(nameof(StopHurt), 0.5f);
     }
 
-    void FixedUpdate()
+    private void CheckForDamage()
     {
         damageDelay -= 0.1f;
 
