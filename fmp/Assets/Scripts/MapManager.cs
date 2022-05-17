@@ -25,6 +25,7 @@ public class MapManager : MonoBehaviour
     public FilmGrain filmGrain;
     public Vignette vignette;
     public DepthOfField depthOfField;
+    public ChromaticAberration chromaticAberration;
 
     [Header("Graphics Quality")]
     public Slider brightnessSlider;
@@ -42,6 +43,8 @@ public class MapManager : MonoBehaviour
     private int pIsFullscreen, pGraphicsPreset, pPostProcessingEnabled, pDensityLevel, pDistanceLevel;
     public float pMasterVolume, pMusicVolume, pVfxVolume, pBrightness;
     #endregion
+
+    private float chromaIntensity = 0f;
 
     void Start() => SetPlayerPreferences();
     private void SetPlayerPreferences()
@@ -63,6 +66,7 @@ public class MapManager : MonoBehaviour
         if (!renderingVolume.profile.TryGet(out filmGrain)) throw new System.NullReferenceException(nameof(filmGrain));
         if (!renderingVolume.profile.TryGet(out vignette)) throw new System.NullReferenceException(nameof(vignette));
         if (!renderingVolume.profile.TryGet(out depthOfField)) throw new System.NullReferenceException(nameof(depthOfField));
+        if (!renderingVolume.profile.TryGet(out chromaticAberration)) throw new System.NullReferenceException(nameof(chromaticAberration));
 
         // Setting the volume on the audio mixer channels
         audioMixer.SetFloat("masterVolume", pMasterVolume);
@@ -92,6 +96,15 @@ public class MapManager : MonoBehaviour
         SetVolumeMaster(pMasterVolume);
         SetVolumeMusic(pMusicVolume);
         SetVolumeVfx(pVfxVolume);
+    }
+
+    private void Update()
+    {
+        if(playerController.isSliding && chromaIntensity < 1f)
+            chromaIntensity += 0.01f;
+        else if(!playerController.isSliding && chromaIntensity > 0f)
+            chromaIntensity -= 0.01f;
+        chromaticAberration.intensity.value = chromaIntensity;
     }
 
     public void SetVolumeMaster(float volume)  

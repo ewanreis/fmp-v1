@@ -127,6 +127,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: attackIndex
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 2376129518650463678}
   m_Solo: 0
@@ -205,6 +208,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: attackIndex
     m_EventTreshold: 5
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 3362351470705675135}
   m_Solo: 0
@@ -233,6 +239,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: attackIndex
     m_EventTreshold: 2
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 423750807638847960}
   m_Solo: 0
@@ -492,6 +501,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: attackIndex
     m_EventTreshold: 8
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 7745340509361882561}
   m_Solo: 0
@@ -697,6 +709,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 1
     m_ConditionEvent: attacking
     m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 6234052734041114458}
   m_DstState: {fileID: 0}
   m_Solo: 0
@@ -750,6 +765,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: attackIndex
     m_EventTreshold: 4
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -2213667707244784536}
   m_Solo: 0
@@ -778,37 +796,37 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: horizontalMouse
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: verticalMove
     m_Type: 1
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attackIndex
     m_Type: 3
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: attacking
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: sliding
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -1009,8 +1027,8 @@ AnimatorTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 2
-    m_ConditionEvent: attacking
+  - m_ConditionMode: 4
+    m_ConditionEvent: attackIndex
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: -7757005069000500511}
   m_DstState: {fileID: 0}
@@ -1032,6 +1050,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: attackIndex
     m_EventTreshold: 1
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 8851223920969776202}
   m_Solo: 0
@@ -1114,6 +1135,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: attackIndex
     m_EventTreshold: 6
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4718091070599073780}
   m_Solo: 0
@@ -1167,6 +1191,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: attackIndex
     m_EventTreshold: 7
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5210111610815622608}
   m_Solo: 0
@@ -1195,6 +1222,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: attackIndex
     m_EventTreshold: 3
+  - m_ConditionMode: 2
+    m_ConditionEvent: sliding
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -5279488432002174395}
   m_Solo: 0
@@ -1252,9 +1282,9 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -940, y: 600, z: 0}
-  m_EntryPosition: {x: 20, y: 330, z: 0}
+  m_EntryPosition: {x: -510, y: 290, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
-  m_ParentStateMachinePosition: {x: 960, y: 540, z: 0}
+  m_ParentStateMachinePosition: {x: 470, y: 280, z: 0}
   m_DefaultState: {fileID: 2376129518650463678}
 --- !u!1101 &7299592722606651022
 AnimatorStateTransition:

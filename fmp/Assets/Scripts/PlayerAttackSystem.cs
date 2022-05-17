@@ -44,11 +44,8 @@ public class PlayerAttackSystem : MonoBehaviour
 
     private void FixedUpdate()
     {
-        //print($"{attackCooldown[1]}, {attackCooldown[2]}, {attackCooldown[3]}");
         for(int i = 0; i < 9; i++)
-        {
             attackCooldown[i] -= 0.1f;
-        }
     }
 
     private void Update() 
@@ -58,23 +55,39 @@ public class PlayerAttackSystem : MonoBehaviour
         attack = playerController.attackIndex;
         staminaCost = GetStaminaCost(attack);
 
+        if(playerController.isSliding)
+            StartSlideAttack();
+
         if(playerController.playerStamina < staminaCost && playerController.isAttacking == true)
             StartCoroutine(displayText("No Stamina!"));
 
-        if (playerController.isAttacking == true && playerController.playerStamina >= staminaCost)
+        if (playerController.isAttacking == true && playerController.playerStamina >= staminaCost && !playerController.isSliding)
             StartAttack();
     }
 
+    private void StartSlideAttack()
+    {
+        playerAreaCollider.enabled = true;
+        playerAreaCollider.radius = 1.5f;
+        playerAttackDamage = 15;
+        Invoke(nameof(ResetSlideAttack), 1.4f);
+    }
 
+    private void ResetSlideAttack()
+    {
+        playerAreaCollider.enabled = false;
+        playerAreaCollider.radius = 0f;
+        playerAttackDamage = 0;
+    }
 
     private void StartAttack()
     {
         int tempCoolDown = GetAttackCooldown(attack);
 
         if(attack == -1)
-            StartCoroutine(displayText("No Stamina!"));
-            
-        if(!(attackCooldown[attack] > 0) && attack >= 0)
+            return;
+
+        if(!(attackCooldown[attack] > 0) && attack >= 0 && !playerController.isSliding)
         {
             attackState = true;
             attackCooldown[attack] = GetAttackCooldown(attack);
@@ -153,7 +166,7 @@ public class PlayerAttackSystem : MonoBehaviour
         8 => 10,
         _ => 0
     };
-    
+
     public float GetAttackDuration(int attack) => attack switch
     {
         0 => 2.3f,

@@ -304,6 +304,7 @@ MonoBehaviour:
   agent: {fileID: 3764542891743024746}
   enemyAnimator: {fileID: 7761057616454227918}
   player: {fileID: 0}
+  head: {fileID: 3833358806843952075}
   ground:
     serializedVersion: 2
     m_Bits: 8
@@ -312,6 +313,9 @@ MonoBehaviour:
     m_Bits: 64
   walkPoint: {x: 0, y: 0, z: 0}
   healthBarSlider: {fileID: 7105848280360712454}
+  deathEffect: {fileID: 0}
+  deathEffectInstance: {fileID: 0}
+  damageText: {fileID: 8219493369553012134, guid: bde44611c5d8c4043aef43e4a45b3787, type: 3}
   damage: 0
   currentRound: 0
   isWalking: 0
@@ -326,7 +330,6 @@ MonoBehaviour:
   attackRange: 1
   walkPointRange: 5
   health: 0
-  damageDelay: 2
 --- !u!195 &3764542891743024746
 NavMeshAgent:
   m_ObjectHideFlags: 0

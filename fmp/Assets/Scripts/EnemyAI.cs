@@ -8,11 +8,12 @@ public class EnemyAI : MonoBehaviour
 {
     public NavMeshAgent agent;
     public Animator enemyAnimator;
-    public Transform player;
+    public Transform player, head;
     public LayerMask ground, playerMask;
     public Vector3 walkPoint;
     public Slider healthBarSlider;
     public VisualEffect deathEffect, deathEffectInstance;
+    public GameObject damageText;
 
     private bool walkPointSet, alreadyAttacked, playerInSight, playerInAttack;
     public int damage = 0, currentRound;
@@ -161,6 +162,14 @@ public class EnemyAI : MonoBehaviour
 
     public void TakeDamage(float damageTaken)
     {
+        if(damageTaken != 0)
+        {
+            DamageIndicator indicator = Instantiate(damageText,
+                                                head.position,
+                                                Quaternion.identity)
+                                                .GetComponent<DamageIndicator>();
+            indicator.SetDamageText(damageTaken);
+        }
         isHurt = true;
         health -= damageTaken;
         Invoke(nameof(StopHurt), 0.5f);

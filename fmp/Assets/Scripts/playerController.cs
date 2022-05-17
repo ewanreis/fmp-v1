@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+
 public class playerController : MonoBehaviour
 {
     private const float gravity = -9.8f, turnSmoothTime = 0.1f;
@@ -9,26 +10,31 @@ public class playerController : MonoBehaviour
     public CharacterController controller;
     public Animator playerAnimator;
     public Slider staminaBar, healthBar;
-    public Transform cam, groundCheck, playerBody;
+    public Transform cam, groundCheck, playerBody, playerHead;
     public LayerMask groundMask;
     public float mouseSensitivity;
     public TMP_Text moneyCounter;
+    public GameObject damageText;
 
     public static int playerMoney = 0, attackIndex = 0, playerClass = 1, maxHealth = 100;
     public static float playerStamina = 100;
-    public static bool canMove = true, isAttacking = false;
+    public static bool canMove = true, isAttacking = false, isSliding = false;
 
     private Vector2 movementInput;
     private Vector3 moveDir, velocity, direction;
     private float xRotation, turnSmoothVelocity, targetAngle, angle, mouseInputX;
     private bool[] attackButtonPressed = new bool[3];
 
-    private float groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100;
-    private bool isGrounded, isSliding, isWalking, isTurning;
+    private float groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100, slideDelay = 0;
+    private bool isGrounded, isWalking, isTurning;
     private bool damaged = false;
 
     void Start()
-    { 
+    {
+        playerMoney = 0;
+        playerClass = 1;
+        maxHealth = 100;
+        playerStamina = 100;
         Application.targetFrameRate = -1;
         Cursor.lockState = CursorLockMode.Locked;
     }
@@ -40,6 +46,9 @@ public class playerController : MonoBehaviour
         {
             GetPlayerInput();
             AttackInputSwitcher();
+
+            if(isAttacking == true && attackIndex < 0)
+                isAttacking = false;
 
             if(isSliding)
                 Invoke(nameof(StopSliding), 1.5f);
@@ -53,7 +62,10 @@ public class playerController : MonoBehaviour
         }
 
         if(playerHealth <= 0)
+        {
+            PlayerPrefs.SetInt("lastRoundReached", SpawningManager.round);
             SceneManager.LoadScene("DeathScene", LoadSceneMode.Single);
+        }
     }
 
     public void StartAttack(int attack)
@@ -61,6 +73,7 @@ public class playerController : MonoBehaviour
         bool canAttack = (attackIndex >= 0
                           && PlayerAttackSystem.attackCooldown[attackIndex] <= 0
                           && isAttacking == false
+                          && isSliding == false
                           && !PlayerVFXManager.isPlaying
                           && playerStamina >= PlayerAttackSystem.staminaCost)
                           ? true : false;
@@ -95,11 +108,19 @@ public class playerController : MonoBehaviour
 
     private void TakeDamage(float damage)
     {
+        
         regenDelay = 0;
         playerHealth -= damage;
 
         if(damage > 0)
+        {
             PlayerSFXManager.damageSFX = true;
+            DamageIndicator indicator = Instantiate(damageText,
+                                                playerHead.position,
+                                                Quaternion.identity)
+                                                .GetComponent<DamageIndicator>();
+            indicator.SetDamageText(damage);
+        }
     }
 
     void SetAnimations()
@@ -141,7 +162,7 @@ public class playerController : MonoBehaviour
                              && PlayerAttackSystem.attackCooldown[attackIndex] <= 0
                              && isAttacking == false
                              && !PlayerVFXManager.isPlaying
-                             && playerStamina >= PlayerAttackSystem.staminaCost) 
+                             && playerStamina >= PlayerAttackSystem.staminaCost)
                              ? true : false;
         }
         if (canAttack)
@@ -161,7 +182,7 @@ public class playerController : MonoBehaviour
         if (!attackButtonPressed[0] && !attackButtonPressed[0] && !attackButtonPressed[0])
             isAttacking = false;
 
-        if(Input.GetKeyDown(KeyCode.LeftControl) && speed > 4)
+        if(Input.GetKeyDown(KeyCode.LeftControl) && speed > 4 && slideDelay <= 0)
             isSliding = true;
 
         movementInput = new Vector2(Input.GetAxis("Horizontal"),
@@ -247,15 +268,22 @@ public class playerController : MonoBehaviour
         // Damage Delay
         damageDelay -= 0.1f;
 
+        // Slide Delay
+        slideDelay -= 0.1f;
+
         if(damageDelay <= 0)
             damaged = false;
     }
-    private void StopSliding() => isSliding = false;
+
+    private void StopSliding() 
+    {
+        slideDelay = 3f;
+        isSliding = false;
+    }
 }
 
 /*
 * Planned features
-TODO: Player damages enemies while sliding
 ? May add player damage immunity while sliding
 
 * Issues
