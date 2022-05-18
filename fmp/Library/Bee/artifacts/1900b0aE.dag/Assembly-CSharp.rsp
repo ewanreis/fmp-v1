@@ -372,6 +372,7 @@
 "Assets/Scripts/playerController.cs"
 "Assets/Scripts/PlayerSFXManager.cs"
 "Assets/Scripts/PlayerVFXManager.cs"
+"Assets/Scripts/SmoothFollow.cs"
 "Assets/Scripts/SpawningManager.cs"
 "Assets/Scripts/WIndmillSpin.cs"
 "Assets/Scripts/ZoneManager.cs"

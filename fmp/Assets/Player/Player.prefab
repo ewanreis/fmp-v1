@@ -94,8 +94,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2833327830708759011}
-  - {fileID: 6136259606659112391}
   - {fileID: 6136259605858072717}
+  - {fileID: 6136259606659112391}
   - {fileID: 6136259605447070994}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -119,11 +119,14 @@ MonoBehaviour:
   cam: {fileID: 0}
   groundCheck: {fileID: 6136259605858072717}
   playerBody: {fileID: 6136259605553791987}
+  playerHead: {fileID: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 8
   mouseSensitivity: 1
   moneyCounter: {fileID: 0}
+  damageText: {fileID: 0}
+  playerRB: {fileID: 0}
 --- !u!114 &484403995060204533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +155,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDamagedSounds: []
   playerAttackSounds: []
+  newRoundSounds: []
+  doorOpenSound: {fileID: 0}
+  denySound: {fileID: 0}
+  loseSound: {fileID: 0}
+  vfxSource: {fileID: 0}
 --- !u!143 &6136259605553791984
 CharacterController:
   m_ObjectHideFlags: 0
@@ -217,7 +225,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6136259605553791987}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6136259606659112390
 GameObject:
@@ -242,12 +250,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6136259606659112390}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.439, y: 1.534, z: 0.328}
+  m_LocalRotation: {x: -3.1019275e-25, y: -0, z: 4.5766258e-29, w: 1}
+  m_LocalPosition: {x: 0.43899995, y: 1.534, z: 0.32799992}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6136259605553791987}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &729658142807095956
 PrefabInstance:

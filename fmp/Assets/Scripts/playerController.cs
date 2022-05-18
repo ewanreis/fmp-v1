@@ -14,7 +14,7 @@ public class playerController : MonoBehaviour
     public LayerMask groundMask;
     public float mouseSensitivity;
     public TMP_Text moneyCounter;
-    public GameObject damageText;
+    public GameObject damageText, camTarget;
     public Rigidbody playerRB;
 
     public static int playerMoney = 0, attackIndex = 0, playerClass = 1, maxHealth = 100;
@@ -23,7 +23,7 @@ public class playerController : MonoBehaviour
 
     private Vector2 movementInput;
     private Vector3 moveDir, velocity, direction;
-    private float xRotation, turnSmoothVelocity, targetAngle, angle, mouseInputX;
+    private float xRotation, turnSmoothVelocity, targetAngle, angle, mouseInputX, mouseInputY;
     private bool[] attackButtonPressed = new bool[3];
 
     private float groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100, slideDelay = 0;
@@ -44,10 +44,22 @@ public class playerController : MonoBehaviour
     void Update()
     {
         moneyCounter.text = $"{playerMoney}";
+
+        if(camTarget.transform.localPosition.y >= 1.8f)
+            camTarget.transform.localPosition = new Vector3(camTarget.transform.localPosition.x,
+                                                              1.79f,
+                                                              camTarget.transform.localPosition.z);
+
+        if(camTarget.transform.localPosition.y <= 1f)
+            camTarget.transform.localPosition = new Vector3(camTarget.transform.localPosition.x,
+                                                            1.01f,
+                                                            camTarget.transform.localPosition.z);
+
         if(!PauseMenu.isPaused)
         {
             GetPlayerInput();
             AttackInputSwitcher();
+            
 
             if(isAttacking == true && attackIndex < 0)
                 isAttacking = false;
@@ -55,7 +67,7 @@ public class playerController : MonoBehaviour
             if(isSliding)
                 Invoke(nameof(StopSliding), 1.5f);
 
-            xRotation += mouseInputX;
+            
             staminaBar.value = playerStamina;
             healthBar.maxValue = maxHealth;
             healthBar.value = playerHealth;
@@ -194,14 +206,28 @@ public class playerController : MonoBehaviour
         movementInput.y = (Input.GetAxisRaw("Vertical") == 0) ? 0 : movementInput.y;
 
         mouseInputX = Input.GetAxis("Mouse X") * mouseSensitivity;
+        mouseInputY = Input.GetAxisRaw("Mouse Y");
         playerBody.transform.rotation = Quaternion.Euler(0, xRotation * 2, 0);
     }
 
     void FixedUpdate() // Player Physics + Movement
     {
-        #region Gravity
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
+       CheckTimers();
+       MovePlayer();
+       SetCamY();
+    }
+
+    private void SetCamY()
+    {
+        if(camTarget.transform.localPosition.y < 1.8f && camTarget.transform.position.y > 1f)
+            camTarget.transform.localPosition += new Vector3(0, mouseInputY / 10 , 0);
+    }
+
+    private void MovePlayer()
+    {
+         #region Gravity
+        velocity.y += gravity * Time.fixedDeltaTime;
+        controller.Move(velocity * Time.fixedDeltaTime);
         #endregion // Applies Gravity value at constant rate
 
         #region Walking
@@ -211,6 +237,35 @@ public class playerController : MonoBehaviour
                                 0f,
                                 movementInput.y).normalized;
 
+    if(direction.magnitude >= 0.01f && canMove)
+        {
+            targetAngle = Mathf.Atan2(direction.x, direction.z)
+                            * Mathf.Rad2Deg
+                            + cam.eulerAngles.y;
+
+            angle = Mathf.SmoothDampAngle(transform.eulerAngles.y,
+                                          targetAngle,
+                                          ref turnSmoothVelocity,
+                                          turnSmoothTime);
+
+            moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
+            controller.Move(moveDir * speed * Time.fixedDeltaTime);
+
+            if (speed > 4)
+                playerStamina -= (0.4f);
+        }
+        #endregion // Moves the player
+
+        // Check if the player is touching the ground
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+
+        #region Turning
+        xRotation += mouseInputX;
+        isTurning = (mouseInputX == 0) ? false : true;
+        #endregion // Gets the input from the mouse and turns the player
+    }
+    private void CheckTimers()
+    {
         if (playerStamina > 0) // Check if the player can sprint
         {
             if(isSliding && speed < 10)
@@ -225,32 +280,6 @@ public class playerController : MonoBehaviour
 
         else if(speed > 4)
             speed -= 0.1f;
-
-        if(direction.magnitude >= 0.01f && canMove)
-        {
-            targetAngle = Mathf.Atan2(direction.x, direction.z)
-                            * Mathf.Rad2Deg
-                            + cam.eulerAngles.y;
-
-            angle = Mathf.SmoothDampAngle(transform.eulerAngles.y,
-                                          targetAngle,
-                                          ref turnSmoothVelocity,
-                                          turnSmoothTime);
-
-            moveDir = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-            controller.Move(moveDir * speed * Time.deltaTime);
-
-            if (speed > 4)
-                playerStamina -= (0.4f);
-        }
-        #endregion // Moves the player
-
-        #region Turning
-        isTurning = (mouseInputX == 0) ? false : true;
-        #endregion // Gets the input from the mouse and turns the player
-
-        // Check if the player is touching the ground
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         // Health Regen
         if(playerHealth < maxHealth && regenDelay < 30f)
@@ -292,5 +321,16 @@ public class playerController : MonoBehaviour
 */
 
 /*
-        
+
+
+    playerRB.MoveRotation(playerRB.rotation * Quaternion.Euler(new Vector3(0,
+                                                                        Input.GetAxis("Mouse X") * mouseSensitivity,
+                                                                        0)));
+
+        playerRB.MovePosition(transform.position + (transform.forward
+                                                * Input.GetAxis("Vertical")
+                                                * speed / 20)
+                                                + (transform.right * Input.GetAxis("Horizontal") 
+                                                * speed / 20));
+
 */
