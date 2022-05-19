@@ -88,11 +88,18 @@ ScriptsOnlyBuild:
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshPro
     - TMPro.TextMeshProUGUI
+    Unity.VisualEffectGraph.Editor.dll:
+    - UnityEditor.VFX.UI.VFXGraphUndoCursor
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationBlendTree.Node
+    - UnityEditor.Graphs.AnimationStateMachine.AnimatorStateTransitionInspector
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateMachineNode
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -461,6 +468,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 83
       Script: {instanceID: 0}
+    - Class: 89
+      Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
     - Class: 91
@@ -780,7 +789,7 @@ ScriptsOnlyBuild:
     className: DepthOfField
   - hash:
       serializedVersion: 2
-      Hash: f718d7f36ff35ab1fc75f30878a5da80
+      Hash: e19104b57ea173d83f6ac35a3d7642a2
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyAI
@@ -1314,7 +1323,7 @@ ScriptsOnlyBuild:
     className: ColorAdjustments
   - hash:
       serializedVersion: 2
-      Hash: 77b56e33863a164481694ca9844fea10
+      Hash: a194212d7eada5d2f310900c132e2cae
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: MenuScript
@@ -1350,7 +1359,7 @@ ScriptsOnlyBuild:
     className: Mask
   - hash:
       serializedVersion: 2
-      Hash: 90c94bfeb9dd0470a8b31f1301477cca
+      Hash: eefd60fa8871f4d12718da69f59b5515
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerSFXManager
@@ -1542,7 +1551,7 @@ ScriptsOnlyBuild:
     className: CinemachineCollisionImpulseSource
   - hash:
       serializedVersion: 2
-      Hash: 2d9cf5491296fb2a3ad6d2b836e5d6ab
+      Hash: bbae7ec1865cde774add5fb8cf5c2bad
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PauseMenu
@@ -2535,5 +2544,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/MainMenu.unity
   - Assets/Scenes/MainMap.unity
   - Assets/Scenes/DeathScene.unity
-  playerPath: C:/Users/ewanr/Documents/Builds/fmp-release-candidate-3/Eldham Unholy
+  playerPath: C:/Users/ewanr/Documents/Builds/fmp-release-candidate-4/Eldham Unholy
     Annihalation.exe

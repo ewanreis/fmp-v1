@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class PlayerSFXManager : MonoBehaviour
 {
-    public AudioClip[] playerDamagedSounds, playerAttackSounds, newRoundSounds;
+    public AudioClip[] playerDamagedSounds, playerAttackSounds, newRoundSounds, playerDirtStepSounds;
     public AudioClip doorOpenSound, denySound, loseSound;
     public AudioSource vfxSource;
 
@@ -27,6 +27,8 @@ public class PlayerSFXManager : MonoBehaviour
         if(deadSFX)
             PlayLose();
     }
+
+    public void PlayStepSFX() => vfxSource.PlayOneShot(playerDirtStepSounds[Random.Range(0,10)]);
 
     private void PlayLose()
     {

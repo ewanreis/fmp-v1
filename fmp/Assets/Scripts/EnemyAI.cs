@@ -12,7 +12,7 @@ public class EnemyAI : MonoBehaviour
     public LayerMask ground, playerMask;
     public Vector3 walkPoint;
     public Slider healthBarSlider;
-    public VisualEffect deathEffect, deathEffectInstance;
+    public VisualEffect deathEffect, deathEffectInstance, spawnEffect, spawnEffectInstance;
     public GameObject damageText;
 
     private bool walkPointSet, alreadyAttacked, playerInSight, playerInAttack;
@@ -60,11 +60,24 @@ public class EnemyAI : MonoBehaviour
         enemyAnimator.SetBool("isIdle", isIdle);
     }
 
+    private IEnumerator PlaySpawnVFX()
+    {
+
+        spawnEffectInstance = Instantiate(spawnEffect,
+                                         transform.position,
+                                         Quaternion.identity);
+        yield return new WaitForSeconds(0.5f);
+        spawnEffectInstance.Stop();
+        Destroy(spawnEffectInstance.gameObject, 2f);
+    }
+
     private void Awake()
     {
         player = GameObject.Find("Player").transform;
         deathEffect = GameObject.Find("Death Effect").GetComponent<VisualEffect>();
+        spawnEffect = GameObject.Find("Enemy Spawn").GetComponent<VisualEffect>();
         agent = GetComponent<NavMeshAgent>();
+        StartCoroutine(PlaySpawnVFX());
 
         currentRound = SpawningManager.round;
 
@@ -235,6 +248,3 @@ public class EnemyAI : MonoBehaviour
         Destroy(gameObject);
     }
 }
-/*
-TODO : Enemy Ambient Noises
-*/

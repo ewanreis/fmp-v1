@@ -18,7 +18,7 @@ public class playerController : MonoBehaviour
     public Rigidbody playerRB;
 
     public static int playerMoney = 0, attackIndex = 0, playerClass = 1, maxHealth = 100;
-    public static float playerStamina = 100;
+    public static float playerStamina = 100, slideDelay = 0;
     public static bool canMove = true, isAttacking = false, isSliding = false;
 
     private Vector2 movementInput;
@@ -26,7 +26,7 @@ public class playerController : MonoBehaviour
     private float xRotation, turnSmoothVelocity, targetAngle, angle, mouseInputX, mouseInputY;
     private bool[] attackButtonPressed = new bool[3];
 
-    private float groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100, slideDelay = 0;
+    private float groundDistance = 0.4f, speed = 4, regenDelay = 0, damageDelay = 2f, playerHealth = 100;
     private bool isGrounded, isWalking, isTurning;
     private bool damaged = false;
 
@@ -65,7 +65,7 @@ public class playerController : MonoBehaviour
                 isAttacking = false;
 
             if(isSliding)
-                Invoke(nameof(StopSliding), 1.5f);
+                Invoke(nameof(StopSliding), 1.4f);
 
             
             staminaBar.value = playerStamina;
@@ -307,30 +307,7 @@ public class playerController : MonoBehaviour
 
     private void StopSliding() 
     {
-        slideDelay = 3f;
+        slideDelay = 15f;
         isSliding = false;
     }
 }
-
-/*
-* Planned features
-? May add player damage immunity while sliding
-
-* Issues
-! Player Animations still play when the player has no stamina when attacking
-*/
-
-/*
-
-
-    playerRB.MoveRotation(playerRB.rotation * Quaternion.Euler(new Vector3(0,
-                                                                        Input.GetAxis("Mouse X") * mouseSensitivity,
-                                                                        0)));
-
-        playerRB.MovePosition(transform.position + (transform.forward
-                                                * Input.GetAxis("Vertical")
-                                                * speed / 20)
-                                                + (transform.right * Input.GetAxis("Horizontal") 
-                                                * speed / 20));
-
-*/

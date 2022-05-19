@@ -55,14 +55,14 @@ public class PlayerAttackSystem : MonoBehaviour
         attack = playerController.attackIndex;
         staminaCost = GetStaminaCost(attack);
 
-        if(playerController.isSliding)
-            StartSlideAttack();
-
         if(playerController.playerStamina < staminaCost && playerController.isAttacking == true)
             StartCoroutine(displayText("No Stamina!"));
 
         if (playerController.isAttacking == true && playerController.playerStamina >= staminaCost && !playerController.isSliding)
             StartAttack();
+
+        if(playerController.isSliding)
+            StartSlideAttack();
     }
 
     private void StartSlideAttack()
@@ -70,9 +70,15 @@ public class PlayerAttackSystem : MonoBehaviour
         playerAreaCollider.enabled = true;
         playerAreaCollider.radius = 1.5f;
         playerAttackDamage = 15;
+        for(int i = 0; i < 9; i++)
+        {
+            if(attackCooldown[i] < 0)
+                attackCooldown[i] = 0;
+            attackCooldown[i] = attackCooldown[i] + (25 * Time.deltaTime);
+        }
+
         Invoke(nameof(ResetSlideAttack), 1.4f);
     }
-
     private void ResetSlideAttack()
     {
         playerAreaCollider.enabled = false;

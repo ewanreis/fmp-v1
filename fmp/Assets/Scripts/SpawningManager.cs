@@ -41,6 +41,9 @@ public class SpawningManager : MonoBehaviour
     {
         round = 0;
 
+        spawnArea[0, 0] = new Vector3(18, 1, 12);
+        spawnArea[0, 1] = new Vector3(-8, 1, 18);
+
         spawnArea[1, 0] = new Vector3(18, 1, 12);
         spawnArea[1, 1] = new Vector3(-8, 1, 18);
 
