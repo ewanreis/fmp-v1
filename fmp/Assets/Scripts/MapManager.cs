@@ -91,6 +91,7 @@ public class MapManager : MonoBehaviour
         // Setting the brightness, post processing, foliage settings and volume settings
         SetGammaAlpha(pBrightness);
         TogglePP(postProcessingEnabled);
+        SetQualityLevel(pGraphicsPreset);
         SetGrassDensity(pDensityLevel);
         SetGrassDistance(pDistanceLevel);
         SetVolumeMaster(pMasterVolume);
@@ -166,7 +167,8 @@ public class MapManager : MonoBehaviour
         };
         Terrain.activeTerrain.detailObjectDensity = grassDensity;
         PlayerPrefs.SetInt("playerDensityLevel", densityLevel);
-    } 
+    }
+
     public void SetGrassDistance(int distanceLevel) 
     {
         grassDistance = distanceLevel switch
@@ -179,6 +181,7 @@ public class MapManager : MonoBehaviour
         Terrain.activeTerrain.detailObjectDistance = grassDistance;
         PlayerPrefs.SetInt("playerDistanceLevel", distanceLevel);
     }
+
     public void SetFullscreen(bool isFullscreen) 
     {
         Screen.fullScreen = isFullscreen;

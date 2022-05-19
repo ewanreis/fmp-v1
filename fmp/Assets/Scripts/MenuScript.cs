@@ -6,20 +6,25 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
+using TMPro;
 
 public class MenuScript : MonoBehaviour
 {
-    private bool postProcessingEnabled;
-    private int pIsFullscreen, pGraphicsPreset, pPostProcessingEnabled;
+    private bool postProcessingEnabled, fullscreenEnabled;
+    private int pIsFullscreen, pGraphicsPreset, pPostProcessingEnabled, pDensityLevel, pDistanceLevel;
     private float pMasterVolume, pMusicVolume, pVfxVolume, pBrightness;
 
     public Slider masterSlider, musicSlider, vfxSlider, brightnessSlider;
+    public Toggle fullscreenToggle, postProcessingToggle;
     public GameObject settingsMenu, howToPlayScreen;
     public Button newGameButton, backButton;
+    public TMP_Dropdown distanceDropdown, densityDropdown, qualityDropdown;
 
     public AudioClip[] clips;
     public AudioSource musicSource, vfxSource;
     public AudioMixer audioMixer;
+
+    public float grassDistance, grassDensity;
 
     public Volume renderingVolume;
     public LiftGammaGain liftGammaGain;
@@ -46,6 +51,9 @@ public class MenuScript : MonoBehaviour
     {
         Time.timeScale = 1;
         SetPlayerPreferences();
+        settingsMenu.SetActive(false);
+        howToPlayScreen.SetActive(false);
+        musicSource.PlayOneShot(clips[(int)Sounds.menuMusic], 0.2f);
     }
 
     private void SetPlayerPreferences()
@@ -64,17 +72,29 @@ public class MenuScript : MonoBehaviour
         pVfxVolume = PlayerPrefs.GetFloat("playerVfxVolume", 0);
         pIsFullscreen = PlayerPrefs.GetInt("playerFullscreen", 0);
         pPostProcessingEnabled = PlayerPrefs.GetInt("playerPostProcessingEnabled", 0);
+        pDensityLevel = PlayerPrefs.GetInt("playerDensityLevel", 1);
+        pDistanceLevel = PlayerPrefs.GetInt("playerDistanceLevel", 1);
 
         // Setting the volume on the audio mixer channels
         audioMixer.SetFloat("masterVolume", pMasterVolume);
         audioMixer.SetFloat("musicVolume", pMusicVolume);
         audioMixer.SetFloat("vfxVolume", pVfxVolume);
 
+        // Toggling post processing and fullscreen based on player prefs
+        postProcessingEnabled = (pPostProcessingEnabled == 0) ? false : true;
+        fullscreenEnabled = (pIsFullscreen == 0) ? false : true;
+        postProcessingToggle.isOn = postProcessingEnabled;
+        fullscreenToggle.isOn = fullscreenEnabled;
+        Screen.fullScreen = fullscreenEnabled;
+
         // Setting the menu sliders to correspond to the saved Player Pref values
         masterSlider.value = pMasterVolume;
         musicSlider.value = pMusicVolume;
         vfxSlider.value = pVfxVolume;
         brightnessSlider.value = pBrightness;
+        distanceDropdown.value = pDistanceLevel;
+        densityDropdown.value = pDensityLevel;
+        qualityDropdown.value = pGraphicsPreset;
 
         // Toggling post processing and fullscreen based on player prefs
         postProcessingEnabled = (pPostProcessingEnabled == 0) ? false : true;
@@ -82,11 +102,15 @@ public class MenuScript : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.None;
 
-        settingsMenu.SetActive(false);
-        howToPlayScreen.SetActive(false);
-        musicSource.PlayOneShot(clips[(int)Sounds.menuMusic], 0.2f);
         SetGammaAlpha(pBrightness);
         TogglePP(postProcessingEnabled);
+        SetQualityLevel(pGraphicsPreset);
+        SetGrassDensity(pDensityLevel);
+        SetGrassDistance(pDistanceLevel);
+        SetVolumeMaster(pMasterVolume);
+        SetVolumeMusic(pMusicVolume);
+        SetVolumeVfx(pVfxVolume);
+        SetFullscreen(fullscreenEnabled);
         PlayerPrefs.Save();
     }
 
@@ -124,8 +148,47 @@ public class MenuScript : MonoBehaviour
 
     public void ChangeMenuScreen(bool isMain)
     {
+        SetPlayerPreferences();
         Button selectedButton = (isMain) ? newGameButton : backButton;
         selectedButton.Select();
+    }
+
+    public void CloseHelpScreen()
+    {
+        Button selectedButton = newGameButton;
+        selectedButton.Select();
+    }
+
+    public void SetQualityLevel(int qualityLevel)
+    {
+        QualitySettings.SetQualityLevel(qualityLevel);
+        PlayerPrefs.SetInt("playerGraphicsPreset", qualityLevel);
+    }
+
+    public void SetGrassDensity(int densityLevel)
+    {
+        grassDensity = densityLevel switch
+        {
+            0 => 0.15f,
+            1 => 0.3f,
+            2 => 0.5f,
+            _ => 0.3f
+        };
+        Terrain.activeTerrain.detailObjectDensity = grassDensity;
+        PlayerPrefs.SetInt("playerDensityLevel", densityLevel);
+    }
+
+    public void SetGrassDistance(int distanceLevel)
+    {
+        grassDistance = distanceLevel switch
+        {
+            0 => 10,
+            1 => 35,
+            2 => 50,
+            _ => 35
+        };
+        Terrain.activeTerrain.detailObjectDistance = grassDistance;
+        PlayerPrefs.SetInt("playerDistanceLevel", distanceLevel);
     }
 
     public void TogglePP(bool enabled)
@@ -152,15 +215,18 @@ public class MenuScript : MonoBehaviour
          PlayerPrefs.SetFloat("playerBrightness", gammaAlpha);
     }
 
-    public void SetGraphicsPreset(int preset) => print(preset);
-    public void SetFullscreen(bool isFullscreen) => Screen.fullScreen = isFullscreen;
+    public void SetFullscreen(bool isFullscreen) 
+    {
+        int fullscreenSave = 0;
+        Screen.fullScreen = isFullscreen;
+        if(isFullscreen)
+            fullscreenSave = 1;
+        PlayerPrefs.SetInt("playerFullscreen", fullscreenSave);
+    }
+
     public void StartHover() => vfxSource.PlayOneShot(clips[(int)Sounds.startHover]);
     public void GenericClick() => vfxSource.PlayOneShot(clips[(int)Sounds.genericClick]);
 
     private void EndGame() => Application.Quit();
-    private void LoadMainMap() 
-    {
-        print("hey");
-        SceneManager.LoadScene("MainMap", LoadSceneMode.Single); 
-    } 
+    private void LoadMainMap() => SceneManager.LoadScene("MainMap", LoadSceneMode.Single);
 }
