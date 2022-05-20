@@ -17,16 +17,3 @@
 4. You can buy different classes for stronger attacks
 5. You can find health upgrade and damage upgrade stations, these are useful for reaching higher rounds
 6.
-
-**Changelog in this update**
-#
-- Added step sound effects
-- Added enemy spawning visual effects
-- Balanced sliding so that when the player slides, all of their attack cooldowns are delayed.
-- Increased slide cooldown
-- Added a slide cooldown indicator
-- Made some buttons more consistent with the theme
-- Fixed a bug where in a new game the enemies will spawn at the player instead of in a random location
-
-**Known Issues**
-- Animations will sometimes not play when attacking
